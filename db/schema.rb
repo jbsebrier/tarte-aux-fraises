@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719102046) do
+ActiveRecord::Schema.define(version: 20160719102711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,4 +34,34 @@ ActiveRecord::Schema.define(version: 20160719102046) do
   add_index "couples", ["email"], name: "index_couples_on_email", unique: true, using: :btree
   add_index "couples", ["reset_password_token"], name: "index_couples_on_reset_password_token", unique: true, using: :btree
 
+  create_table "events", force: :cascade do |t|
+    t.integer  "couple_id"
+    t.date     "date"
+    t.text     "description"
+    t.integer  "max_n_guest_couples"
+    t.string   "city"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "events", ["couple_id"], name: "index_events_on_couple_id", using: :btree
+
+  create_table "swipes", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "couple_id"
+    t.boolean  "organizing_couple_swipe"
+    t.boolean  "guest_couple_swipe"
+    t.boolean  "match"
+    t.datetime "match_time"
+    t.boolean  "participation"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "swipes", ["couple_id"], name: "index_swipes_on_couple_id", using: :btree
+  add_index "swipes", ["event_id"], name: "index_swipes_on_event_id", using: :btree
+
+  add_foreign_key "events", "couples"
+  add_foreign_key "swipes", "couples"
+  add_foreign_key "swipes", "events"
 end
