@@ -1,0 +1,12 @@
+<div class="container">
+   <div class="row">
+     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <% @events.each do |event| %>
+        <p>Date: <%= event.date %></p>
+        <p>Lieu: <%= event.city %></p>
+        <p>Description:  <%= event.description %> </p>
+      <% end %>
+
+      </div>
+  </div>
+</div>

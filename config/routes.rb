@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   devise_for :couples
   root to: 'pages#home'
 
+  namespace :organiser do
+    resources :events
+  end
+
   resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.
