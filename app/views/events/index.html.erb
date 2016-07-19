@@ -1,0 +1,48 @@
+
+
+
+<div data-role="page" id="pageone">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2" id='swipe-no' style="height: 300px;"></div>
+      <div class="col-xs-8 event-background" id="event-background1" style="height:300px; width: 300px; border: 1px solid grey;">
+        <div class="event-card" id="event-card1" style=" height:200px; width: 200px; border: 1px solid grey;">
+        <h3>This is an event card</h3>
+
+        </div>
+      </div>
+      <div class="col-xs-2" id='swipe-yes' style="height: 300px;"></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script>
+  $(document).on("pagecreate","#pageone",function(){
+    $('#event-card1').draggable();
+    $('#swipe-no').droppable({
+      drop: function(event, ui) {
+        $('#event-card1').hide();
+      }
+    });
+    $('#swipe-yes').droppable({
+      drop: function(event, ui) {
+        $('#event-card1').hide();
+      }
+    });
+  });
+</script>
+
+
+
+<script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
+
+
+<script></script>
+
+
