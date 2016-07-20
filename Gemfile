@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'pundit'
-
+gem 'faker'
+gem 'ffaker'
 gem 'rails', '4.2.6'
 gem 'puma'
 gem 'pg'
