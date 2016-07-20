@@ -1,2 +1,6 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Tarte aux fraises</h1>
+<%= link_to "Envie d'une part ?", new_couple_session_path, method: :get %>
+<br>
+
+  <!-- Bouton qui emmène vers le profil du couple -->
+  <%= link_to "Se déconnecter", destroy_couple_session_path, method: :delete %>

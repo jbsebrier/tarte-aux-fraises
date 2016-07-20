@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :couples
+  get 'couples/:id/profile' => 'couples#edit' , as: :my_profile
+
   root to: 'pages#home'
 
     resources :couples do
