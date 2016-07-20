@@ -1,2 +1,10 @@
-<h2>Mon profil de couple</h2>
+<h2>Créez votre profil de couple</h2>
 <%= @couple.email %>
+
+<%= simple_form_for @couple do |f| %>
+  <%= f.input :member1_name, label: 'Nom du 1er conjoint', error: 'Obligatoire, merci de remplir ce champ' %>
+  <%= f.input :member2_name, label: 'Nom du 2nd conjoint', error: 'Obligatoire, merci de remplir ce champ' %>
+  <%= f.input :about_member1, label: 'A propos du 1er conjoint', error: 'Présentez-vous aux autres couples' %>
+  <%= f.input :about_member2, label: 'A propos du 2nd conjoint', error: 'Présentez-vous aux autres couples' %>
+  <%= f.button :submit %>
+<% end %>

@@ -1,6 +1,16 @@
-<h1>Tarte aux fraises</h1>
-<%= link_to "Envie d'une part ?", new_couple_session_path, method: :get %>
-<br>
+<div class="container-fluid text-align">
 
-  <!-- Bouton qui emmène vers le profil du couple -->
-  <%= link_to "Se déconnecter", destroy_couple_session_path, method: :delete %>
+  <div class ="row">
+    <h1>Tarte aux fraises</h1>
+  </div>
+
+  <div class ="row">
+    <%= link_to "Envie d'une part ?", new_couple_session_path, method: :get, class: "btn btn-primary" %>
+  </div>
+
+  <div class ="row">
+    <!-- Bouton qui emmène vers le profil du couple -->
+    <%= link_to "Se déconnecter", destroy_couple_session_path, method: :delete, class: "btn btn-primary" %>
+  </div>
+
+</div>

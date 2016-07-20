@@ -1,0 +1,19 @@
+<div class="container-fluid text-align">
+  <div class ="row">
+    <h2>Votre profil de couple</h2>
+  </div>
+
+  <div class ="row">
+    <ul class="list-unstyled">
+      <li><%= @couple.email %></li>
+      <li><%= @couple.member1_name %></li>
+      <li><%= @couple.about_member1 %></li>
+      <li><%= @couple.member2_name %></li>
+      <li><%= @couple.about_member2 %></li>
+    </ul>
+  </div>
+
+  <div class ="row">
+    <%= link_to "Voir les événements autour de moi", events_path, method: :get, class: "btn btn-primary" %>
+  </div>
+</div>

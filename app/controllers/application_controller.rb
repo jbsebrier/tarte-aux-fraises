@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_couple!
 
   def after_sign_in_path_for(resource)
-    my_profile_path(current_couple.id)
+    events_path
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
   end
 
 end
