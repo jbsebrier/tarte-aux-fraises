@@ -1,10 +1,22 @@
 <h2>Créez votre profil de couple</h2>
+
 <%= @couple.email %>
 
 <%= simple_form_for @couple do |f| %>
-  <%= f.input :member1_name, label: 'Nom du 1er conjoint', error: 'Obligatoire, merci de remplir ce champ' %>
-  <%= f.input :member2_name, label: 'Nom du 2nd conjoint', error: 'Obligatoire, merci de remplir ce champ' %>
+  <%= f.input :member1_name, label: 'Nom du 1er conjoint', error: 'Votre petit nom' %>
+  <%= f.input :member2_name, label: 'Nom du 2nd conjoint', error: 'Nom de votre moitié' %>
   <%= f.input :about_member1, label: 'A propos du 1er conjoint', error: 'Présentez-vous aux autres couples' %>
   <%= f.input :about_member2, label: 'A propos du 2nd conjoint', error: 'Présentez-vous aux autres couples' %>
+  <%= f.input :age_member_1, label: 'Votre âge ?', error: 'Renseignez votre âge' %>
+  <%= f.input :age_member_2, label: 'Votre âge ?', error: 'Renseignez votre âge' %>
+  <%= f.input :gender_member_1, label: 'Êtes-vous :', collection: ["M", "F"], error: 'Renseignez votre genre' %>
+  <%= f.input :gender_member_2, label: 'Êtes-vous :', collection: ["M", "F"], error: 'Renseignez votre genre' %>
+  <%= f.input :about_couple, label: 'Parlez nous de vous deux !', error: 'Parlez nous de vous deux' %>
+  <%= f.input :couple_nickname, label: 'Choisissez un pseudo', error: 'Choisissez un pseudo' %>
+  <%= f.input :couple_city, label: 'Où vivez-vous ?', error: 'Où vivez-vous ?' %>
+
+
+
+
   <%= f.button :submit %>
 <% end %>

@@ -19,7 +19,7 @@ before_action :set_couple, only: [:show, :edit, :update]
   end
 
   def couple_params
-    params.require(:couple).permit(:email, :member1_name, :member2_name, :about_member1, :about_member2)
+    params.require(:couple).permit(:email, :member1_name, :member2_name, :about_member1, :about_member2, :age_member_1, :age_member_2, :gender_member_1, :gender_member_2, :about_couple, :couple_nickname, :couple_city)
   end
 
 end
