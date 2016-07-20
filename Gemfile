@@ -20,6 +20,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 
+gem 'ffaker'
+
 
 
 group :development, :test do

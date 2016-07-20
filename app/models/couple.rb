@@ -4,6 +4,7 @@ class Couple < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-   has_many :events
    has_many :swipes
+   has_many :events, dependent: :destroy
+
 end
