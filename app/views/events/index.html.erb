@@ -14,14 +14,13 @@
   </div>
 </div> -->
 
-<ul>
 
   <% @events_for_display.each do |event| %>
-    <li><%= event.date %> <%=event.description %> <%=link_to "Yes", couple_event_swiperight_path(current_couple, event) %> <%=link_to "No", couple_event_swipeleft_path(current_couple, event) %></li>
-
+    <div class="event-card <%= @events_for_display.first == event ? "" : "hidden" %>">
+    <%= event.date %> <%=event.description.first(30) %> <%=link_to "Yes", couple_event_swiperight_path(current_couple, event) %> <%=link_to "No", couple_event_swipeleft_path(current_couple, event) %></li>
+    </div>
   <% end %>
 
-</ul>
 
 
 

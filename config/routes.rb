@@ -15,10 +15,19 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :events do
+      resources :couples do
+        get 'swipeleft', to: 'swipes#organiser_swipe_left'
+        get 'swiperight', to: 'swipes#organiser_swipe_right'
+      end
+    end
 
   namespace :organiser do
-    resources :events
+    resources :events do
+      resources :couples
+    end
   end
+
 
   resources :events
 

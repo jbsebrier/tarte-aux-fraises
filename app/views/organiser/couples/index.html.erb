@@ -1,0 +1,8 @@
+<%= @event.description %>
+
+<% @couples_for_display.each do |couple|%>
+ <div class="event-card <%= @couples_for_display.first == couple ? "" : "hidden" %>">
+ <%= couple.nickname %> <%= link_to "No", event_couple_swipeleft_path(@event, couple) %> <%= link_to "Yes", event_couple_swiperight_path(@event, couple) %>
+</div>
+<% end %>
+

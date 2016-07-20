@@ -4,7 +4,6 @@ class EventsController < ApplicationController
 
   def index
     available_event_list
-
   end
 
   def new
