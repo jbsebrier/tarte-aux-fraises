@@ -5,6 +5,7 @@
         <p>Date: <%= event.date %></p>
         <p>Lieu: <%= event.city %></p>
         <p>Description:  <%= event.description %> </p>
+        <%= link_to("Supprimer", organiser_event_path(event), method: :delete) %>
       <% end %>
 
       </div>
