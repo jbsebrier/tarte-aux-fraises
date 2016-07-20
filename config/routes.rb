@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :couples
-  get 'couples/:id/profile' => 'couples#edit' , as: :my_profile
+  devise_for :couples, controllers: { registrations: "registrations" }
+
+  get 'couples/:id/edit-profile' => 'couples#edit', as: :my_profile
+  patch  'couples/:id', to: 'couples#update'
+  get    "couples/:id",      to: "couples#show", as: :couple_profile
 
   root to: 'pages#home'
 
