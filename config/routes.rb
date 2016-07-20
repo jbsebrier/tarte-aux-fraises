@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :couples
   root to: 'pages#home'
 
-  resources :events
+  resources :events do
+    resources :couples do
+      resources :swipes
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

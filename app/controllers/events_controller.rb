@@ -2,8 +2,8 @@ class EventsController < ApplicationController
 
 
   def index
-    @couple = Couple.find(params[:couple_id])
-    @events = Event.where(:couple_id)
+
+
   end
 
   def new
