@@ -29,31 +29,22 @@ class SwipesController < ApplicationController
   end
 
 
-  def new
+  def guest_swipe_right
     set_swipe
     @current_swipe = swipe_exists?(set_swipe)
     @current_swipe.guest_couple_swipe = true
     @current_swipe.guest_couple_swipe_result = true
     @current_swipe.save
-    # @current_swipe.boule
     redirect_to events_path
   end
 
-
-
-  end
-
-  def left_swipe
-  end
-
-  def right_swipe
-
-  @swipe = set_swipe
-  swipe_exists(@swipe)
-
-    if current_couple == @event.couple
-      # branching pour savoir si le couple qui swipe est organisateur ou participant
-
+  def guest_swipe_left
+  set_swipe
+    @current_swipe = swipe_exists?(set_swipe)
+    @current_swipe.guest_couple_swipe = true
+    @current_swipe.guest_couple_swipe_result = false
+    @current_swipe.save
+    redirect_to events_path
   end
 
 

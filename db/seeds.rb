@@ -7,10 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-
+Swipe.destroy_all
 Event.destroy_all
 Couple.destroy_all
-Swipe.destroy_all
+
 
 Couple.create(email: '1stcouple@gmail.com', nickname: 'couple1', password: '123456', member1_name: 'Jon', member2_name: 'Jane', about_member1: 'Sport fan', about_member2: 'Cooking fan')
 Couple.create(email: '2ndcouple@gmail.com', nickname: 'couple2', password: '123456', member1_name: 'Jackie', member2_name: 'Michel', about_member1: 'Fist fan', about_member2: 'Leather fan')
@@ -21,7 +21,7 @@ Couple.create(email: '5thcouple@gmail.com', nickname: 'couple5', password: '1234
 Couple.all.each do |couple|
  3.times do
  couple.events.create!(
-   date: Faker::Date.between(1.year.ago, 1.year.from_now),
+   date: Faker::Date.between(1.day.ago, 1.year.from_now),
    city: FFaker::AddressFR.city,
    description: FFaker::LoremFR.paragraph
  )

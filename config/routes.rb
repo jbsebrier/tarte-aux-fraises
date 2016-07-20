@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :couples do
       resources :events do
         resources :swipes
+        get 'swipeleft', to: 'swipes#guest_swipe_left'
+        get 'swiperight', to: 'swipes#guest_swipe_right'
       end
     end
 
