@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
     resources :couples do
-      resources :swipes
+      resources :events do
+        resources :swipes
+      end
     end
+
 
   namespace :organiser do
     resources :events

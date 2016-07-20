@@ -5,4 +5,5 @@ class Couple < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
    has_many :events
+   has_many :swipes
 end
