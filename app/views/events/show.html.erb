@@ -1,0 +1,11 @@
+<h1>Evenement</h1>
+<div class="container">
+   <div class="row">
+     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <p>Date: <%= @event.date %></p>
+        <p>Lieu <%= @event.city%></p>
+        <p>Description <%= @event.description %> </p>
+        <%= link_to("Supprimer", organiser_event_path(@event), method: :delete) %>
+      </div>
+  </div>
+</div>
