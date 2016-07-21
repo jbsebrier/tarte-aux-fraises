@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720155306) do
+ActiveRecord::Schema.define(version: 20160721171151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.string "icon"
+  end
 
   create_table "couples", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -55,9 +60,11 @@ ActiveRecord::Schema.define(version: 20160720155306) do
     t.string   "city"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.integer  "theme_id"
   end
 
   add_index "events", ["couple_id"], name: "index_events_on_couple_id", using: :btree
+  add_index "events", ["theme_id"], name: "index_events_on_theme_id", using: :btree
 
   create_table "swipes", force: :cascade do |t|
     t.integer  "event_id"
@@ -76,7 +83,24 @@ ActiveRecord::Schema.define(version: 20160720155306) do
   add_index "swipes", ["couple_id"], name: "index_swipes_on_couple_id", using: :btree
   add_index "swipes", ["event_id"], name: "index_swipes_on_event_id", using: :btree
 
+  create_table "themes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_badges", force: :cascade do |t|
+    t.integer "couple_id"
+    t.integer "badge_id"
+  end
+
+  add_index "user_badges", ["badge_id"], name: "index_user_badges_on_badge_id", using: :btree
+  add_index "user_badges", ["couple_id"], name: "index_user_badges_on_couple_id", using: :btree
+
   add_foreign_key "events", "couples"
+  add_foreign_key "events", "themes"
   add_foreign_key "swipes", "couples"
   add_foreign_key "swipes", "events"
+  add_foreign_key "user_badges", "badges"
+  add_foreign_key "user_badges", "couples"
 end

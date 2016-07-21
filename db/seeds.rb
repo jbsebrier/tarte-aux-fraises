@@ -9,7 +9,13 @@
 
 Swipe.destroy_all
 Event.destroy_all
+Theme.destroy_all
 # Couple.destroy_all
+
+["After Work", "Apero", "Dinner", "Pique Nique", "Costume", "Brunch", "Coquine", "Pochette Surprise"].each do |theme_name|
+  Theme.create(name: theme_name )
+end
+
 
 
 # Couple.create(email: '1stcouple@gmail.com', nickname: 'couple1', password: '123456', member1_name: 'Jon', member2_name: 'Jane', about_member1: 'Sport fan', about_member2: 'Cooking fan')
@@ -23,6 +29,9 @@ Couple.all.each do |couple|
    date: Faker::Date.between(1.day.ago, 1.year.from_now),
    city: FFaker::AddressFR.city,
    description: FFaker::LoremFR.paragraph,
-   max_n_guest_couples: Faker::Number.between(1, 4)
+   max_n_guest_couples: Faker::Number.between(1, 4),
+   theme: Theme.all.sample
  )
  end
+
+
