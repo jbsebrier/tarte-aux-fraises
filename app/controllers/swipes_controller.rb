@@ -11,7 +11,7 @@ class SwipesController < ApplicationController
 
   def set_swipe
     @event = Event.find(params[:event_id])
-    @organizing_couple = @event.couple
+    @organiser_couple = @event.couple
     @participating_couple = Couple.find(params[:couple_id])
     Swipe.new(couple: @participating_couple, event: @event)
   end
@@ -28,33 +28,74 @@ class SwipesController < ApplicationController
 
   end
 
+  def organiser_swipe_right
+    set_swipe
+    @current_swipe = swipe_exists?(set_swipe)
+    @current_swipe.organizing_couple_swipe = true
+    @current_swipe.organizing_couple_swipe_result = true
+    @current_swipe.save
+    check_match(@current_swipe)
+    if @current_swipe.match
+      check_participation(@current_swipe)
+    end
+    redirect_to organiser_event_couples_path(@event)
+  end
 
-  def new
+  def organiser_swipe_left
+    set_swipe
+    @current_swipe = swipe_exists?(set_swipe)
+    @current_swipe.organizing_couple_swipe = true
+    @current_swipe.organizing_couple_swipe_result = false
+    @current_swipe.save
+    check_match(@current_swipe)
+    if @current_swipe.match
+      check_participation(@current_swipe)
+    end
+    redirect_to organiser_event_couples_path(@event)
+  end
+
+  def guest_swipe_right
     set_swipe
     @current_swipe = swipe_exists?(set_swipe)
     @current_swipe.guest_couple_swipe = true
     @current_swipe.guest_couple_swipe_result = true
     @current_swipe.save
-    # @current_swipe.boule
+    check_match(@current_swipe)
+    if @current_swipe.match
+      check_participation(@current_swipe)
+    end
     redirect_to events_path
   end
 
-
-
+  def guest_swipe_left
+  set_swipe
+    @current_swipe = swipe_exists?(set_swipe)
+    @current_swipe.guest_couple_swipe = true
+    @current_swipe.guest_couple_swipe_result = false
+    @current_swipe.save
+    check_match(@current_swipe)
+    if @current_swipe.match
+      check_participation(@current_swipe)
+    end
+    redirect_to events_path
   end
 
-  def left_swipe
+  def check_match(swipe)
+    if (swipe.organizing_couple_swipe_result == true) && (swipe.guest_couple_swipe_result == true)
+      swipe.match = true
+      swipe.match_time =  Time.now
+    else
+      swipe.match = false
+    end
+    swipe.save
   end
 
-  def right_swipe
-
-  @swipe = set_swipe
-  swipe_exists(@swipe)
-
-    if current_couple == @event.couple
-      # branching pour savoir si le couple qui swipe est organisateur ou participant
-
+  def check_participation(swipe)
+    @current_nb_of_guests = swipe.event.swipes.where(participation: true).count
+    if (swipe.event.max_n_guest_couples - @current_nb_of_guests) > 0
+      swipe.participation = true
+      swipe.save
+    end
   end
-
 
 end
