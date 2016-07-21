@@ -5,10 +5,16 @@
 
   <div class ="row">
     <ul class="list-unstyled">
+      <br>
+      <li><%= @couple.couple_nickname %></li>
+      <li><%= @couple.about_couple %></li>
+      <li><%= @couple.couple_city %></li>
       <li><%= @couple.email %></li>
-      <li><%= @couple.member1_name %></li>
+      <br>
+      <li><%= "#{@couple.member1_name}, #{@couple.age_member_1}, #{@couple.gender_member_1}" %></li>
       <li><%= @couple.about_member1 %></li>
-      <li><%= @couple.member2_name %></li>
+      <br>
+      <li><%= "#{@couple.member2_name}, #{@couple.age_member_2}, #{@couple.gender_member_2}" %></li>
       <li><%= @couple.about_member2 %></li>
     </ul>
   </div>
