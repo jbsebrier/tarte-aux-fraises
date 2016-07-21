@@ -6,6 +6,11 @@
   <div class ="row">
     <ul class="list-unstyled">
       <br>
+      <br>
+      <br>
+      <li><% @couple.photos.each do |photo| %>
+        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+      <% end %></li>
       <li><%= @couple.couple_nickname %></li>
       <li><%= @couple.about_couple %></li>
       <li><%= @couple.couple_city %></li>
