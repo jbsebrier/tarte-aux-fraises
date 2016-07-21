@@ -11,7 +11,10 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'redis'
 
-gem 'cloudinary'
+gem "cloudinary"
+gem "attachinary"
+gem "jquery-fileupload-rails"
+gem "coffee-rails"
 
 gem 'sass-rails'
 gem 'jquery-rails'
