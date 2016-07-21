@@ -9,14 +9,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
 
-
-
   </head>
   <body>
+    <%= render 'shared/navbar' %>
+  <div class="navbar-marged">
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
+
+
+    <%= javascript_include_tag 'application' %>
+    <%= cloudinary_js_config %>
+  </div>
+
+
   </body>
 </html>
