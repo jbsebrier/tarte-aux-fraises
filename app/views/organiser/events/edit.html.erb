@@ -2,10 +2,10 @@
    <div class="row">
      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <%= simple_form_for([:organiser, @event]) do |f| %>
-        <%= f.input :date, label: "A quelle date souhaitez-vous creer votre evenement ?" %>
-        <%= f.input :max_n_guest_couples, label: "Quel est le nombre de couples participants maximum?" %>
-        <%= f.input :description, label: "Merci de detailler votre evenement" %>
-        <%= f.input :city, label: "Ou se tiendra votre evenement ?" %>
+        <%= f.input :date, label: "Souhaitez-vous changer la date de votre evenement ?" %>
+        <%= f.input :max_n_guest_couples, label: "Souhaitez vous changer le nombre de couples participants?" %>
+        <%= f.input :description, label: "Souhaitez vous modifier le detail de votre evenement" %>
+        <%= f.input :city, label: "Souhaitez vous changer le lieu de votre evenement ?" %>
         <%= f.button :submit %>
       <% end %>
    </div>
