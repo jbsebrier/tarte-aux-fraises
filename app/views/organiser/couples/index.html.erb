@@ -1,8 +1,51 @@
-<%= @event.description %>
 
-<% @couples_for_display.each do |couple|%>
- <div class="event-card <%= @couples_for_display.first == couple ? "" : "hidden" %>">
- <%= couple.nickname %> <%= link_to "No", event_couple_swipeleft_path(@event, couple) %> <%= link_to "Yes", event_couple_swiperight_path(@event, couple) %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2" id='swipe-no'></div>
+    <div class="col-xs-8 couple-background " id="couple-background" >
+      <% @couples_for_display.each do |couple| %>
+        <div class="couple-card <%= @couples_for_display.first == couple ? "active-couple-card" : "hidden" %>" data-id="<%=couple.id%>" >
+          <div class="couple-name"> <%=couple.member1_name%> & <%=couple.member2_name%> </div>
+          <div class="organiser-picture avatar-large"> <%= image_tag couple.couple_picture, size:"170" %> </div>
+          <%=link_to event_couple_swipeleft_path(@event, couple) do %>
+            <div class="swipe-btn swipe-left-btn"></div>
+          <% end %>
+          <%=link_to event_couple_swiperight_path(@event, couple) do %>
+            <div class="swipe-btn swipe-right-btn"></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <div class="col-xs-2" id='swipe-yes'></div>
+  </div>
 </div>
-<% end %>
 
+
+  <%= content_for(:after_js) do %>
+     <script>
+        $(document).ready(function(){
+          $('.couple-card').draggable();
+          $('#swipe-no').droppable({
+            drop: function(event, ui) {
+              $('.active-couple-card').hide();
+              var couple_id = $('.active-couple-card').attr("data-id");
+              $.get( "/events/"+ '<%= params[:event_id] %>' +"/couples/"+ couple_id +"/swipeleft", function( data ) {
+
+              });
+              location.reload();
+            }
+          });
+          $('#swipe-yes').droppable({
+            drop: function(event, ui) {
+              $('.active-couple-card').hide();
+              var couple_id = $('.active-couple-card').attr("data-id");
+              $.get( "/events/"+ '<%= @event.id %>' +"/couples/"+ couple_id +"/swiperight", function( data ) {
+
+              });
+              location.reload();
+            }
+          });
+
+        });
+      </script>
+    <% end %>

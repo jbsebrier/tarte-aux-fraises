@@ -1,55 +1,58 @@
-<!--
-<div data-role="page" id="pageone">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-2" id='swipe-no' style="height: 300px;"></div>
-      <div class="col-xs-8 event-background" id="event-background1" style="height:300px; width: 300px; border: 1px solid grey;">
-        <div class="event-card" id="event-card1" style=" height:200px; width: 200px; border: 1px solid grey;">
-        <h3>This is an event card</h3>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2" id='swipe-no'></div>
+    <div class="col-xs-8 event-background " id="event-background1" >
+      <% @events_for_display.each do |event| %>
+        <div class="event-card <%= @events_for_display.first == event ? "active-card" : "hidden" %>" data-id="<%=event.id%>" >
+          <div class="event-date"> <em><%= event.date %></em></div>
+          <div class="event-description"> <%=event.description.first(30) %> </div>
+          <div class="organiser-picture avatar-large"> <%= image_tag event.couple.couple_picture, size:"170" %> </div>
+          <%=link_to couple_event_swipeleft_path(current_couple, event) do %>
+            <div class="swipe-btn swipe-left-btn"></div>
+          <% end %>
+          <%=link_to couple_event_swiperight_path(current_couple, event) do %>
+            <div class="swipe-btn swipe-right-btn"></div>
+          <% end %>
         </div>
-      </div>
-      <div class="col-xs-2" id='swipe-yes' style="height: 300px;"></div>
+      <% end %>
     </div>
+  <div class="col-xs-2" id='swipe-yes'></div>
   </div>
-</div> -->
-
-
-  <% @events_for_display.each do |event| %>
-    <div class="event-card <%= @events_for_display.first == event ? "" : "hidden" %>">
-    <%= event.date %> <%=event.description.first(30) %> <%=link_to "Yes", couple_event_swiperight_path(current_couple, event) %> <%=link_to "No", couple_event_swipeleft_path(current_couple, event) %></li>
-    </div>
-  <% end %>
+</div>
 
 
 
 
 
+  <%= content_for(:after_js) do %>
+     <script>
+        $(document).ready(function(){
+          $('.event-card').draggable();
+          $('#swipe-no').droppable({
+            drop: function(event, ui) {
+              $('.active-card').hide();
+              var event_id = $('.active-card').attr("data-id");
+              $.get( "/couples/"+ '<%= current_couple.id %>' +"/events/"+ event_id +"/swipeleft", function( data ) {
+                alert( "Load was performed." );
+              });
+              location.reload();
+            }
+          });
+          $('#swipe-yes').droppable({
+            drop: function(event, ui) {
+              $('.active-card').hide();
+              var event_id = $('.active-card').attr("data-id");
+              $.get( "/couples/"+ '<%= current_couple.id %>' +"/events/"+ event_id +"/swiperight", function( data ) {
+                alert( "Load was performed." );
+              });
+              location.reload();
+            }
+          });
 
-
-
-<!-- <script src="http://code.jquery.com/jquery-1.12.1.min.js"></script>
-<script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-<script src="jquery.ui.touch-punch.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<script>
-  $(document).on("pagecreate","#pageone",function(){
-    $('#event-card1').draggable();
-    $('#swipe-no').droppable({
-      drop: function(event, ui) {
-        $('#event-card1').hide();
-      }
-    });
-    $('#swipe-yes').droppable({
-      drop: function(event, ui) {
-        $('#event-card1').hide();
-      }
-    });
-  });
-</script>
- -->
-
-
+        });
+      </script>
+    <% end %>
 
 
 

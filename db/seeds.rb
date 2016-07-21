@@ -25,13 +25,15 @@ end
 # Couple.create(email: '5thcouple@gmail.com', nickname: 'couple5', password: '123456', member1_name: 'Marie', member2_name: 'Mary', about_member1: 'Shopping fan', about_member2: 'Climbing fan')
 
 Couple.all.each do |couple|
+ 10.times do
  couple.events.create!(
    date: Faker::Date.between(1.day.ago, 1.year.from_now),
    city: FFaker::AddressFR.city,
-   description: FFaker::LoremFR.paragraph,
+
+   description: "#{["Diner", "Dejeuner"].sample} chez #{couple.member1_name} & #{couple.member2_name}",
    max_n_guest_couples: Faker::Number.between(1, 4),
    theme: Theme.all.sample
  )
  end
-
+end
 
