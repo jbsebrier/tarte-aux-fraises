@@ -27,3 +27,20 @@
 .navbar-marged {
   margin-top: 70px;
 }
+
+.basic_bg {
+  background-color: $brand-color;
+  height: 100vh;
+}
+
+h1 {
+  font-family: $header-font;
+  color: $text-color;
+}
+
+body {
+  font-family: $base-font;
+  color: $text-color;
+}
+
+
