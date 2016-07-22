@@ -8,7 +8,10 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <!-- Create an event -->
-    <%= link_to t(".sign_in", default: "Organisez un dîner"), new_event_path, class: "navbar-item navbar-wagon-link" %>
+    <%= link_to t(".sign_in", default: "Organisez un dîner"), new_organiser_event_path, class: "navbar-item navbar-wagon-link" %>
+
+    <!-- Swipe events -->
+    <%= link_to t(".sign_in", default: "Swiper des events"), events_path, class: "navbar-item navbar-wagon-link" %>
 
     <!-- Different navigation if login or not -->
     <% if couple_signed_in? %>
