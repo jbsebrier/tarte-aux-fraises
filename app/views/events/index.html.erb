@@ -2,9 +2,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-2" id='swipe-no'></div>
-    <div class="col-xs-8 event-background " id="event-background1" >
+    <div class="col-xs-8 event-background " id="event-background" >
       <% @events_for_display.each do |event| %>
-        <div class="event-card <%= @events_for_display.first == event ? "active-card" : "hidden" %>" data-id="<%=event.id%>" >
+        <div>
+        <div class="event-card front <%= @events_for_display.first == event ? "active-card" : "hidden" %>" data-id="<%=event.id%>" >
           <div class="event-date"> <em><%= event.date %></em></div>
           <div class="event-description"> <%=event.description.first(30) %> </div>
           <div class="organiser-picture avatar-large"> <%= image_tag event.couple.couple_picture, size:"170" %> </div>
@@ -14,6 +15,10 @@
           <%=link_to couple_event_swiperight_path(current_couple, event) do %>
             <div class="swipe-btn swipe-right-btn"></div>
           <% end %>
+        </div>
+        <div class="event-card back <%= @events_for_display.first == event ? "active-card" : "hidden" %>">
+          This is the back
+        </div>
         </div>
       <% end %>
     </div>
@@ -26,7 +31,8 @@
 
 
   <%= content_for(:after_js) do %>
-     <script>
+     <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
+      <script>
         $(document).ready(function(){
           $('.event-card').draggable();
           $('#swipe-no').droppable({
@@ -49,7 +55,7 @@
               location.reload();
             }
           });
-
+          $('.event-card').flip();
         });
       </script>
     <% end %>
