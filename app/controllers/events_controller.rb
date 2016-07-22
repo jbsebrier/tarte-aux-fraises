@@ -7,7 +7,8 @@ class EventsController < ApplicationController
   end
 
   def my_index
-    @events = Event.where(couple: params[:user_id])
+    @my_events = Event.where(couple: current_couple)
+    @participating_events = Event.joins(:swipes).where(swipes: { couple_id: current_couple.id, participation: true })
   end
 
   def new
@@ -27,6 +28,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @event = Event.find_by(id: params[:id])
   end
 
 
