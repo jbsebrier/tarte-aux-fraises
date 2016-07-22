@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
     resources :couples do
         get 'my_events', to: 'events#my_index'
-        get 'my_events/:event_id', to: 'events#show'
+        get 'my_events/:event_id', to: 'events#show', as: :my_event
       resources :events do
         resources :swipes
         get 'swipeleft', to: 'swipes#guest_swipe_left'

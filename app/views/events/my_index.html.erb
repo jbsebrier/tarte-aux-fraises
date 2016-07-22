@@ -1,1 +1,35 @@
 <h1>Bonjour Henri</h1>
+
+<div class="bg-event-index">
+
+  <div class="container">
+
+    <h1 class=text-center>Mes événements</h1>
+
+    <div class="row">
+      <div class="line-separation">
+        <h2> A venir</h2>
+      </div>
+      <% @events.each do |event| %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card-events">
+            <div class="text-center">
+              <h5><%= l(event.date, format: :short) %></h5>
+              <h4><strong>Organisateurs de l'événement</strong></h4>
+              <p> event.couple_id
+              <h4><strong>Description de l'événement</strong></h4>
+              <p>event.description</p>
+
+
+              <%= link_to "Communiquer", event_notification_false_path(event), class: "btn btn-default btn-nice", method: :patch %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+
+    </div>
+
+  </div>
+
+</div>

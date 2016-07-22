@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   def my_index
-
+    @events = Event.where(couple: params[:user_id])
   end
 
   def new
