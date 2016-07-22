@@ -1,0 +1,91 @@
+.card-event-profile {
+    width: 100%;
+    background-color:white;
+    color: black;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all ease 0.2s;
+    padding: 10px;
+    overflow: hidden;
+    img {
+      vertical-align: center;
+    }
+    h5 {
+      font-size: 12px;
+      color: grey;
+    }
+    h4 {
+      font-size: 16px;
+    }
+}
+
+.form-inbox {
+    float: right;
+    position: relative;
+    width: 55%;
+}
+
+.message-current-user {
+  background-color: #EE4C4C;
+  color: white;
+  margin: 15px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 55%;
+  float: right;
+  position: relative;
+  img {
+    float: right;
+  }
+  p {
+    color: grey-lighter;
+    font-size: 12px;
+  }
+  h4 {
+    font-size: 14px;
+  }
+}
+
+.message-other-user {
+  background-color: #3AA971;
+  color: white;
+  margin: 15px 0px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 55%;
+  float: left;
+  position: relative;
+  img {
+    float: right;
+  }
+  p {
+    color: grey-lighter;
+    font-size: 12px;
+  }
+  h4 {
+    font-size: 14px;
+  }
+}
+
+.btn-custom {
+  padding: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0px;
+  float:right;
+}
+
+.avatar-event-profile {
+  height: 140px;
+  position: absolute;
+  top: 20%;
+  left:5%;
+}

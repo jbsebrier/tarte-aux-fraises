@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
     resources :couples do
+        get 'my_events', to: 'events#my_index'
       resources :events do
         resources :swipes
         get 'swipeleft', to: 'swipes#guest_swipe_left'
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :messages, only: [:new, :create, :destroy]
 
   resources :events
 

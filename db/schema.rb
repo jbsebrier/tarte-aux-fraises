@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160721171151) do
+ActiveRecord::Schema.define(version: 20160722121412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,18 @@ ActiveRecord::Schema.define(version: 20160721171151) do
   add_index "events", ["couple_id"], name: "index_events_on_couple_id", using: :btree
   add_index "events", ["theme_id"], name: "index_events_on_theme_id", using: :btree
 
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "couple_id"
+    t.integer  "event_id"
+    t.datetime "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "messages", ["couple_id"], name: "index_messages_on_couple_id", using: :btree
+  add_index "messages", ["event_id"], name: "index_messages_on_event_id", using: :btree
+
   create_table "swipes", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "couple_id"
@@ -115,6 +127,8 @@ ActiveRecord::Schema.define(version: 20160721171151) do
 
   add_foreign_key "events", "couples"
   add_foreign_key "events", "themes"
+  add_foreign_key "messages", "couples"
+  add_foreign_key "messages", "events"
   add_foreign_key "swipes", "couples"
   add_foreign_key "swipes", "events"
   add_foreign_key "user_badges", "badges"
