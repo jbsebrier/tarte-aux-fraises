@@ -29,6 +29,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
+    @message = Message.new()
+    @swipes_true = Swipe.where(event_id: params[:id], participation: true)
   end
 
 
