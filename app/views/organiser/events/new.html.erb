@@ -4,10 +4,25 @@
       <%= simple_form_for([:organiser, @event]) do |f| %>
         <%= f.input :date, label: "A quelle date souhaitez-vous creer votre evenement ?" %>
         <%= f.input :max_n_guest_couples, label: "Quel est le nombre de couples participants maximum?" %>
+        <%= f.association :theme , include_blank: false %>
+        <button id="random_button" name="button">Random</button>
         <%= f.input :description, label: "Merci de detailler votre evenement" %>
         <%= f.input :city, label: "Ou se tiendra votre evenement ?" %>
         <%= f.button :submit %>
       <% end %>
+
    </div>
   </div>
 </div>
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $("#random_button").click(function(event) {
+      event.preventDefault();
+      $("#event_theme_id").val(randomValueFromSelect("#event_theme_id"));
+    });
+  <% end %>
+<% end %>
+
+

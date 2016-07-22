@@ -11,19 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160721171151) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-
-  create_table "badges", force: :cascade do |t|
-    t.string "name"
-    t.string "icon"
-  end
-
 
   create_table "attachinary_files", force: :cascade do |t|
     t.integer  "attachinariable_id"
@@ -41,6 +32,10 @@ ActiveRecord::Schema.define(version: 20160721171151) do
 
   add_index "attachinary_files", ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
 
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.string "icon"
+  end
 
   create_table "couples", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
