@@ -8,6 +8,8 @@ class Couple < ActiveRecord::Base
    has_many :events, dependent: :destroy
    has_many :messages
    has_attachments :photos, maximum: 5
+   has_many :couple_badges
+   has_many :badges, through: :couple_badges
 
 
 
