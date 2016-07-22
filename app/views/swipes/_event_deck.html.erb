@@ -1,0 +1,13 @@
+<% events_for_display.each do |event| %>
+  <div class="event-card front <%= events_for_display.first == event ? "active-card" : "hidden" %>" data-id="<%=event.id%>" >
+    <div class="event-date"> <em><%= event.date %></em></div>
+    <div class="event-description"> <%=event.description.first(30) %> </div>
+    <div class="organiser-picture avatar-large"> <%= image_tag event.couple.couple_picture, size:"170" %> </div>
+    <%=link_to couple_event_swipeleft_path(current_couple, event), method: :post, remote: true do %>
+      <div class="swipe-btn swipe-left-btn"></div>
+    <% end %>
+    <%=link_to couple_event_swiperight_path(current_couple, event), method: :post, remote: true do %>
+      <div class="swipe-btn swipe-right-btn"></div>
+    <% end %>
+  </div>
+<% end %>
