@@ -1,158 +1,111 @@
-
-  <div id="example-basic" class="basic_bg" >
-    <form id="example-form" action="#">
-        <div>
-            <h3>Account</h3>
-            <section>
-                <label for="userName">User name *</label>
-                <input id="userName" name="userName" type="text" class="required">
-                <label for="password">Password *</label>
-                <input id="password" name="password" type="text" class="required">
-                <label for="confirm">Confirm Password *</label>
-                <input id="confirm" name="confirm" type="text" class="required">
-                <p>(*) Mandatory</p>
-            </section>
-            <h3>Profile</h3>
-            <section>
-                <label for="name">First name *</label>
-                <input id="name" name="name" type="text" class="required">
-                <label for="surname">Last name *</label>
-                <input id="surname" name="surname" type="text" class="required">
-                <label for="email">Email *</label>
-                <input id="email" name="email" type="text" class="required email">
-                <label for="address">Address</label>
-                <input id="address" name="address" type="text">
-                <p>(*) Mandatory</p>
-            </section>
-            <h3>Hints</h3>
-            <section>
-                <ul>
-                    <li>Foo</li>
-                    <li>Bar</li>
-                    <li>Foobar</li>
-                </ul>
-            </section>
-            <h3>Finish</h3>
-            <section>
-                <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
-            </section>
-        </div>
-    </form>
-  </div>
-
-
-
 <div class= "basic_bg">
   <div class="container">
 
     <div class="row">
       <h2 >Créez votre profil de couple -  <%= @couple.email %></h2>
     </div>
- <!--    <div class="row">
-      <div class="col-xs-6">
-        <%= simple_form_for @couple do |f| %>
-          <div>
+
+    <%= simple_form_for @couple do |f| %>
+    ​
+      <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+
+          <div class="form-group">
             <%= f.input :about_couple, label: 'Parlez nous de vous deux !', error: 'Parlez nous de vous deux' %>
-              <button class="next_step btn btn-danger btn-marged nexti">Next</button>
+            <button class="next_step btn btn-danger btn-marged">Next</button>
           </div>
-          <div class= "hide">
+          <div class="form-group" style="display: none">
+            <h2>Ajoutez quelques photos de vous deux</h2>
             <%= f.input :photos, as: :attachinary %>
-            <button class="previous_step btn btn-marged bg-black backi">Back</button>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
             <button class="next_step btn btn-danger btn-marged">Next</button>
           </div>
-          <div class= "hide">
-            <%= f.input :couple_nickname, label: 'Choisissez un pseudo', error: 'Choisissez un pseudo'%>
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
+          <div class="form-group" style="display: none">
+            <%= f.input :couple_nickname, label: 'Choisissez un pseudo', error: 'Choisissez un pseudo' %>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
             <button class="next_step btn btn-danger btn-marged">Next</button>
           </div>
-          <div class= "hide">
+          <div class="form-group" style="display: none">
             <%= f.input :couple_city, label: 'Où vivez-vous ?', error: 'Où vivez-vous ?' %>
-
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
             <button class="next_step btn btn-danger btn-marged">Next</button>
           </div>
-          <div class= "hide">
+
+
+          <div class="form-group" style="display: none">
             <%= f.input :member1_name, label: 'Nom du 1er conjoint', error: 'Votre petit nom' %>
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
             <button class="next_step btn btn-danger btn-marged">Next</button>
           </div>
-          <div class= "hide">
-            <%= f.input :member2_name, label: 'Nom du 2nd conjoint', error: 'Nom de votre moitié' %>
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class= "hide">
+          <div class="form-group" style="display: none">
             <%= f.input :about_member1, label: 'A propos du 1er conjoint', error: 'Présentez-vous aux autres couples' %>
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
             <button class="next_step btn btn-danger btn-marged">Next</button>
           </div>
-          <div class= "hide">
-            <%= f.input :about_member2, label: 'A propos du 2nd conjoint', error: 'Présentez-vous aux autres couples' %>
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
+          <div class="form-group" style="display: none">
+            <%= f.input :age_member_1, label: 'Age du premier conjoint', error: 'Renseignez votre âge' %>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
             <button class="next_step btn btn-danger btn-marged">Next</button>
           </div>
-          <div class= "hide">
-            <%= f.input :age_member_1, label: 'Votre âge ?', error: 'Renseignez votre âge' %>
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class= "hide">
-            <%= f.input :age_member_2, label: 'Votre âge ?', error: 'Renseignez votre âge' %>
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class= "hide">
+          <div class="form-group" style="display: none">
             <%= f.input :gender_member_1, label: 'Êtes-vous :', collection: ["M", "F"], error: 'Renseignez votre genre' %>
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
             <button class="next_step btn btn-danger btn-marged">Next</button>
           </div>
-          <div class= "hide">
+
+
+          <div class="form-group" style="display: none">
+            <%= f.input :member2_name, label: 'Nom du 2nd conjoint', error: 'Nom de votre moitié' %>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
+            <button class="next_step btn btn-danger btn-marged">Next</button>
+          </div>
+          <div class="form-group" style="display: none">
+            <%= f.input :about_member2, label: 'A propos du 2nd conjoint', error: 'Présentez-vous aux autres couples' %>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
+            <button class="next_step btn btn-danger btn-marged">Next</button>
+          </div>
+          <div class="form-group" style="display: none">
+            <%= f.input :age_member_2, label: 'Age du 2nd conjoint', error: 'Renseignez votre âge' %>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
+            <button class="next_step btn btn-danger btn-marged">Next</button>
+          </div>
+          <div class="form-group" style="display: none">
             <%= f.input :gender_member_2, label: 'Êtes-vous :', collection: ["M", "F"], error: 'Renseignez votre genre' %>
-
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
             <button class="next_step btn btn-danger btn-marged">Next</button>
           </div>
-
-          <div class="hide">
-            <%= f.button :submit %>
-            <button class="previous_step btn btn-danger btn-marged">Back</button>
+          <div class="form-group" style="display: none">
+            <h2>Vous êtes prêts ? Découvrez votre profil</h2>
+            <button class="previous_step btn btn-marged btn-grey">Prev</button>
+            <%= submit_tag("Envoyer", class: "btn btn-danger btn-marged") %>
           </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div> -->
 
-      <%= content_for(:after_js) do %>
-        <script>
-          var form = $("#example-form");
-          form.validate({
-              errorPlacement: function errorPlacement(error, element) { element.before(error); },
-              rules: {
-                  confirm: {
-                      equalTo: "#password"
-                  }
-              }
-          });
-          form.children("div").steps({
-              headerTag: "h3",
-              bodyTag: "section",
-              transitionEffect: "slideLeft",
-              onStepChanging: function (event, currentIndex, newIndex)
-              {
-                  form.validate().settings.ignore = ":disabled,:hidden";
-                  return form.valid();
-              },
-              onFinishing: function (event, currentIndex)
-              {
-                  form.validate().settings.ignore = ":disabled";
-                  return form.valid();
-              },
-              onFinished: function (event, currentIndex)
-              {
-                  alert("Submitted!");
-              }
-          });
-          </script>
-      <% end -%>
+
+        </div>
+      </div>
+
+    <% end -%>
+​
+ </div>
+</div>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(".next_step").on("click", function(event){
+        event.preventDefault();
+        var button = jQuery(this);
+        button.parent().slideUp( "slow", function() {
+          done:  button.parent('div').hide();
+        });
+        button.parent('div').next().show(300);
+      });
+     $(".previous_step").on("click", function(event){
+        event.preventDefault();
+        var button = jQuery(this);
+        //button.parent('div').addClass('hide');
+        button.parent('div').slideDown(800).fadeOut(300);
+        button.parent('div').prev().show(300) ;
+      });
+  </script>
+<% end -%>
 

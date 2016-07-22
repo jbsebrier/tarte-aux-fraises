@@ -14,8 +14,6 @@
 @import "pages/index";
 @import "vendor/index";
 
-
-
 .event-background{
 background-color: white;
 }
@@ -25,3 +23,14 @@ background-color: white;
   margin: 0 10px;
   font-size: 13px;
 }
+
+.btn-grey {
+  color: $our-white;
+  background-color: $our-gray;
+  border-color: $our-gray;
+}
+.btn-grey:hover {
+    color: $our-white;
+    background-color: #444;
+    border-color: #444;
+  }
