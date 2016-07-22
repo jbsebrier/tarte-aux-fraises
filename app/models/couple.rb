@@ -8,4 +8,6 @@ class Couple < ActiveRecord::Base
    has_many :events, dependent: :destroy
    has_attachments :photos, maximum: 5
 
+
+
 end
