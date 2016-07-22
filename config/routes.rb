@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
     resources :couples do
+        get 'my_events', to: 'events#my_index'
+        get 'my_events/:event_id', to: 'events#show'
       resources :events do
         resources :swipes
         get 'swipeleft', to: 'swipes#guest_swipe_left'

@@ -6,6 +6,10 @@ class EventsController < ApplicationController
     available_event_list
   end
 
+  def my_index
+
+  end
+
   def new
     @event = current_couple.events.new
   end
@@ -23,7 +27,6 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
 
