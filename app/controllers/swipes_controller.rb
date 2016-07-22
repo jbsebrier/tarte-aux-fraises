@@ -56,28 +56,39 @@ class SwipesController < ApplicationController
 
   def guest_swipe_right
     set_swipe
-    @current_swipe = swipe_exists?(set_swipe)
-    @current_swipe.guest_couple_swipe = true
-    @current_swipe.guest_couple_swipe_result = true
-    @current_swipe.save
-    check_match(@current_swipe)
-    if @current_swipe.match
-      check_participation(@current_swipe)
+    respond_to do  |format|
+      @current_swipe = swipe_exists?(set_swipe)
+      @current_swipe.guest_couple_swipe = true
+      @current_swipe.guest_couple_swipe_result = true
+      @current_swipe.save
+      # on check sil y a match
+      check_match(@current_swipe)
+      swipe_event_ids = Swipe.where(couple: current_couple, guest_couple_swipe: true).pluck(:event_id).uniq
+      @events_for_display = Event.where.not(id: swipe_event_ids, couple: current_couple).where("date > ?", Date.today)
+      if @current_swipe.match
+        check_participation(@current_swipe)
+      end
+      format.json {
+        render json: { current_swipe: @current_swipe, events: @events_for_display}
+      }
+
     end
-    redirect_to events_path
   end
 
   def guest_swipe_left
-  set_swipe
-    @current_swipe = swipe_exists?(set_swipe)
-    @current_swipe.guest_couple_swipe = true
-    @current_swipe.guest_couple_swipe_result = false
-    @current_swipe.save
-    check_match(@current_swipe)
-    if @current_swipe.match
-      check_participation(@current_swipe)
+    set_swipe
+    respond_to do  |format|
+      @current_swipe = swipe_exists?(set_swipe)
+      @current_swipe.guest_couple_swipe = true
+      @current_swipe.guest_couple_swipe_result = false
+      @current_swipe.save
+      check_match(@current_swipe)
+      swipe_event_ids = Swipe.where(couple: current_couple, guest_couple_swipe: true).pluck(:event_id).uniq
+      @events_for_display = Event.where.not(id: swipe_event_ids, couple: current_couple).where("date > ?", Date.today)
+      format.json {
+        render json: { current_swipe: @current_swipe, events: @events_for_display}
+      }
     end
-    redirect_to events_path
   end
 
   def check_match(swipe)
@@ -95,6 +106,7 @@ class SwipesController < ApplicationController
     if (swipe.event.max_n_guest_couples - @current_nb_of_guests) > 0
       swipe.participation = true
       swipe.save
+      # respond_to { |format| format.js} if swipe.participation
     end
   end
 

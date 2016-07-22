@@ -1,17 +1,4 @@
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3" id='swipe-no'></div>
-    <div class="col-xs-6 event-background " id="event-deck" >
-      <%= render 'swipes/event_deck', events_for_display: @events_for_display %>
-    </div>
-  <div class="col-xs-3" id='swipe-yes'></div>
-  </div>
-</div>
-
-<div id="popup">
-</div>
-
   <%= content_for(:after_js) do %>
       <script>
         $(document).ready(function(){
@@ -37,15 +24,11 @@
               var event_id = $('.active-card').attr("data-id");
               $.post( "/couples/"+ '<%= current_couple.id %>' +"/events/"+ event_id +"/swiperight", function( data ) {
                   if (data["current_swipe"]["participation"] == true) {
-                    swal({title: "Good job!", text: "It's a match!", type: "success", closeOnConfirm: false}, function(isConfirm){
-                          if (isConfirm) { location.reload(); }
-                        });
-
-
+                    if (confirm("it's a match !!!") == true) {
+                      location.reload();
+                    }
                   }
-                  else {
-                    location.reload();
-                  }
+                location.reload();
               });
 
             }
@@ -53,8 +36,3 @@
         });
       </script>
     <% end %>
-
-
-
-
-

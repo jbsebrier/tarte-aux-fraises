@@ -4,6 +4,7 @@
 //= require jquery_ujs
 //= require jquery.steps.js
 //= require jquery.steps.min.js
+//= require sweetalert
 //= require bootstrap-sprockets
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
