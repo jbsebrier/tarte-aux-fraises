@@ -17,6 +17,10 @@ gem "attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-underscore'
+end
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'

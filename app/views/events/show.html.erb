@@ -1,0 +1,68 @@
+<div class="bg-grey">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="card-event-profile text-center">
+        <%= cl_image_tag @event.couple.photos.first.path, height: 200, crop: :fill, class:"avatar-event-profile img-thumbnail" %>
+
+        <h3><%= @event.theme.name %> chez <%= @event.couple.couple_nickname %></h3>
+        <h5>Description</h5>
+        <h4><%= @event.description %></h4>
+        <h5>Couple organisateur</h5>
+        <h4><%= @event.couple.couple_nickname %>: <%= @event.couple.member1_name %> & <%= @event.couple.member2_name %></h4>
+        <h5>Date</h5>
+        <h4><%= l(@event.date, format: :default) %></h4>
+        <h5>Couples participants</h5>
+        <% @swipes_true.each do |st| %>
+        <h4><%= Couple.find_by(id: st.couple_id).couple_nickname %>: <%= Couple.find_by(id: st.couple_id).member1_name %> & <%= Couple.find_by(id: st.couple_id).member2_name %></h4>
+        <% end %>
+
+
+      </div>
+
+      <div class="card-event-profile">
+
+        <div class="form-inbox">
+
+          <%= simple_form_for @message, url: messages_path, method: :post do |f| %>
+            <%= f.error_notification %>
+            <%= f.hidden_field :couple_id,:value => current_couple.id %>
+            <%= f.hidden_field :event_id,:value => @event.id %>
+            <%= f.hidden_field :date,:value => Time.now %>
+            <%= f.input :content, label: false, placeholder: "Votre message..." %>
+            <%= f.button :submit, "Envoyer", class: "btn-inbox btn-custom"  %>
+          <% end %>
+
+        </div>
+
+
+        <div>
+          <% @event.messages.order(date: :desc).each do |message| %>
+            <% if message.couple == current_couple %>
+              <div class="message-current-user">
+                <%= cl_image_tag message.couple.photos.first.path, class:"avatar-large" %>
+                <h4><strong>Vous</strong></h4>
+                <h4><%= message.content %> </h4>
+                <p><em><%= l(message.date, format: :short) %></em></p>
+              </div>
+            <% else %>
+
+              <div class="message-other-user">
+                <%= cl_image_tag message.couple.photos.first.path, class:"avatar-large" %>
+                <h4><strong><%= message.couple.couple_nickname %></strong></h4>
+                <h4><%= message.content %> </h4>
+                <p><em><%= l(message.date, format: :short) %></em></p>
+              </div>
+            <%end %>
+          <% end %>
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

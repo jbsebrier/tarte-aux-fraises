@@ -6,6 +6,11 @@ class EventsController < ApplicationController
     available_event_list
   end
 
+  def my_index
+    @my_events = Event.where(couple: current_couple)
+    @participating_events = Event.joins(:swipes).where(swipes: { couple_id: current_couple.id, participation: true })
+  end
+
   def new
     @event = current_couple.events.new
   end
@@ -23,7 +28,9 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find_by(id: params[:id])
+    @message = Message.new()
+    @swipes_true = Swipe.where(event_id: params[:id], participation: true)
   end
 
 

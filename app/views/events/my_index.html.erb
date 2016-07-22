@@ -1,0 +1,121 @@
+<div class="bg-grey">
+
+  <div class="container">
+
+    <h1 class=text-center>Mes événements</h1>
+
+    <div class="line-separation">
+      <h2> Les événements que j'organise</h2>
+    </div>
+
+    <div class="row">
+      <div class="line-separation">
+        <h3> A venir</h3>
+      </div>
+      <% @my_events.each do |event| %>
+      <% next if event.date > Time.now %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card-events">
+            <div class="text-center">
+              <%= cl_image_tag event.couple.photos.first.path, height: 100, crop: :fill, class:"img-circle" %>
+              <h5><%= l(event.date, format: :short) %></h5>
+              <h4><strong>Organisateurs de l'événement</strong></h4>
+              <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
+              <h4><strong>Description de l'événement</strong></h4>
+              <p><%= event.description %></p>
+
+
+              <%= link_to "Communiquer", couple_event_path(current_couple, event), class: "btn btn-default btn-nice"%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+
+    </div>
+
+    <div class="row">
+      <div class="line-separation">
+        <h3> Passés</h3>
+      </div>
+      <% @my_events.each do |event| %>
+      <% next if event.date < Time.now %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card-events">
+            <div class="text-center">
+              <%= cl_image_tag event.couple.photos.first.path, height: 100, crop: :fill, class:"img-circle" %>
+              <h5><%= l(event.date, format: :short) %></h5>
+              <h4><strong>Organisateurs de l'événement</strong></h4>
+              <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
+              <h4><strong>Description de l'événement</strong></h4>
+              <p><%= event.description %></p>
+
+
+              <%= link_to "Communiquer", couple_event_path(current_couple, event), class: "btn btn-default btn-nice"%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+
+    </div>
+
+    <div class="line-separation">
+      <h2> Les événements auxquels je participe</h2>
+    </div>
+
+    <div class="row">
+      <div class="line-separation">
+        <h3> A venir</h3>
+      </div>
+      <% @participating_events.each do |event| %>
+      <% next if event.date > Time.now %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card-events">
+            <div class="text-center">
+              <%= cl_image_tag event.couple.photos.first.path, height: 100, crop: :fill, class:"img-circle" %>
+              <h5><%= l(event.date, format: :short) %></h5>
+              <h4><strong>Organisateurs de l'événement</strong></h4>
+              <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
+              <h4><strong>Description de l'événement</strong></h4>
+              <p><%= event.description %></p>
+
+
+              <%= link_to "Communiquer", couple_event_path(current_couple, event), class: "btn btn-default btn-nice"%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="row">
+      <div class="line-separation">
+        <h3> Passés</h3>
+      </div>
+      <% @participating_events.each do |event| %>
+      <% next if event.date < Time.now %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card-events">
+            <div class="text-center">
+              <%= cl_image_tag event.couple.photos.first.path, height: 100, crop: :fill, class:"img-circle" %>
+              <h5><%= l(event.date, format: :short) %></h5>
+              <h4><strong>Organisateurs de l'événement</strong></h4>
+              <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
+              <h4><strong>Description de l'événement</strong></h4>
+              <p><%= event.description %></p>
+
+
+              <%= link_to "Communiquer", couple_event_path(current_couple, event), class: "btn btn-default btn-nice"%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+
+
+  </div>
+
+</div>
