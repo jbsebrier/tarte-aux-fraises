@@ -1,5 +1,6 @@
 class Badge < ActiveRecord::Base
 
-  has_many :user_badges
+  has_many :couple_badges, dependent: :destroy
+  has_many :couples, through: :couple_badges
 end
 
