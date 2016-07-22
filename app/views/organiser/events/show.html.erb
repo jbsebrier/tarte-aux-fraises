@@ -6,6 +6,10 @@
         <p>Lieu <%= @event.city%></p>
         <p>Description <%= @event.description %> </p>
         <%= link_to("Supprimer", organiser_event_path(@event), method: :delete) %>
+        <%= link_to("Choix des participants", organiser_event_couples_path(@event)) %>
+        <%= link_to("Detail de l'evenement") %>
+        <%= link_to("Editer votre evenement", edit_organiser_event_path(@event)) %>
+
       </div>
   </div>
 </div>
