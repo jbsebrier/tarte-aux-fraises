@@ -1,17 +1,28 @@
-<div class="container">
-   <div class="row">
-     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <%= simple_form_for([:organiser, @event]) do |f| %>
-        <%= f.input :date, label: "A quelle date souhaitez-vous creer votre evenement ?" %>
-        <%= f.input :max_n_guest_couples, label: "Quel est le nombre de couples participants maximum?" %>
-        <%= f.association :theme , include_blank: false %>
-        <button id="random_button" name="button">Random</button>
-        <%= f.input :description, label: "Merci de detailler votre evenement" %>
-        <%= f.input :city, label: "Ou se tiendra votre evenement ?" %>
-        <%= f.button :submit %>
-      <% end %>
+<div class="background-form">
 
-   </div>
+  <div class="form-container">
+
+<br>
+
+    <div class="form-title" id="title-de-retour">
+      <h3>PROPOSEZ UN ÉVÉNEMENT</h3>
+    </div>
+
+    <div class="form-group form-inputs form-text">
+<!--      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+ -->    <%= simple_form_for([:organiser, @event]) do |f| %>
+          <%= f.input :date, label: "DATE DE L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
+          <%= f.input :max_n_guest_couples, label: "NB DE COUPLES PARTICIPANTS SOUHAITÉ ?", input_html: {:class => "form-inputs-background"} %>
+          <%= f.association :theme , label: "THÈME DE L'ÉVÉNEMENT", include_blank: false, input_html: {:class => "form-inputs-background"} %>
+          <button class="btn-marged form-submit-btn" id="random_button" name="button">AU HASARD</button>
+          <br>
+          <br>
+          <%= f.input :description, label: "DÉTAILS DE L'ÉVÉNEMENT", input_html: {:class => "form-inputs-background"} %>
+          <%= f.input :city, label: "LIEU DE L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
+          <%= submit_tag("C'EST PARTI !", class: "btn-marged form-submit-btn") %>
+        <% end %>
+
+    </div>
   </div>
 </div>
 
