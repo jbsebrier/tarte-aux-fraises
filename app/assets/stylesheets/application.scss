@@ -15,9 +15,6 @@
 @import "pages/index";
 @import "vendor/index";
 
-.event-background{
-background-color: white;
-}
 
 .btn-marged {
   padding: 13px 18px;
@@ -35,3 +32,11 @@ background-color: white;
     background-color: #444;
     border-color: #444;
   }
+
+.swipe-container {
+  background-color: $brand-color;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+
