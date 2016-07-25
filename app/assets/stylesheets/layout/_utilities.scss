@@ -56,8 +56,19 @@
   background-size: cover !important;
 }
 
-.form-title {
+.form-title h3 {
+  width: 300px;
   color: white;
+  font-weight: bolder;
+  font-size: 35px;
+  margin: 0 auto;
+  padding: 40px 0px;
+}
+#title-de-retour {
+  width: 300px;
+  color: white;
+  font-weight: bolder;
+  font-size: 35px;
   margin: 0 auto;
   padding: 20px 0px;
 }
@@ -68,7 +79,7 @@
 
 .form-inputs-background {
   background-color: $beige-light;
-  border-radius: 5px;
+  border-radius: none !important;
   margin-bottom: 30px;
   margin-top: 5px;
 }
@@ -79,8 +90,28 @@
   justify-content: left;
 }
 
+#couple_remember_me {
+  margin: 2px;
+  margin-left: -20px;
+}
+
 .form-btn-margin {
   margin: 20;
+}
+
+.form-submit-btn {
+  background-color: $brand-color;
+  color: white;
+  border: 1px solid white;
+  padding: 17px 20px;
+  font-size: 13px;
+  font-weight: bolder;
+  border-radius: none;
+}
+.form-submit-btn:hover {
+  background-color: white;
+  color: $brand-color;
+  transition: all 0.3s ease;
 }
 
 .form-footer {
@@ -92,12 +123,9 @@
 }
 .form-footer:hover {
   color:white;
+  transition: all 0.3s ease;
 }
 .form-footer a {
   padding: 0 20;
 }
 
-#couple_remember_me {
-  margin: 2px;
-  margin-left: -20px;
-}

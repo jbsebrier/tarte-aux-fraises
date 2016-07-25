@@ -2,7 +2,7 @@
 
   <div class="form-container">
 
-    <div class="form-title">
+    <div class="form-title" id="title-sign-up">
       <h3>BIENVENUE SUR TARTE AUX FRAISES</h3>
     </div>
 
@@ -11,13 +11,13 @@
 
       <div class="form-inputs form-text">
         <%= f.input :email, label: "VOTRE ADRESSE MAIL", required: true, placeholder: 'tarte@auxfraises.com', autofocus: true,  input_html: {:class => "form-inputs-background"} %>
-        <%= f.input :password, label: "VOTRE MOT DE PASSE", required: true, placeholder: 'Six caractères minimum',input_html: {:class => "form-inputs-background"} %>
+        <%= f.input :password, label: "VOTRE MOT DE PASSE", required: true, placeholder: 'six caractères minimum',input_html: {:class => "form-inputs-background"} %>
         <%= f.input :password_confirmation, label: "REDONNEZ-NOUS VOTRE MOT DE PASSE", required: true, placeholder: 'six caractères minimum',input_html: {:class => "form-inputs-background"} %>
         <%= f.input :remember_me, label: "SE SOUVENIR DE VOUS", as: :boolean if devise_mapping.rememberable? %>
       </div>
 
       <div class="form-actions form-btn-margin">
-        <%= f.button :submit, "ENREGISTREZ-VOUS" %>
+        <%= f.button :submit, "ENREGISTREZ-VOUS", :class => "form-submit-btn" %>
       </div>
     <% end %>
 

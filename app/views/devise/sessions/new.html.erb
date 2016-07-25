@@ -2,7 +2,7 @@
 
   <div class="form-container">
 
-    <div class="form-title">
+    <div class="form-title" id="title-de-retour">
       <h3>DE RETOUR PARMI NOUS ?</h3>
     </div>
 
@@ -13,8 +13,8 @@
         <%= f.input :remember_me, label: "SE SOUVENIR DE VOUS", as: :boolean if devise_mapping.rememberable? %>
       </div>
       <br>
-      <div class="form-actions form-btn-margin">
-        <%= f.button :submit, "CONNECTEZ-VOUS" %>
+      <div class="form-actions form-text">
+        <%= f.button :submit, "CONNECTEZ-VOUS", :class => "form-submit-btn" %>
       </div>
        <br>
     <% end %>
