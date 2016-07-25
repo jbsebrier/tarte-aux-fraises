@@ -8,9 +8,9 @@
 
     </div>
 
-    <ul id=myTabs class="nav nav-tabs">
-      <li role="presentation" class="active"><h2><%= link_to "Les événements que j'organise", "#organize", aria: { controls: 'organize'}, role: "tab", data: {toggle: "tab"} %></h2></li>
-      <li role="presentation"><h2><%= link_to "Les événements auxquels je participe", "#participate",  aria: { controls: 'participate'}, role: "tab", data: {toggle: "tab"}  %></h2></li>
+    <ul id=myTabs class="nav nav-tabs tabs">
+      <li role="presentation" class="tab active title-spacing"><h2><%= link_to "J'ORGANISE", "#organize", aria: { controls: 'organize'}, role: "tab", data: {toggle: "tab"} %></h2></li>
+      <li role="presentation" class="tab title-spacing"><h2><%= link_to "JE PARTICIPE", "#participate",  aria: { controls: 'participate'}, role: "tab", data: {toggle: "tab"}  %></h2></li>
     </ul>
 
     <div class="tab-content">

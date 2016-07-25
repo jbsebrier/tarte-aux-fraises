@@ -36,3 +36,44 @@
   letter-spacing: 0.2em;
 }
 
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px 0 10px
+}
+
+.tabs a {
+  color: white;
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+
+.tabs h2 {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.tab {
+  background: $fraise-light;
+  flex: 0 0 50%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.tab.active {
+  background: $brand-color;
+  color: black;
+}
+
+.tab:first-child {
+  border-radius: 10px 0 0 0;
+}
+.tab:last-child {
+  border-radius: 0 10px 0 0;
+}
