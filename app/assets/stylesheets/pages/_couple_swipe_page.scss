@@ -1,8 +1,7 @@
-
-
-.couple-background{
-  background-color: white;
-  height:350px;
+.couple-background {
+  background-color: $brand-color;
+  height:60vh;
+  border-radius: 3px;
   border: 1px solid #CCCCCC;
   display: flex;
   justify-content: space-around;
@@ -11,12 +10,17 @@
 
 
 .couple-card {
-  height:325px;
-  border: 1px solid #CCCCCC;
+  background-color: $white;
+  height: 58vh;
+  border: 2px solid $brand-color;
   border-radius: 3px;
   text-align: center;
   position: relative;
-
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
@@ -24,42 +28,4 @@
   font-size: 18px;
   font-weight: bold;
   margin: 3px;
-}
-
-.couple-picture {
-  position: absolute;
-  margin: 10px;
-}
-
-
-.swipe-btn {
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  text-align: center;
-  vertical-align: middle;
-}
-
-
-.swipe-left-btn {
-  position: absolute;
-  bottom: 10px;
-  left: 30px;
-  background-color: #E6E6E6;
-
-}
-
-.swipe-right-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 30px;
-  background-color: #F80C54;
-}
-
-#swipe-no {
-  height: 350px;
-}
-
-#swipe-yes {
-  height: 350px;
 }

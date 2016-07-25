@@ -1,53 +1,81 @@
 
-<div class="container">
+<div class="container-fluid swipe-container">
+  <div class="row row-interline">
+    <div class="col-xs-6 top-row-swipe-block swipe-no"></div>
+    <div class="col-xs-6 top-row-swipe-block swipe-yes"></div>
+  </div>
   <div class="row">
-    <div class="col-xs-3" id='swipe-no'></div>
-    <div class="col-xs-6 event-background " id="event-deck" >
+    <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-no"></div>
+    <div class="col-xs-8 col-sm-6 col-md-4 event-background" id="event-deck" >
       <%= render 'swipes/event_deck', events_for_display: @events_for_display %>
     </div>
-  <div class="col-xs-3" id='swipe-yes'></div>
+  <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-yes"></div>
+  </div>
+  <div class="row swipe-bottom">
+    <div class="col-xs-6 swipe-block-bottom swipe-no"></div>
+    <div class="col-xs-6 swipe-block-bottom swipe-yes"></div>
   </div>
 </div>
 
-<div id="popup">
-</div>
+
+
+
+
 
   <%= content_for(:after_js) do %>
       <script>
+
+
+        function swipeLeft(){
+            $('.active-card').hide();
+
+            var event_id = $('.active-card').attr("data-id");
+
+             $.ajax({
+                url:  "/couples/"+ '<%= current_couple.id %>' +"/events/"+ event_id +"/swipeleft",
+                type: 'POST',
+                dataType: "json",
+              });
+            location.reload();
+        }
+
+        function swipeRight() {
+          $('.active-card').hide();
+
+          var event_id = $('.active-card').attr("data-id");
+
+          $.post( "/couples/"+ '<%= current_couple.id %>' +"/events/"+ event_id +"/swiperight", function( data ) {
+              if (data["current_swipe"]["participation"] == true) {
+                swal({title: "Chic ! Ca matche !", text: "Vous vous plaisez mutuellement! l'évènement a donc été ajouté à votre liste d'évènements à venir. Consultez la page de l'évènement pour commencer à discuter avec les organisateurs et voir les autres participants ", type: "success", closeOnConfirm: false}, function(isConfirm){
+                      if (isConfirm) { location.reload(); }
+                    });
+              }
+              else {
+                location.reload();
+              }
+            });
+
+        }
+
         $(document).ready(function(){
-          $('.event-card').draggable();
-          $('#swipe-no').droppable({
+          $('.swipe-left-btn').on('click', function() {
+            swipeLeft();
+          });
+          $('.swipe-right-btn').on('click', function() {
+            swipeRight();
+          });
+
+
+          $('.event-card').draggable({ axis: "x",
+          zIndex: 2500 });
+          $('.swipe-no').droppable({
             drop: function(event, ui) {
-              $('.active-card').hide();
-              var event_id = $('.active-card').attr("data-id");
-               $.ajax({
-                  url:  "/couples/"+ '<%= current_couple.id %>' +"/events/"+ event_id +"/swipeleft",
-                  type: 'POST',
-                  dataType: "json",
-                  success: function(data) {
-                    console.log(data["current_swipe"]);
-                  }
-                });
-              location.reload();
+              swipeLeft();
             }
           });
-          $('#swipe-yes').droppable({
+          $('.swipe-yes').droppable({
             drop: function(event, ui) {
-              $('.active-card').hide();
-              var event_id = $('.active-card').attr("data-id");
-              $.post( "/couples/"+ '<%= current_couple.id %>' +"/events/"+ event_id +"/swiperight", function( data ) {
-                  if (data["current_swipe"]["participation"] == true) {
-                    swal({title: "Good job!", text: "It's a match!", type: "success", closeOnConfirm: false}, function(isConfirm){
-                          if (isConfirm) { location.reload(); }
-                        });
-
-
-                  }
-                  else {
-                    location.reload();
-                  }
-              });
-
+              swipeRight();
             }
           });
         });
