@@ -1,0 +1,86 @@
+.home-background{
+  background-color: $brand-color;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  height: 100%;
+  border: solid white 30px;
+
+}
+
+.pictures-flex-right{
+display: flex;
+align-items: center;
+justify-content: space-around;
+padding-top:30px;
+margin-right:-4%;
+
+}
+
+.pictures-flex-left{
+display: flex;
+align-items: center;
+justify-content: space-around;
+padding-top:30px;
+margin-left:-4%;
+
+}
+
+.logo-homepage{
+  width: 280px;
+  margin-top: 50px;
+}
+
+.baseline {
+  font-family: $logo-font;
+  color: $white;
+}
+
+.pictures {
+  margin-bottom: 50px;
+  margin-top: 30px;
+}
+
+.punchline {
+  font-family: $base-font;
+  color: $white;
+  font-weight: bolder;
+  letter-spacing: 0.2em;
+    padding: 10px;
+}
+
+.btn-home:hover{
+  color: white;
+}
+
+.circle-avatar{
+ width:150px;
+ height:auto;
+ display:block;
+ box-shadow: 2px 5px 5px #c30037;
+
+
+
+border-radius:50%;
+
+
+background-position-y: center;
+background-position-x: center;
+background-repeat: no-repeat;
+
+background-size: cover;
+
+/* it is optional, for making this div centered in parent*/
+margin: 0 auto;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+}
+
+
+// <div class ="row">
+//       <%= link_to "Envie d'une part ?", new_couple_session_path, method: :get, class: "btn btn-danger btn-marged" %>
+//       <!-- Bouton qui emmène vers le profil du couple -->
+//       <%= link_to "Se déconnecter", destroy_couple_session_path, method: :delete, class: "btn btn-danger btn-marged" %>
+//     </div>
