@@ -7,17 +7,25 @@
   <div class="row text-align pictures">
     <div class="col-xs-12 col-sm-6 ">
     <div class="pictures-flex-right">
-      <%= cl_image_tag("tarte_home1_uiw8uv.jpg"), class: "circle-avatar" %>
+      <%= cl_image_tag("tarte_home1_uiw8uv.jpg", :transformation=>[
+  {:width=>150, :height=>150, :gravity=>"face", :radius=>"max", :crop=>"crop"}
+  ]) %>
 
-    <%= cl_image_tag("tarte_home2_qejuzz.jpg"), class: "circle-avatar" %>
+    <%= cl_image_tag("tarte_home2_qejuzz.jpg"), :transformation=>[
+  {:width=>150, :height=>150, :gravity=>"face", :radius=>"max", :crop=>"crop"}
+  ])%>
     </div>
   </div>
 
     <div class="col-xs-12 col-sm-6">
     <div class="pictures-flex-left">
-      <%= cl_image_tag("tarte_home3_jtnreu.jpg"), class: "circle-avatar" %>
+      <%= cl_image_tag("tarte_home3_jtnreu.jpg"), :transformation=>[
+  {:width=>150, :height=>150, :gravity=>"face", :radius=>"max", :crop=>"crop"}
+  ])%>
 
-    <%= cl_image_tag("tarte_home4_lejh8o.jpg"), class: "circle-avatar" %>
+    <%= cl_image_tag("tarte_home4_lejh8o.jpg"), :transformation=>[
+  {:width=>150, :height=>150, :gravity=>"face", :radius=>"max", :crop=>"crop"}
+  ])%>
     </div>
    </div>
   </div>
