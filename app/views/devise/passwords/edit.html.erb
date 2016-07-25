@@ -1,19 +1,31 @@
-<h2>Change your password</h2>
+<div class="background-form">
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+  <div class="form-container">
 
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
+    <div class="form-title">
+      <h3>CHANGEZ VOTRE MOT DE PASSE</h3>
+    </div>
 
-  <div class="form-inputs">
-    <%= f.input :password, label: "New password", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
+
+      <%= f.input :reset_password_token, as: :hidden %>
+      <%= f.full_error :reset_password_token %>
+
+      <div class="form-inputs form-text">
+        <%= f.input :password, label: "VOTRE NOUVEAU MOT DE PASSE", required: true, placeholder: 'Six caractères minimum',input_html: {:class => "form-inputs-background"} %>
+        <%= f.input :password_confirmation, label: "REDONNEZ-NOUS VOTRE NOUVEAU MOT DE PASSE", required: true, placeholder: 'six caractères minimum',input_html: {:class => "form-inputs-background"} %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "CHANGEZ VOTRE MOT DE PASSE" %>
+      </div>
+    <% end %>
+
+    <div class="form-footer text-center">
+      <%= render "devise/shared/links" %>
+    </div>
+
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
