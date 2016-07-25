@@ -1,13 +1,31 @@
-<div class="container-fluid text-align">
+<div class="container-fluid text-align home-background">
 
-  <div class ="row">
-    <h1>Tarte aux fraises</h1>
+  <div class="text-center">
+    <%= image_tag"logo_blanc_home", class: "logo-homepage" %>
   </div>
 
-  <div class ="row">
-    <%= link_to "Envie d'une part ?", new_couple_session_path, method: :get, class: "btn btn-danger btn-marged" %>
-    <!-- Bouton qui emmène vers le profil du couple -->
-    <%= link_to "Se déconnecter", destroy_couple_session_path, method: :delete, class: "btn btn-danger btn-marged" %>
+  <div class="row text-align pictures">
+    <div class="col-xs-12 col-sm-6 ">
+    <div class="pictures-flex-right">
+      <%= image_tag"tarte_home1", class: "circle-avatar" %>
+
+    <%= image_tag"tarte_home2", class: "circle-avatar" %>
+    </div>
   </div>
 
+    <div class="col-xs-12 col-sm-6">
+    <div class="pictures-flex-left">
+      <%= image_tag"tarte_home3", class: "circle-avatar" %>
+
+    <%= image_tag"tarte_home4", class: "circle-avatar" %>
+    </div>
+   </div>
+  </div>
+
+  <div class="text-center">
+    <h1 class="punchline">BOUSCULEZ VOS RENCONTRES</h1>
+    <%= link_to "INCRIVEZ VOTRE COUPLE",new_couple_registration_path, {class: "punchline btn-home"} %>
+    <!-- <p class="punchline text-center">INCRIVEZ VOTRE COUPLE</p> -->
+
+  </div>
 </div>

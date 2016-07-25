@@ -14,24 +14,6 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+@import "homepage";
 
-.event-background{
-background-color: white;
-}
 
-.btn-marged {
-  padding: 13px 18px;
-  margin: 0 10px;
-  font-size: 13px;
-}
-
-.btn-grey {
-  color: $white;
-  background-color: $gray-light;
-  border-color: $gray-light;
-}
-.btn-grey:hover {
-    color: $white;
-    background-color: #444;
-    border-color: #444;
-  }
