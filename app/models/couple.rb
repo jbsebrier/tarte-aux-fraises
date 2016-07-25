@@ -11,6 +11,11 @@ class Couple < ActiveRecord::Base
    has_many :couple_badges
    has_many :badges, through: :couple_badges
 
-
-
+  def profile_pict
+    if self.photos.first.blank?
+      default_pict = "default-avatar_mszz7e.png"
+    else
+      self.photos.first.public_id
+    end
+  end
 end

@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     available_event_list
   end
 
-  def my_index
+  def my_events
     @my_events = Event.where(couple: current_couple)
     @participating_events = Event.joins(:swipes).where(swipes: { couple_id: current_couple.id, participation: true })
   end

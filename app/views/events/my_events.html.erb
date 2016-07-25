@@ -1,0 +1,137 @@
+
+  <div class="container">
+
+    <h1 class="text-center title-spacing">MES EVENEMENTS</h1>
+
+
+    <div class="line-separation">
+
+    </div>
+
+
+    <ul id=myTabs class="nav nav-tabs tabs">
+      <li role="presentation" class="tab active title-spacing"><h2><%= link_to "J'ORGANISE", "#organize", aria: { controls: 'organize'}, role: "tab", data: {toggle: "tab"} %></h2></li>
+      <li role="presentation" class="tab title-spacing"><h2><%= link_to "JE PARTICIPE", "#participate",  aria: { controls: 'participate'}, role: "tab", data: {toggle: "tab"}  %></h2></li>
+    </ul>
+
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="organize">
+        <div class="row">
+          <div class="line-separation">
+            <h3> A venir</h3>
+          </div>
+          <% @my_events.each do |event| %>
+          <% next if event.date < Time.now %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="card-events">
+                <div class="text-center">
+                  <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
+                  <h5><%= l(event.date, format: :short) %></h5>
+                  <h4><strong>Organisateurs de l'événement</strong></h4>
+                    <% if event.couple_id = current_couple.id %>
+                  <p>Vous<p>
+                    <% else %>
+                  <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
+                    <% end %>
+                  <h4><strong>Thème de l'événement</strong></h4>
+                  <p><%= Theme.find_by(id: event.theme_id).name %></p>
+
+                  <%= link_to "Communiquer", event_path(event), class: "btn btn-default btn-nice"%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+
+        <div class="row">
+          <div class="line-separation">
+            <h3> Passés</h3>
+          </div>
+          <% @my_events.each do |event| %>
+          <% next if event.date > Time.now %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="card-events">
+                <div class="text-center">
+                  <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
+                  <h5><%= l(event.date, format: :short) %></h5>
+                  <h4><strong>Organisateurs de l'événement</strong></h4>
+                    <% if event.couple_id = current_couple.id %>
+                  <p>Vous<p>
+                    <% else %>
+                  <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
+                    <% end %>
+                  <h4><strong>Thème de l'événement</strong></h4>
+                  <p><%= Theme.find_by(id: event.theme_id).name %></p>
+                  <%= link_to "Communiquer", event_path(event), class: "btn btn-default btn-nice"%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="participate">
+
+        <div class="row">
+          <div class="line-separation">
+            <h3> A venir</h3>
+          </div>
+          <% @participating_events.each do |event| %>
+          <% next if event.date < Time.now %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="card-events">
+                <div class="text-center">
+                  <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
+                  <h5><%= l(event.date, format: :short) %></h5>
+                  <h4><strong>Organisateurs de l'événement</strong></h4>
+                    <% if event.couple_id = current_couple.id %>
+                  <p>Vous<p>
+                    <% else %>
+                  <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
+                    <% end %>              <h4><strong>Thème de l'événement</strong></h4>
+                  <p><%= Theme.find_by(id: event.theme_id).name %></p>
+
+
+                  <%= link_to "Communiquer", event_path(event), class: "btn btn-default btn-nice"%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+
+
+        <div class="row">
+          <div class="line-separation">
+            <h3> Passés</h3>
+          </div>
+          <% @participating_events.each do |event| %>
+          <% next if event.date > Time.now %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="card-events">
+                <div class="text-center">
+                  <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
+                  <h5><%= l(event.date, format: :short) %></h5>
+                  <h4><strong>Organisateurs de l'événement</strong></h4>
+                    <% if event.couple_id = current_couple.id %>
+                  <p>Vous<p>
+                    <% else %>
+                  <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
+                    <% end %>              <h4><strong>Thème de l'événement</strong></h4>
+                  <p><%= Theme.find_by(id: event.theme_id).name %></p>
+
+
+                  <%= link_to "Communiquer", event_path(event), class: "btn btn-default btn-nice"%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
