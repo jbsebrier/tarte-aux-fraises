@@ -14,7 +14,7 @@ Theme.destroy_all
 Badge.destroy_all
 Couple.destroy_all
 
-["After Work", "Apéritif stylé", "Diner ", "Pique Nique", "Bal Costumé (et masqué)", "Brunch", "Soirée Coquine", "Pox`chette Surprise"].each do |theme_name|
+["After Work", "Apéritif stylé", "Diner ", "Pique Nique", "Bal Costumé (et masqué)", "Brunch", "Soirée Coquine", "Pochette Surprise"].each do |theme_name|
   Theme.create(name: theme_name )
 end
 

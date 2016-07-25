@@ -1,0 +1,14 @@
+<% couples_for_display.each do |couple| %>
+  <div class="couple-card front <%= couples_for_display.first == couple ? "active-card" : "hidden" %>" data-id="<%=couple.id%>" >
+    <div class="couple-description"> <%= couple.member1_name %> et <%= couple.member2_name %> </div>
+    <div class="couple-picture"> <%= image_tag couple.profile_pict, size:"170" %> </div>
+    <div class="button-container">
+      <%=link_to event_couple_swipeleft_path(@event, couple), method: :post, remote: true do %>
+        <div class="swipe-btn swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
+      <% end %>
+      <%= link_to event_couple_swipeleft_path(@event, couple), method: :post, remote: true do %>
+        <div class="swipe-btn swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "40" %></div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
