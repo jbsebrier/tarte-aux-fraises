@@ -10,6 +10,12 @@
   padding-bottom: 5em;
 }
 
+.btn-marged {
+  margin-right: 40px !important;
+  margin-left: 0 !important;
+  border-radius: 2px;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -28,14 +34,6 @@
   margin-top: 70px;
 }
 
-
-.basic_bg {
-  background-color: $brand-color;
-  height: 100vh;
-}
-
-
-
 .btn-nice {
   padding: 20px;
   font-size: 14px;
@@ -43,3 +41,123 @@
   margin: 10px 0px;
   margin: 0px 5px;
 }
+
+.background-form {
+  background-color: $brand-color;
+  text-align: center;
+  height: 100vh;
+  margin-top: -70px;
+  padding-top: 90px;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11.5px;
+}
+
+.background-profile {
+  background-color: $brand-color;
+  text-align: center;
+  height: 100vh;
+  margin-top: -70px;
+  padding-top: 90px;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11.5px;
+}
+
+.form-container-profile {
+  width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  background-size: cover !important;
+}
+
+.form-container {
+  width: 500px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  background-size: cover !important;
+}
+
+.form-title h3 {
+  width: 300px;
+  color: white;
+  font-weight: bolder;
+  font-size: 35px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+#title-de-retour {
+  width: 300px;
+  color: white;
+  font-weight: bolder;
+  font-size: 35px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.form-text {
+  color: white;
+}
+
+.form-text-profile {
+  color: white;
+  font-size: 14px;
+}
+
+.form-inputs-background {
+  background-color: $beige-light;
+  border-radius: none !important;
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+
+.form-inputs {
+  text-align: left;
+  align-items: left !important;
+  justify-content: left;
+}
+
+#couple_remember_me {
+  margin: 2px;
+  margin-left: -20px;
+}
+
+.form-btn-margin {
+  margin: 20;
+}
+
+.form-submit-btn {
+  background-color: $brand-color;
+  color: white;
+  border: 1px solid white;
+  padding: 17px 20px;
+  font-size: 13px;
+  font-weight: bolder;
+  border-radius: none;
+}
+.form-submit-btn:hover {
+  background-color: white;
+  color: $brand-color;
+  transition: all 0.3s ease;
+  border: 1px solid white;
+}
+
+.form-footer {
+  color: white;
+  text-decoration: none;
+  text-align: right;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.form-footer:hover {
+  color:white;
+  transition: all 0.3s ease;
+}
+.form-footer a {
+  padding: 0 20;
+}
+

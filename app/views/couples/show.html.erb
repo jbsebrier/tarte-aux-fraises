@@ -1,34 +1,38 @@
-<div class="container-fluid text-align">
-  <div class ="row">
-    <h2>Votre profil de couple</h2>
-  </div>
+<div class="background-form background-profile">
+
+  <div class="form-container-profile">
+
+    <div class="form-title" id="title-de-retour">
+      <h3> <%= @couple.couple_nickname.upcase %> </h3>
+    </div>
+
+      <ul class="list-unstyled form-text-profile text-center">
+        <br>
+        <br>
+        <br>
+        <li><% @couple.photos.each do |photo| %>
+          <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+        <% end %></li>
+        <br>
+        <br>
+        <li><%= @couple.about_couple %></li>
+        <li><%= @couple.couple_city %></li>
+        <li><%= @couple.email %></li>
+        <br>
+        <li><%= "#{@couple.member1_name}, #{@couple.age_member_1}, #{@couple.gender_member_1}" %></li>
+        <li><%= @couple.about_member1 %></li>
+        <br>
+        <li><%= "#{@couple.member2_name}, #{@couple.age_member_2}, #{@couple.gender_member_2}" %></li>
+        <li><%= @couple.about_member2 %></li>
+         <br>
+        <br>
+      </ul>
 
   <div class ="row">
-    <ul class="list-unstyled">
-      <br>
-      <br>
-      <br>
-      <li><% @couple.photos.each do |photo| %>
-        <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-      <% end %></li>
-      <li><%= @couple.couple_nickname %></li>
-      <li><%= @couple.about_couple %></li>
-      <li><%= @couple.couple_city %></li>
-      <li><%= @couple.email %></li>
-      <br>
-      <li><%= "#{@couple.member1_name}, #{@couple.age_member_1}, #{@couple.gender_member_1}" %></li>
-      <li><%= @couple.about_member1 %></li>
-      <br>
-      <li><%= "#{@couple.member2_name}, #{@couple.age_member_2}, #{@couple.gender_member_2}" %></li>
-      <li><%= @couple.about_member2 %></li>
-    </ul>
-  </div>
 
-  <br>
+      <%= link_to "PROPOSER UN EVENT", new_organiser_event_path, method: :get, class: "btn-marged form-submit-btn" %>
+      <%= link_to "EDITER LE PROFIL", my_profile_path, method: :get, class: "btn-marged form-submit-btn" %>
+      <%= link_to "AUTOUR DE NOUS", events_path, method: :get, class: "btn-marged form-submit-btn" %>
 
-  <div class ="row">
-      <%= link_to "Editer notre profil", my_profile_path, method: :get, class: "btn btn-danger btn-marged" %>
-      <%= link_to "Voir les événements autour de moi", events_path, method: :get, class: "btn btn-danger btn-marged" %>
-      <%= link_to "Organiser un dîner", new_organiser_event_path, method: :get, class: "btn btn-danger btn-marged" %>
   </div>
 </div>

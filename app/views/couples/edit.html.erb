@@ -1,92 +1,51 @@
-<div class= "basic_bg">
-  <div class="container">
+<div class="background-form">
 
-    <div class="row">
-      <h2 >Créez votre profil de couple -  <%= @couple.email %></h2>
+  <div class="form-container">
+
+    <div class="form-title" id="title-de-retour">
+      <h3>VOTRE PROFIL DE COUPLE</h3>
     </div>
 
     <%= simple_form_for @couple do |f| %>
     ​
-      <div class="row">
-        <div class="col-xs-offset-3 col-xs-6">
+      <div class="form-group form-inputs form-text">
+        <%= f.input :couple_nickname, label: 'CHOISISSEZ VOTRE PSEUDO DE COUPLE',required: true, placeholder: 'Les fraises de l\'amour', autofocus: true,  input_html: {:class => "form-inputs-background"} %>
 
-          <div class="form-group">
-            <%= f.input :about_couple, label: 'Parlez nous de vous deux !', error: 'Parlez nous de vous deux' %>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <h2>Ajoutez quelques photos de vous deux</h2>
-            <%= f.input :photos, as: :attachinary %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <%= f.input :couple_nickname, label: 'Choisissez un pseudo', error: 'Choisissez un pseudo' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <%= f.input :couple_city, label: 'Où vivez-vous ?', error: 'Où vivez-vous ?' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
+        <%= f.input :about_couple, label: 'PARLEZ-NOUS DE VOUS DEUX !', required: true, placeholder: 'Rencontrés il y a 5 ans autour d\'un dessert',input_html: {:class => "form-inputs-background"} %>
 
+        <%= f.input :couple_city, label: 'OÙ VIVEZ-VOUS ?', required: true, placeholder: 'Verone',input_html: {:class => "form-inputs-background"} %>
 
-          <div class="form-group" style="display: none">
-            <%= f.input :member1_name, label: 'Nom du 1er conjoint', error: 'Votre petit nom' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <%= f.input :about_member1, label: 'A propos du 1er conjoint', error: 'Présentez-vous aux autres couples' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <%= f.input :age_member_1, label: 'Age du premier conjoint', error: 'Renseignez votre âge' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <%= f.input :gender_member_1, label: 'Êtes-vous :', collection: ["M", "F"], error: 'Renseignez votre genre' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
+        <%= f.input :photos, as: :file, label: 'AJOUTEZ QUELQUES PHOTOS DE VOUS DEUX', required: true, input_html: { multiple: true } %>
+
+        <button class="next_step btn-marged form-submit-btn">SUIVANT</button>
+      </div>
+
+      <div class="form-group form-inputs form-text" style="display: none">
+        <h3>FRAISE N°1, DITES-NOUS EN PLUS :)</h2>
+        <br>
+        <%= f.input :member1_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background"}  %>
+        <%= f.input :about_member1, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background"} %>
+        <%= f.input :age_member_1, label: 'VOTRE AGE', required: true, placeholder: '32', input_html: {:class => "form-inputs-background"} %>
+        <%= f.input :gender_member_1, label: 'VOTRE SEXE', collection: ["Homme", "Femme"], required: true, placeholder: 'Homme / Femme', input_html: {:class => "form-inputs-background"} %>
+        <button class="previous_step btn-marged form-submit-btn">RETOUR</button>
+        <button class="next_step btn-marged form-submit-btn">SUIVANT</button>
+      </div>
 
 
-          <div class="form-group" style="display: none">
-            <%= f.input :member2_name, label: 'Nom du 2nd conjoint', error: 'Nom de votre moitié' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <%= f.input :about_member2, label: 'A propos du 2nd conjoint', error: 'Présentez-vous aux autres couples' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <%= f.input :age_member_2, label: 'Age du 2nd conjoint', error: 'Renseignez votre âge' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <%= f.input :gender_member_2, label: 'Êtes-vous :', collection: ["M", "F"], error: 'Renseignez votre genre' %>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <button class="next_step btn btn-danger btn-marged">Next</button>
-          </div>
-          <div class="form-group" style="display: none">
-            <h2>Vous êtes prêts ? Découvrez votre profil</h2>
-            <button class="previous_step btn btn-marged btn-grey">Prev</button>
-            <%= submit_tag("Envoyer", class: "btn btn-danger btn-marged") %>
-          </div>
-
-
-        </div>
+      <div class="form-group form-inputs form-text" style="display: none">
+        <h3>FRAISE N°2, A VOTRE TOUR !</h2>
+        <br>
+        <%= f.input :member2_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background"} %>
+        <%= f.input :about_member2, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background"} %>
+        <%= f.input :age_member_2, label: 'VOTRE AGE', required: true, placeholder: '32', input_html: {:class => "form-inputs-background"} %>
+        <%= f.input :gender_member_2, label: 'VOTRE SEXE', collection: ["Homme", "Femme"], required: true, placeholder: 'Homme / Femme', input_html: {:class => "form-inputs-background"} %>
+        <button class="previous_step btn-marged form-submit-btn">RETOUR</button>
+        <%= submit_tag("DÉCOUVREZ VOTRE PROFIL", class: "btn-marged form-submit-btn") %>
       </div>
 
     <% end -%>
-​
- </div>
+
+  </div>
 </div>
 
 <% content_for(:after_js) do %>
