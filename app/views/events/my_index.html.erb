@@ -17,7 +17,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card-events">
             <div class="text-center">
-              <%= cl_image_tag event.couple.photos.first.path, height: 100, crop: :fill, class:"img-circle" %>
+              <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
               <h5><%= l(event.date, format: :short) %></h5>
               <h4><strong>Organisateurs de l'événement</strong></h4>
               <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
@@ -43,7 +43,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card-events">
             <div class="text-center">
-              <%= cl_image_tag event.couple.photos.first.path, height: 100, crop: :fill, class:"img-circle" %>
+              <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
               <h5><%= l(event.date, format: :short) %></h5>
               <h4><strong>Organisateurs de l'événement</strong></h4>
               <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
@@ -73,7 +73,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card-events">
             <div class="text-center">
-              <%= cl_image_tag event.couple.photos.first.path, height: 100, crop: :fill, class:"img-circle" %>
+              <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
               <h5><%= l(event.date, format: :short) %></h5>
               <h4><strong>Organisateurs de l'événement</strong></h4>
               <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
@@ -98,7 +98,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card-events">
             <div class="text-center">
-              <%= cl_image_tag event.couple.photos.first.path, height: 100, crop: :fill, class:"img-circle" %>
+              <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
               <h5><%= l(event.date, format: :short) %></h5>
               <h4><strong>Organisateurs de l'événement</strong></h4>
               <p><%= Couple.find_by(id: event.couple_id).couple_nickname %><p>
