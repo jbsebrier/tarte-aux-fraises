@@ -17,7 +17,7 @@ class SwipesController < ApplicationController
   end
 
   def swipe_exists?(tested_swipe)
-    @event_swipes = Swipe.all.select { |swipe| swipe.event == tested_swipe.event }
+    @event_swipes = Swipe.all.where(event: tested_swipe.event)
     @event_couple_swipe = @event_swipes.select { |swipe| swipe.couple == tested_swipe.couple}
 
     if @event_couple_swipe.length == 0
@@ -29,29 +29,44 @@ class SwipesController < ApplicationController
   end
 
   def organiser_swipe_right
+
     set_swipe
-    @current_swipe = swipe_exists?(set_swipe)
-    @current_swipe.organizing_couple_swipe = true
-    @current_swipe.organizing_couple_swipe_result = true
-    @current_swipe.save
-    check_match(@current_swipe)
-    if @current_swipe.match
-      check_participation(@current_swipe)
+    respond_to do  |format|
+      @current_swipe = swipe_exists?(set_swipe)
+      @current_swipe.organizing_couple_swipe = true
+      @current_swipe.organizing_couple_swipe_result = true
+      @current_swipe.save
+      # on check sil y a match
+      check_match(@current_swipe)
+      swipe_couple_ids = Swipe.where(event: @event, organizing_couple_swipe: true).pluck(:couple_id)
+      @couples_for_display = Couple.where.not(id: swipe_couple_ids).where.not(id: current_couple.id)
+      if @current_swipe.match
+        check_participation(@current_swipe)
+      end
+      format.json {
+        render json: { current_swipe: @current_swipe, couples: @couples_for_display}
+      }
     end
-    redirect_to organiser_event_couples_path(@event)
   end
 
   def organiser_swipe_left
-    set_swipe
-    @current_swipe = swipe_exists?(set_swipe)
-    @current_swipe.organizing_couple_swipe = true
-    @current_swipe.organizing_couple_swipe_result = false
-    @current_swipe.save
-    check_match(@current_swipe)
-    if @current_swipe.match
-      check_participation(@current_swipe)
+     set_swipe
+    respond_to do  |format|
+      @current_swipe = swipe_exists?(set_swipe)
+      @current_swipe.organizing_couple_swipe = true
+      @current_swipe.organizing_couple_swipe_result = false
+      @current_swipe.save
+      # on check sil y a match
+      check_match(@current_swipe)
+      swipe_couple_ids = Swipe.where(event: @event, organizing_couple_swipe: true).pluck(:couple_id)
+      @couples_for_display = Couple.where.not(id: swipe_couple_ids).where.not(id: current_couple.id)
+      if @current_swipe.match
+        check_participation(@current_swipe)
+      end
+      format.json {
+        render json: { current_swipe: @current_swipe, couples: @couples_for_display}
+      }
     end
-    redirect_to organiser_event_couples_path(@event)
   end
 
   def guest_swipe_right
@@ -65,13 +80,9 @@ class SwipesController < ApplicationController
       check_match(@current_swipe)
       swipe_event_ids = Swipe.where(couple: current_couple, guest_couple_swipe: true).pluck(:event_id).uniq
       @events_for_display = Event.where.not(id: swipe_event_ids, couple: current_couple).where("date > ?", Date.today)
-      if @current_swipe.match
-        check_participation(@current_swipe)
-      end
       format.json {
         render json: { current_swipe: @current_swipe, events: @events_for_display}
       }
-
     end
   end
 
