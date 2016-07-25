@@ -5,10 +5,10 @@
     <div class="organiser-picture"> <%= image_tag event.couple.couple_picture, size:"170" %> </div>
     <div class="button-container">
       <%=link_to couple_event_swipeleft_path(current_couple, event), method: :post, remote: true do %>
-        <div class="swipe-btn swipe-left-btn"> <%= image_tag 'patate-small.png', size: "50x30" %> </div>
+        <div class="swipe-btn swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
       <% end %>
       <%= link_to couple_event_swiperight_path(current_couple, event), method: :post, remote: true do %>
-        <div class="swipe-btn swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "50" %></div>
+        <div class="swipe-btn swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "40" %></div>
       <% end %>
     </div>
   </div>
