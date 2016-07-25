@@ -17,7 +17,7 @@ class SwipesController < ApplicationController
   end
 
   def swipe_exists?(tested_swipe)
-    @event_swipes = Swipe.all.select { |swipe| swipe.event == tested_swipe.event }
+    @event_swipes = Swipe.all.where(event: tested_swipe.event)
     @event_couple_swipe = @event_swipes.select { |swipe| swipe.couple == tested_swipe.couple}
 
     if @event_couple_swipe.length == 0
@@ -71,7 +71,6 @@ class SwipesController < ApplicationController
       format.json {
         render json: { current_swipe: @current_swipe, events: @events_for_display}
       }
-
     end
   end
 

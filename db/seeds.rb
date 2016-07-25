@@ -8,12 +8,13 @@
 
 
 Swipe.destroy_all
+Message.destroy_all
 Event.destroy_all
 Theme.destroy_all
 Badge.destroy_all
 Couple.destroy_all
 
-["After Work", "Apero", "Dinner", "Pique Nique", "Costume", "Brunch", "Coquine", "Pochette Surprise"].each do |theme_name|
+["After Work", "Apéritif stylé", "Diner ", "Pique Nique", "Bal Costumé (et masqué)", "Brunch", "Soirée Coquine", "Pox`chette Surprise"].each do |theme_name|
   Theme.create(name: theme_name )
 end
 
@@ -28,7 +29,7 @@ Couple.create(email: '4thcouple@gmail.com', couple_nickname: 'couple4', password
 Couple.create(email: '5thcouple@gmail.com', couple_nickname: 'couple5', password: '123456', member1_name: 'Marie', member2_name: 'Mary', about_member1: 'Shopping fan', about_member2: 'Climbing fan')
 
 Couple.all.each do |couple|
- 2.times do
+ 5.times do
  couple.events.create!(
    date: Faker::Date.between(1.day.ago, 1.year.from_now),
    city: FFaker::AddressFR.city,
@@ -40,5 +41,5 @@ Couple.all.each do |couple|
  end
 end
 
-Swipe.create(event_id: 284, couple_id: 32, organizing_couple_swipe_result: true)
-Swipe.create(event_id: 283, couple_id: 32, organizing_couple_swipe_result: true)
+# Swipe.create(event_id: 284, couple_id: 32, organizing_couple_swipe_result: true)
+# Swipe.create(event_id: 283, couple_id: 32, organizing_couple_swipe_result: true)
