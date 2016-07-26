@@ -32,6 +32,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'devise'
 gem 'devise-i18n'
+gem "rails-i18n"
 gem 'rails-assets-sweetalert', source: 'https://rails-assets.org'
 
 group :development, :test do

@@ -5,6 +5,7 @@ class Couple < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
    has_many :swipes
+   has_many :event_swipes, through: :events, source: :swipes
    has_many :events, dependent: :destroy
    has_many :messages
    has_attachments :photos, maximum: 5
