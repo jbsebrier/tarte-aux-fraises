@@ -75,6 +75,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.1.0)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
@@ -225,6 +226,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails
   devise
+  devise-i18n
   faker
   ffaker
   figaro
