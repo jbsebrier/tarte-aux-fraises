@@ -1,15 +1,21 @@
-<div class="background-form background-profile">
+<div class=" background-couple-show">
 
   <div class="form-container-profile">
 
-    <div class="form-title" id="title-de-retour">
+    <div class="form-home-title" id="title-de-retour">
       <h3> <%= @couple.couple_nickname.upcase %> </h3>
     </div>
 
-      <ul class="list-unstyled form-text-profile text-center">
-        <br>
-        <br>
-        <br>
+      <div class="list-unstyled form-home-text-profile text-center flex-home-container">
+        <div class="flex-home-item">
+        <%= "#{@couple.member1_name}, #{@couple.age_member_1}, #{@couple.gender_member_1}" %>
+        <%= @couple.about_member1 %>
+        </div>
+        <div class="flex-home-item">
+        <%= "#{@couple.member2_name}, #{@couple.age_member_2}, #{@couple.gender_member_2}" %>
+        <%= @couple.about_member2 %>
+        </div>
+      </div>
 
 
         <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -45,20 +51,14 @@
           </a>
         </div>
 
-        <br>
-        <br>
-        <li><%= @couple.about_couple %></li>
-        <li><%= @couple.couple_city %></li>
-        <li><%= @couple.email %></li>
-        <br>
-        <li><%= "#{@couple.member1_name}, #{@couple.age_member_1}, #{@couple.gender_member_1}" %></li>
-        <li><%= @couple.about_member1 %></li>
-        <br>
-        <li><%= "#{@couple.member2_name}, #{@couple.age_member_2}, #{@couple.gender_member_2}" %></li>
-        <li><%= @couple.about_member2 %></li>
-         <br>
-        <br>
-      </ul>
+
+        <div><%= @couple.about_couple %>
+        </div>
+        <div><%= @couple.couple_city %>
+        </div>
+        <div> <%= @couple.email %>
+        </div>
+
 
   <div class ="row">
 
@@ -67,4 +67,6 @@
       <%= link_to "AUTOUR DE NOUS", events_path, method: :get, class: "btn-marged form-submit-btn" %>
 
   </div>
+ </div>
+</div>
 </div>
