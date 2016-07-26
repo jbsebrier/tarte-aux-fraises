@@ -116,6 +116,8 @@ class SwipesController < ApplicationController
     @current_nb_of_guests = swipe.event.swipes.where(participation: true).count
     if (swipe.event.max_n_guest_couples - @current_nb_of_guests) > 0
       swipe.participation = true
+      swipe.notification_couple = true
+      swipe.notification_event = true
       swipe.save
       # respond_to { |format| format.js} if swipe.participation
     end

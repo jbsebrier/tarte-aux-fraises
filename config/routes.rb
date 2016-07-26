@@ -31,7 +31,9 @@ Rails.application.routes.draw do
 
   resources :messages, only: [:new, :create, :destroy]
 
-  resources :events
+  resources :events do
+    patch :notification_false
+  end
 
   # Attachinary route
   mount Attachinary::Engine => "/attachinary"
