@@ -30,5 +30,13 @@ fr:
           attributes:
             email:
               blank: ""
+              invalid:
+                blank: ""
             password:
               blank: ""
+              too_short:
+                zero: ""
+                one: ""
+                other: ""
+            password_confirmation:
+              confirmation: ""
