@@ -2,6 +2,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require flip
 //= require jquery.steps.js
 //= require jquery.steps.min.js
 //= require sweetalert

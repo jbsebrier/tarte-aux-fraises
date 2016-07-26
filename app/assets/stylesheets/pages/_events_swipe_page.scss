@@ -12,21 +12,30 @@
 
 
 .event-card {
-  background-color: $white;
   height: 58vh;
   border: 2px solid $brand-color;
   border-radius: 3px;
   text-align: center;
-  position: relative;
+
   flex: 1 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  position:relative;
 }
 
-.event-date{
+.event-card-front {
+background-color: $beige-light;
+}
 
+.event-card-back {
+background-color: $beige-light;
+}
+
+
+.event-date{
+ margin: 10px;
 }
 
 .event-description {
@@ -36,9 +45,18 @@
 }
 
 .organiser-picture {
-
+height: 140px;
 
 }
+
+
+
+.main-swipe-row {
+  width: 100vw;
+  position: absolute;
+}
+
+
 
 
 .swipe-btn {
@@ -64,9 +82,8 @@
 .button-container {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
-  width: 80%;
-
+  padding: 70px;
+  width: 100%;
 }
 
 
@@ -75,6 +92,8 @@
 .swipe-block {
   height: 60vh;
   background-color :$white;
+  z-index: -1;
+  position: relative;
 }
 
 .top-row-swipe-block {
@@ -97,5 +116,28 @@
   background-color: $white;
 }
 
+.back-event-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+}
 
+.back-event-description {
+ margin: 10px;
+}
+
+.back-no-guests {
+  margin: 10px;
+
+}
+
+.end-card {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
 

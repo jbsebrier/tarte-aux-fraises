@@ -4,17 +4,17 @@
     <div class="col-xs-6 top-row-swipe-block swipe-no"></div>
     <div class="col-xs-6 top-row-swipe-block swipe-yes"></div>
   </div>
-  <div class="row">
-    <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-no"></div>
-    <div class="col-xs-8 col-sm-6 col-md-4 event-background" id="event-deck" >
-      <%= render 'swipes/event_deck', events_for_display: @events_for_display %>
-    </div>
-  <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-yes"></div>
+
+    <div class="row main-swipe-row">
+      <!-- <div class="main-swipe-row"> -->
+        <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-no"></div>
+        <div class="col-xs-8 col-sm-6 col-md-4 event-background" id="event-deck" >
+          <%= render 'swipes/event_deck', events_for_display: @events_for_display %>
+        </div>
+        <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-yes"></div>
+    <!-- </div> -->
   </div>
-  <div class="row swipe-bottom">
-    <div class="col-xs-6 swipe-block-bottom swipe-no"></div>
-    <div class="col-xs-6 swipe-block-bottom swipe-yes"></div>
-  </div>
+
 </div>
 
 
@@ -24,6 +24,37 @@
 
   <%= content_for(:after_js) do %>
       <script>
+
+      $('#current-active-card').flip();
+
+
+        function moveLeft() {
+          var elem = document.getElementById("current-active-card");
+          var pos = 0;
+          var id = setInterval(frame, 1);
+          function frame() {
+              if (pos == 400) {
+                clearInterval(id);
+              } else {
+                pos++;
+                elem.style.right = 6*pos + 'px';
+              }
+            }
+          }
+
+        function moveRight() {
+          var elem = document.getElementById("current-active-card");
+          var pos = 0;
+          var id = setInterval(frame, 1);
+          function frame() {
+              if (pos == 400) {
+                clearInterval(id);
+              } else {
+                pos++;
+                elem.style.left = 6*pos + 'px';
+              }
+            }
+          }
 
 
         function swipeLeft(){
@@ -59,14 +90,34 @@
 
         $(document).ready(function(){
           $('.swipe-left-btn').on('click', function() {
-            swipeLeft();
+            moveLeft();
+            setTimeout(function(){
+              swipeLeft();
+            }, 300);
           });
           $('.swipe-right-btn').on('click', function() {
-            swipeRight();
+            moveRight();
+            setTimeout(function(){
+              swipeRight();
+            }, 300);
+          });
+
+          $(document).on('keyup', function(event) {
+            if (event.keyCode == 37) {
+              moveLeft();
+              setTimeout(function(){
+                swipeLeft();
+              }, 300);
+            } else if (event.keyCode == 39) {
+              moveRight();
+              setTimeout(function(){
+              swipeRight();
+            }, 300);
+            }
           });
 
 
-          $('.event-card').draggable({ axis: "x",
+          $('.active-card').draggable({ axis: "x",
           zIndex: 2500 });
           $('.swipe-no').droppable({
             drop: function(event, ui) {

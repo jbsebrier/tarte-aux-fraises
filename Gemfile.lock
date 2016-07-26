@@ -153,6 +153,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.6)
       sprockets-rails
+    rails-assets-flip (1.1.1)
+      rails-assets-jquery (~> 2.0)
+    rails-assets-jquery (2.2.4)
     rails-assets-sweetalert (1.1.3)
     rails-assets-underscore (1.8.3)
     rails-deprecated_sanitizer (1.0.3)
@@ -241,6 +244,7 @@ DEPENDENCIES
   pundit
   quiet_assets
   rails (= 4.2.6)
+  rails-assets-flip!
   rails-assets-sweetalert!
   rails-assets-underscore!
   rails_12factor
