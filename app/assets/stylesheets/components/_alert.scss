@@ -3,15 +3,33 @@
 * ------------------------------------- */
 
 .alert {
-  margin: 0;
-  position: absolute;
-  text-align: center;
-  color: white;
   z-index: 12;
+  margin-top: 70px;
+  text-align: center;
+  color: $brand-color;
+  position:fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  width: 100%;
 }
+
 .alert-info {
-  background: $green;
+  background: $white;
 }
+
 .alert-warning {
-  background: $red;
+  background: $white;
+}
+
+.alert-danger {
+  z-index: 12;
+  margin-top: 70px;
+  text-align: center;
+  color: $brand-color;
+  position:fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  width: 100%;
 }
