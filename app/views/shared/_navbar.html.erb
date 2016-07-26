@@ -1,26 +1,27 @@
 <div class="navbar-wagon navbar-wagon-fixed navbar-<%= controller.controller_name %> navbar-<%= controller.controller_name %>-<%= action_name %>">
   <!-- Logo -->
-  <% if action_name == "home" %>
+  <% if action_name == "home" || controller.controller_name == "sessions" || controller.controller_name == "registrations" || controller.controller_name == "passwords" || controller.controller_name == "events" && action_name == "edit" || controller.controller_name == "events" && action_name == "new" %>
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "fraise_rose_navbar.png" %>
     <% end %>
   <% else %>
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
-      <%= image_tag "fraise-blanc.png" %>
+      <%= image_tag "fraise-fond-rose.png" %>
     <% end %>
   <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+
+    <!-- Different navigation if login or not -->
+    <% if couple_signed_in? %>
+
     <!-- Create an event -->
     <%= link_to t(".sign_in", default: "Organiser un événement"), new_organiser_event_path, class: "navbar-item navbar-wagon-link" %>
 
     <!-- Swipe events -->
     <%= link_to t(".sign_in", default: "Trouver un événement"), events_path, class: "navbar-item navbar-wagon-link" %>
-
-    <!-- Different navigation if login or not -->
-    <% if couple_signed_in? %>
 
     <%= link_to t(".sign_in", default: "Mes événements"), couple_my_events_path(current_couple), class: "navbar-item navbar-wagon-link" %>
 
