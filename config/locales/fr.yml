@@ -40,3 +40,8 @@ fr:
                 other: ""
             password_confirmation:
               confirmation: ""
+  date:
+    formats:
+      short: "%d / %m / %Y"
+      default: "%A %d %B %Y"
+
