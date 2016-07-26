@@ -81,7 +81,7 @@ fr:
         we_need_your_current_password_to_confirm_your_changes: nous avons besoin de votre mot de passe actuel pour valider ces modifications
       new:
         sign_up: Inscription
-      signed_up: Bienvenue ! Vous vous êtes enregistré(e) avec succès.
+      signed_up: Bienvenue sur Tarte aux Fraises! Passons à votre profil de couple :)
       signed_up_but_inactive: Vous vous êtes enregistré(e) avec succès. Cependant, nous n’avons pas pu vous connecter car votre compte n’a pas encore été activé.
       signed_up_but_locked: Vous vous êtes enregistré(e) avec succès. Cependant, nous n’avons pas pu vous connecter car votre compte est verrouillé.
       signed_up_but_unconfirmed: Un message avec un lien de confirmation vous a été envoyé par mail. Veuillez suivre ce lien pour activer votre compte.
@@ -91,8 +91,8 @@ fr:
       already_signed_out: Déconnecté(e).
       new:
         sign_in: Connexion
-      signed_in: Connecté(e) avec succès.
-      signed_out: Déconnecté(e) avec succès.
+      signed_in: Bon retour parmi nous :) De quoi avez-vous envie aujourd'hui ?
+      signed_out: A bientôt, tout le monde a hâte de vous revoir !
     shared:
       links:
         back: Retour
