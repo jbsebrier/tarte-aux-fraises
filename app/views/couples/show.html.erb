@@ -10,9 +10,41 @@
         <br>
         <br>
         <br>
-        <li><% @couple.photos.each do |photo| %>
-          <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-        <% end %></li>
+
+
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <% @couple.photos.each_index do |index| %>
+              <li data-target="#carousel-example-generic" data-slide-to="<%= index %>"></li>
+            <% end %>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner" role="listbox">
+            <% @couple.photos.each_with_index do |photo, index| %>
+              <% if index == 0 %>
+                <div class="item active">
+              <% else %>
+                <div class="item">
+              <% end %>
+
+              <%= cl_image_tag(photo.path, width: 500, height: 280, crop: :fill)  %>
+              </div>
+            <% end %>
+          </div>
+
+          <!-- Controls -->
+          <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
         <br>
         <br>
         <li><%= @couple.about_couple %></li>
