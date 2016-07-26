@@ -68,6 +68,27 @@
   font-size: 11.5px;
 }
 
+.background-couple-show{
+
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  height: 100%;
+  border: $brand-color 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11.5px;
+  text-align: center;
+  h3,li {
+  color: #aeaeae;
+  font-weight: bolder;
+  font-size: 20px;
+  margin: 0 auto;
+}
+}
+
 .form-container-profile {
   width: 1000px;
   margin: 0 auto;
@@ -90,6 +111,16 @@
   margin: 0 auto;
   padding-top: 20px;
 }
+
+.form-home-title h3 {
+  width: 300px;
+  color: #aeaeae;
+  font-weight: bolder;
+  font-size: 35px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
 #title-de-retour {
   width: 300px;
   color: white;
@@ -105,6 +136,11 @@
 
 .form-text-profile {
   color: white;
+  font-size: 14px;
+}
+
+.form-home-text-profile {
+  color: #aeaeae;
   font-size: 14px;
 }
 
@@ -161,3 +197,19 @@
   padding: 0 20;
 }
 
+.flex-home-container{
+  display: -webkit-flex;
+    display: flex;
+    width: 400px;
+    height: 250px;
+    background-color: $brand-color;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.flex-home-item{
+// background-color: $brand-color;
+    width: 200px;
+    height: 250px;
+    margin: 10px;
+}
