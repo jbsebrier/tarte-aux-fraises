@@ -1,24 +1,24 @@
-// Nos steps qui deconnent
-          $(".next_step").on("click", function(event){
-            event.preventDefault();
-            var button = jQuery(this);
-            button.parent().slideUp( "slow", function() {
-              done:  button.parent('div').addClass('hide');
-            });
+// // Nos steps qui deconnent
+//           $(".next_step").on("click", function(event){
+//             event.preventDefault();
+//             var button = jQuery(this);
+//             button.parent().slideUp( "slow", function() {
+//               done:  button.parent('div').addClass('hide');
+//             });
 
-            button.parent('div').next().removeClass('hide');
-          })
+//             button.parent('div').next().removeClass('hide');
+//           })
 
-          $(".previous_step").on("click", function(event){
-            event.preventDefault();
-            var button = jQuery(this);
-            button.parent().slideUp( "slow", function() {
-              done:  button.parent('div').addClass('hide');
-            });
+//           $(".previous_step").on("click", function(event){
+//             event.preventDefault();
+//             var button = jQuery(this);
+//             button.parent().slideUp( "slow", function() {
+//               done:  button.parent('div').addClass('hide');
+//             });
 
-            console.log(button.parent('div').prev());
-            button.parent('div').prev().removeClass('hide');
-          })
+//             console.log(button.parent('div').prev());
+//             button.parent('div').prev().removeClass('hide');
+//           })
 
 
 
