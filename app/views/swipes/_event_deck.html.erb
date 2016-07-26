@@ -1,15 +1,35 @@
 <% events_for_display.each do |event| %>
-  <div class="event-card front <%= events_for_display.first == event ? "active-card" : "hidden" %>" data-id="<%=event.id%>" >
-    <div class="event-date"> <em><%= event.date %></em></div>
-    <div class="event-description"> <%=event.theme.name %> <br> chez <br> <%= event.couple.member1_name %> et <%= event.couple.member2_name %> </div>
-    <div class="organiser-picture"> <%= cl_image_tag(event.couple.couple_picture, size:"170") %> </div>
-    <div class="button-container">
-      <%=link_to couple_event_swipeleft_path(current_couple, event), method: :post, remote: true do %>
-        <div class="swipe-btn swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
-      <% end %>
-      <%= link_to couple_event_swiperight_path(current_couple, event), method: :post, remote: true do %>
-        <div class="swipe-btn swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "40" %></div>
-      <% end %>
+  <div class="event-card <%= events_for_display.first == event ? "active-card" : "hidden" %>" data-id="<%=event.id%>" id="current-active-card">
+    <div class="front event-card-front">
+      <div class="event-date"> <em><%= event.date %></em></div>
+      <div class="event-description"> <%=event.theme.name %> <br> chez <br> <%= event.couple.member1_name %> et <%= event.couple.member2_name %> </div>
+      <div class="organiser-picture"> <%= cl_image_tag(event.couple.couple_picture, size:"170") %> </div>
+      <div class="button-container">
+        <%=link_to couple_event_swipeleft_path(current_couple, event), method: :post, remote: true do %>
+          <div class="swipe-btn swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
+        <% end %>
+        <%= link_to couple_event_swiperight_path(current_couple, event), method: :post, remote: true do %>
+          <div class="swipe-btn swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "150x100" %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="back event-card-back">
+      <div class="back-event-title">
+      <%=event.theme.name %>
+      </div>
+      <div class="back-event-description">
+        <%= event.couple.member1_name %> et <%= event.couple.member2_name %> nous parlent de leur évènement: <br>
+        <em> << <%= event.description %> >></em>
+      </div>
+
+      <div class="back-no-guests">
+        Nombre maximum de couples invités: <strong> <%=event.max_n_guest_couples %> </strong>
+      </div>
     </div>
   </div>
 <% end %>
+<div class="event-card end-card <%= events_for_display.length == 0 ? "active-card" : "hidden" %>" id="current-active-card">
+  Plus d'évènements <br> dans votre zone, ramenez <br> votre fraise plus tard, <br> ou organisez votre <br> propre évènement
+  <%= image_tag 'fraise-blanc.png', size: "150x100" %>
+</div>
+
