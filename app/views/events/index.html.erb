@@ -5,14 +5,22 @@
     <div class="col-xs-6 top-row-swipe-block swipe-yes"></div>
   </div>
 
-    <div class="row main-swipe-row">
-      <!-- <div class="main-swipe-row"> -->
-        <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-no"></div>
-        <div class="col-xs-8 col-sm-6 col-md-4 event-background" id="event-deck" >
-          <%= render 'swipes/event_deck', events_for_display: @events_for_display %>
-        </div>
-        <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-yes"></div>
-    <!-- </div> -->
+  <div class="row main-swipe-row">
+    <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-no">
+      <div class="hidden-xs">
+        <h2>BOF PAS <br> A MON <br> GOUT...</h2>
+        <%= image_tag 'patate_grise.png', size: "105x70" %>
+      </div>
+    </div>
+    <div class="col-xs-8 col-sm-6 col-md-4 event-background" id="event-deck" >
+      <%= render 'swipes/event_deck', events_for_display: @events_for_display %>
+    </div>
+    <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-yes">
+      <div class="hidden-xs">
+        <h2>HUM CA <br> SENT LA <br> FRAISE !</h2>
+        <%= image_tag 'fraise_large.png', size: "70x105" %>
+      </div>
+    </div>
   </div>
 
 </div>

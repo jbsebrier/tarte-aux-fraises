@@ -1,9 +1,15 @@
 <% events_for_display.each do |event| %>
   <div class="event-card <%= events_for_display.first == event ? "active-card" : "hidden" %>" data-id="<%=event.id%>" id="current-active-card">
     <div class="front event-card-front">
-      <div class="event-date"> <em><%= event.date %></em></div>
-      <div class="event-description"> <%=event.theme.name %> <br> chez <br> <%= event.couple.member1_name %> et <%= event.couple.member2_name %> </div>
-      <div class="organiser-picture"> <%= cl_image_tag(event.couple.couple_picture, size:"170") %> </div>
+      <div class="event-date"> <%= event.date %></div>
+      <div class="event-description"> <h3> <%=event.theme.name.upcase %></h2>
+        <p>chez</p>
+        <h2> <%= event.couple.member1_name.upcase %> & <%= event.couple.member2_name.upcase %></h2>
+      </div>
+      <div class="organiser-picture">
+        <%= cl_image_tag event.couple.profile_pict, width: 200, height: 150, crop: :fill %>
+
+      </div>
       <div class="button-container">
         <%=link_to couple_event_swipeleft_path(current_couple, event), method: :post, remote: true do %>
           <div class="swipe-btn swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
@@ -29,7 +35,7 @@
   </div>
 <% end %>
 <div class="event-card end-card <%= events_for_display.length == 0 ? "active-card" : "hidden" %>" id="current-active-card">
-  Plus d'évènements <br> dans votre zone, ramenez <br> votre fraise plus tard, <br> ou organisez votre <br> propre évènement
+  Plus d'évènements <br> dans votre zone, ramenez <br> votre fraise plus tard, <br> ou organisez votre <br> <%= link_to "propre évènement", new_organiser_event_path %>
   <%= image_tag 'fraise-blanc.png', size: "150x100" %>
 </div>
 
