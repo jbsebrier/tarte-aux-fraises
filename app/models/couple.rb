@@ -5,11 +5,15 @@ class Couple < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
    has_many :swipes
+   has_many :event_swipes, through: :events, source: :swipes
    has_many :events, dependent: :destroy
    has_many :messages
    has_attachments :photos, maximum: 5
    has_many :couple_badges
    has_many :badges, through: :couple_badges
+
+
+
 
   def profile_pict
     if self.photos.first.blank?
@@ -18,4 +22,5 @@ class Couple < ActiveRecord::Base
       self.photos.first.public_id
     end
   end
+
 end

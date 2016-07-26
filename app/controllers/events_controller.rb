@@ -9,6 +9,24 @@ class EventsController < ApplicationController
   def my_events
     @my_events = Event.where(couple: current_couple)
     @participating_events = Event.joins(:swipes).where(swipes: { couple_id: current_couple.id, participation: true })
+    @swipes_true = Swipe.where(event_id: params[:id], participation: true)
+  end
+
+  def notification_false
+    the_event = Event.find_by(id: params[:event_id])
+    if current_couple == the_event.couple
+      swipes_true = Swipe.where(event_id: the_event, participation: true)
+      swipes_true.each do |st|
+        st.notification_event = false
+        st.save
+      end
+    else
+      swipe_participating_couple = Swipe.where(event_id: the_event, couple_id: current_couple, participation: true).first
+      swipe_participating_couple.notification_couple = false
+      swipe_participating_couple.save
+    end
+
+    redirect_to event_path(the_event)
   end
 
   def new

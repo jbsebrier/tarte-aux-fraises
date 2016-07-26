@@ -2,43 +2,107 @@
 
 .event-background {
   background-color: $brand-color;
-  height:60vh;
+  height:75vh;
   border-radius: 3px;
   border: 1px solid #CCCCCC;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 0 50px;
+  }
+
+.event-card > a {
+  color: white;
+  text-decoration: underline;
+
 }
-
-
 .event-card {
-  background-color: $white;
   height: 58vh;
-  border: 2px solid $brand-color;
+
   border-radius: 3px;
   text-align: center;
-  position: relative;
+
   flex: 1 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  position:relative;
+  box-shadow: 19px 23px 4px #A80338;
+  transition: box-shadow 0.3s ease;
 }
 
-.event-date{
+.event-card:hover{
+box-shadow: 0px 0px 0px #A80338;
 
+}
+
+
+.event-card-front {
+background-color: $white;
+}
+
+.event-card-back {
+background-color: $white;
+}
+
+
+.event-date{
+ margin: 10px;
+ color: $brand-color;
+ font-weight: bolder;
+ font-family: $header-font;
 }
 
 .event-description {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 3px;
+
+
+  h2 {
+    color: $brand-color;
+    font-weight: bolder;
+    font-size: 24px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+
+  h3 {
+    color: #999999;
+    font-size: 20px;
+    margin: 2px;
+    font-weight: bolder;
+  }
+
 }
+
+
+
+
+
+
+
 
 .organiser-picture {
+height: 140px;
+margin-top: 25px;
+margin-bottom: -25px;
 
+  img{
+    box-shadow: 1px 3px 2px #CCCCCC;
+
+
+
+  }
 
 }
+
+
+
+.main-swipe-row {
+  width: 100vw;
+  position: absolute;
+}
+
+
 
 
 .swipe-btn {
@@ -64,17 +128,18 @@
 .button-container {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
-  width: 80%;
-
+  padding: 70px;
+  width: 100%;
 }
 
 
 
 
 .swipe-block {
-  height: 60vh;
+  height: 75vh;
   background-color :$white;
+  z-index: -1;
+  position: relative;
 }
 
 .top-row-swipe-block {
@@ -96,6 +161,69 @@
   height: 34vh;
   background-color: $white;
 }
+
+.back-event-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.back-event-description {
+ margin: 10px;
+}
+
+.back-no-guests {
+  margin: 10px;
+
+}
+
+.end-card {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: none;
+
+}
+
+.swipe-yes{
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items:center;
+
+  h2 {
+    font-size: 40px;
+    font-weight: bolder;
+    color: $brand-color;
+    opacity: 0.4;
+  }
+
+  img {
+    opacity: 0.4;
+  }
+}
+
+.swipe-no{
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items:center;
+
+  h2 {
+    font-size: 40px;
+    font-weight: bolder;
+    color: #D8D8D8;
+    opacity: 0.8;
+  }
+
+  img {
+    opacity: 0.8;
+  }
+}
+
 
 
 

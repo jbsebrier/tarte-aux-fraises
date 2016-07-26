@@ -20,6 +20,18 @@
   }
 }
 
+.card-notification {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  color:white;
+}
+
+.label-new {
+  background-color: red;
+}
+
 .bg-grey {
   background-color: #E6E6E6;
   min-height: 100vh;

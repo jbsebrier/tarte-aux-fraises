@@ -23,7 +23,23 @@
     <!-- Swipe events -->
     <%= link_to t(".sign_in", default: "Trouver un événement"), events_path, class: "navbar-item navbar-wagon-link" %>
 
-    <%= link_to t(".sign_in", default: "Mes événements"), couple_my_events_path(current_couple), class: "navbar-item navbar-wagon-link" %>
+    <% count = 0 %>
+    <% swipes_true = Swipe.where(couple_id: current_couple, notification_couple: true) %>
+    <% swipes_related_event = current_couple.event_swipes.where(notification_event: true) %>
+    <% swipes_true.each do |st| %>
+      <% count += 1 %>
+    <% end %>
+    <% swipes_related_event.each do |st| %>
+      <% count += 1 %>
+    <% end %>
+
+    <% if count >= 1 %>
+      <%= link_to t(".sign_in", default: "Mes événements (#{count})"),
+      couple_my_events_path(current_couple), class: "navbar-item navbar-wagon-link event-alert" %>
+    <% else %>
+      <%= link_to t(".sign_in", default: "Mes événements"),
+        couple_my_events_path(current_couple), class: "navbar-item navbar-wagon-link" %>
+    <% end %>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-item">

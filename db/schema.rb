@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160722140854) do
+ActiveRecord::Schema.define(version: 20160726095028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,10 +110,12 @@ ActiveRecord::Schema.define(version: 20160722140854) do
     t.boolean  "match"
     t.datetime "match_time"
     t.boolean  "participation"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.boolean  "organizing_couple_swipe_result"
     t.boolean  "guest_couple_swipe_result"
+    t.boolean  "notification_couple",            default: false
+    t.boolean  "notification_event",             default: false
   end
 
   add_index "swipes", ["couple_id"], name: "index_swipes_on_couple_id", using: :btree
