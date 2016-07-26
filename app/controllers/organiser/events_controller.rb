@@ -48,7 +48,7 @@ class Organiser::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :description, :city,:max_n_guest_couples)
+    params.require(:event).permit(:date, :description, :city,:max_n_guest_couples,:theme_id)
   end
 
 
