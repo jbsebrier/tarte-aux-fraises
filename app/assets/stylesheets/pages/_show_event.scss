@@ -29,6 +29,10 @@
     width: 55%;
 }
 
+.form-message-background {
+  background-color: $beige-light;
+}
+
 .message-current-user {
   background-color: $brand-color;
   color: white;
@@ -137,3 +141,21 @@
   }
 }
 
+.container-show-event {
+  width: 85%;
+  margin: 0 auto
+}
+
+.update-event-show {
+  a {
+    font-size: 12px;
+    color: $gray-light;
+    text-decoration:none;
+    line-height: 2;
+    padding: 30px 20px 10px 20px;
+  }
+  a:hover {
+    color: $brand-color;
+    transition: all 0.3s ease;
+  }
+}

@@ -1,78 +1,82 @@
 
-  <div class="container">
+<div class="container">
+
+  <div class="container-show-event">
 
 
     <div class="row">
-      <div class="card-event-profile text-center no-text-decoration">
-        <%= cl_image_tag @event.couple.profile_pict, height: 200, crop: :fill, class:"avatar-event-profile img-thumbnail" %>
+      <div class="col-xs-12">
+        <div class="card-event-profile text-center no-text-decoration">
+          <%= cl_image_tag @event.couple.profile_pict, height: 200, crop: :fill, class:"avatar-event-profile img-thumbnail" %>
 
-        <h3 class="title-spacing"><%= @event.theme.name %> chez <%= @event.couple.couple_nickname %></h3 class="title-spacing">
-        <h5>Description</h5>
-        <h4><%= @event.description %></h4>
-        <h5>Couple organisateur</h5>
-        <h4><%= link_to "#{@event.couple.couple_nickname}: #{@event.couple.member1_name} & #{@event.couple.member2_name}", couple_path(@event.couple) %></h4>
-        <h5>Date</h5>
-        <h4><%= l(@event.date, format: :default) %></h4>
-        <h5>Couples participants</h5>
-        <% @swipes_true.each do |st| %>
-        <h4><%= link_to "#{Couple.find_by(id: st.couple_id).couple_nickname}: #{Couple.find_by(id: st.couple_id).member1_name} & #{Couple.find_by(id: st.couple_id).member2_name}", couple_path(st.couple_id) %></h4>
-        <% end %>
-
-        <% if current_couple.id == @event.couple_id %>
-        <div class="edit-event">
-          <%= link_to "Mettre à jour l'événement", edit_organiser_event_path(@event) %>
-        </div>
-
-        <div class="swipe-guests">
-          <%= link_to "Trouver les participants ! ", organiser_event_couples_path(@event) %>
-        </div>
-        <% else %>
-        <% end %>
-
-
-      </div>
-
-      <div class="card-event-profile">
-
-        <div class="form-inbox">
-
-          <%= simple_form_for @message, url: messages_path, method: :post do |f| %>
-            <%= f.error_notification %>
-            <%= f.hidden_field :couple_id,:value => current_couple.id %>
-            <%= f.hidden_field :event_id,:value => @event.id %>
-            <%= f.hidden_field :date,:value => Time.now %>
-            <%= f.input :content, label: false, placeholder: "Votre message..." %>
-            <%= f.button :submit, "Envoyer", class: "btn-inbox btn-custom"  %>
+          <h3 class="title-spacing"><%= @event.theme.name.upcase %> CHEZ <%= @event.couple.couple_nickname.upcase %></h3>
+          <h5>Description</h5>
+          <h4><%= @event.description %></h4>
+          <h5>Couple organisateur</h5>
+          <h4><%= link_to "#{@event.couple.couple_nickname}: #{@event.couple.member1_name} & #{@event.couple.member2_name}", couple_path(@event.couple) %></h4>
+          <h5>Date</h5>
+          <h4><%= l(@event.date, format: :default) %></h4>
+          <h5>Couples participants</h5>
+          <% @swipes_true.each do |st| %>
+          <h4><%= link_to "#{Couple.find_by(id: st.couple_id).couple_nickname}: #{Couple.find_by(id: st.couple_id).member1_name} & #{Couple.find_by(id: st.couple_id).member2_name}", couple_path(st.couple_id) %></h4>
           <% end %>
 
-        </div>
 
-
-        <div>
-          <% @event.messages.order(date: :desc).each do |message| %>
-            <% if message.couple == current_couple %>
-              <div class="message-current-user">
-                <%= cl_image_tag message.couple.profile_pict, class:"avatar-large" %>
-                <h4><strong>Vous</strong></h4>
-                <h4><%= message.content %> </h4>
-                <p><em><%= l(message.date, format: :short) %></em></p>
-              </div>
-            <% else %>
-
-              <div class="message-other-user">
-                <%= cl_image_tag message.couple.profile_pict, class:"avatar-large" %>
-                <h4><strong><%= message.couple.couple_nickname %></strong></h4>
-                <h4><%= message.content %> </h4>
-                <p><em><%= l(message.date, format: :short) %></em></p>
-              </div>
-            <%end %>
-          <% end %>
-        </div>
-
-
-
+            <div class="update-event-show">
+              <% if current_couple.id == @event.couple_id %>
+                <%= link_to "METTRE A JOUR L'EVENEMENT", edit_organiser_event_path(@event) %>
+                <%= link_to "TROUVER LES PARTICIPANTS", organiser_event_couples_path(@event) %>
+              <% end %>
+            </div>
+          </div>
       </div>
-
     </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+
+        <div class="card-event-profile">
+
+          <div class="form-inbox">
+
+            <%= simple_form_for @message, url: messages_path, method: :post do |f| %>
+              <%= f.error_notification %>
+              <%= f.hidden_field :couple_id,:value => current_couple.id %>
+              <%= f.hidden_field :event_id,:value => @event.id %>
+              <%= f.hidden_field :date,:value => Time.now %>
+              <%= f.input :content, label: false, placeholder: "Votre message...", input_html: {class: "form-message-background"} %>
+              <%= f.button :submit, "Envoyer", class: "btn-inbox btn-custom form-submit-btn"  %>
+            <% end %>
+
+          </div>
+
+
+          <div>
+            <% @event.messages.order(date: :desc).each do |message| %>
+              <% if message.couple == current_couple %>
+                <div class="message-current-user">
+                  <%= cl_image_tag message.couple.profile_pict, class:"avatar-large" %>
+                  <h4><strong>Vous</strong></h4>
+                  <h4><%= message.content %> </h4>
+                  <p><em><%= l(message.date, format: :short) %></em></p>
+                </div>
+              <% else %>
+
+                <div class="message-other-user">
+                  <%= cl_image_tag message.couple.profile_pict, class:"avatar-large" %>
+                  <h4><strong><%= message.couple.couple_nickname %></strong></h4>
+                  <h4><%= message.content %> </h4>
+                  <p><em><%= l(message.date, format: :short) %></em></p>
+                </div>
+              <%end %>
+            <% end %>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
   </div>
+</div>
 
