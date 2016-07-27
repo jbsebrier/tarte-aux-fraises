@@ -1,58 +1,64 @@
 <div class="background-form">
 
-  <div class="form-container">
 
-    <div class="form-title" id="title-de-retour">
-      <h3>VOTRE PROFIL DE COUPLE</h3>
-    </div>
     <div class="loader hide">
-      <div class="load" id="img1" class="img">
-      </div>
+      <div class="load" id="img1" class="img"></div>
       <div class="load" id="img2" class="img"></div>
       <div  class="load" id="img3" class="img"></div>
       <div class="load" id="img4" class="img"></div>
       <div  class="load" id="img5" class="img"></div>
     </div>
 
-    <%= simple_form_for @couple do |f| %>
-    ​
-      <div class="form-group form-inputs form-text basic_info">
-        <%= f.input :couple_nickname, label: 'CHOISISSEZ VOTRE PSEUDO DE COUPLE',required: true, placeholder: 'Les fraises de l\'amour', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
 
-        <%= f.input :about_couple, :as => :text, label: 'PARLEZ-NOUS DE VOUS DEUX !', required: true, placeholder: 'Rencontrés il y a 5 ans autour d\'un dessert',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="hidden-xs col-sm-4">
+      <div class="image-gif" style=""></div>
+      <div class="image-gif-2 hide" style=""></div>
+      <div class="image-gif-3 hide" style=""></div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-1">
+      <%= simple_form_for @couple do |f| %>
+      ​
+        <div class="form-group form-inputs form-text basic_info">
+          <h3 class="form-title-h3">RACONTEZ-NOUS VOTRE COUPLE</h3>
+          <br>
+          <%= f.input :couple_nickname, label: 'CHOISISSEZ VOTRE PSEUDO DE COUPLE',required: true, placeholder: 'Les fraises de l\'amour', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
+          <%= f.input :about_couple, label: 'PARLEZ-NOUS DE VOUS DEUX !', required: true, placeholder: 'Rencontrés il y a 5 ans autour d\'un dessert',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
+          <%= f.input :couple_city, label: 'OÙ VIVEZ-VOUS ?', required: true, placeholder: 'Verone',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
+          <%= f.input :photos, as: :file, label: 'AJOUTEZ QUELQUES PHOTOS DE VOUS DEUX', required: true, input_html: { class: "js-empty-validation-1", multiple: true } %>
 
-        <%= f.input :couple_city, label: 'OÙ VIVEZ-VOUS ?', required: true, placeholder: 'Verone',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
+          <button class="next_step btn-marged form-submit-btn btn-basic-info-1">SUIVANT</button>
+        </div>
 
-        <%= f.input :photos, as: :file, label: 'AJOUTEZ QUELQUES PHOTOS DE VOUS DEUX', required: true, input_html: { class: "js-empty-validation-1", multiple: true } %>
+        <div class="form-group form-inputs form-text" style="display: none">
+          <h3 class="form-title-h3">FRAISE N°1, <br>PRÊT À VOUS DÉVOILER ?</h3>
+          <br>
+          <%= f.input :member1_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-2"}  %>
+          <%= f.input :about_member1, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
+          <%= f.input :age_member_1, label: 'VOTRE AGE', required: true, placeholder: '32', input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
+          <%= f.input :gender_member_1, label: 'VOTRE SEXE', collection: ["Homme", "Femme"], required: true, placeholder: 'Homme / Femme', input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
+          <button class="previous_step_2 btn-marged form-submit-btn">RETOUR</button>
+          <button class="next_step btn-marged form-submit-btn btn-basic-info-2">SUIVANT</button>
+        </div>
 
-        <button class="next_step btn-marged form-submit-btn btn-basic-info-1">SUIVANT</button>
-      </div>
+        <div class="form-group form-inputs form-text" style="display: none">
+          <h3 class="form-title-h3">FRAISE N°2, <br>UN DERNIER COUP POUR LA ROUTE !</h3>
+          <br>
+          <%= f.input :member2_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
+          <%= f.input :about_member2, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
+          <%= f.input :age_member_2, label: 'VOTRE AGE', required: true, placeholder: '32', input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
+          <%= f.input :gender_member_2, label: 'VOTRE SEXE', collection: ["Homme", "Femme"], required: true, placeholder: 'Homme / Femme', input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
+          <button class="previous_step_3 btn-marged form-submit-btn">RETOUR</button>
+          <%= submit_tag("DÉCOUVREZ VOTRE PROFIL", class: "btn-marged form-submit-btn btn-basic-info-3") %>
+        </div>
+    </div>
+  </div>
+</div>
 
-      <div class="form-group form-inputs form-text" style="display: none">
-        <h3>FRAISE N°1, DITES-NOUS EN PLUS :)</h2>
-        <br>
-        <%= f.input :member1_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-2"}  %>
-        <%= f.input :about_member1, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
-        <%= f.input :age_member_1, label: 'VOTRE AGE', required: true, placeholder: '32', input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
-        <%= f.input :gender_member_1, label: 'VOTRE SEXE', collection: ["Homme", "Femme"], required: true, placeholder: 'Homme / Femme', input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
-        <button class="previous_step btn-marged form-submit-btn">RETOUR</button>
-        <button class="next_step btn-marged form-submit-btn btn-basic-info-2">SUIVANT</button>
-      </div>
-
-      <div class="form-group form-inputs form-text" style="display: none">
-        <h3>FRAISE N°2, A VOTRE TOUR !</h2>
-        <br>
-        <%= f.input :member2_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
-        <%= f.input :about_member2, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
-        <%= f.input :age_member_2, label: 'VOTRE AGE', required: true, placeholder: '32', input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
-        <%= f.input :gender_member_2, label: 'VOTRE SEXE', collection: ["Homme", "Femme"], required: true, placeholder: 'Homme / Femme', input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
-        <button class="previous_step btn-marged form-submit-btn">RETOUR</button>
-        <%= submit_tag("DÉCOUVREZ VOTRE PROFIL", class: "btn-marged form-submit-btn btn-basic-info-3") %>
-      </div>
 
     <% end -%>
 
-  </div>
 </div>
 
 <% content_for(:after_js) do %>
@@ -76,31 +82,19 @@
     }
 
     $(".btn-basic-info-1").on("click", function(event){
-        event.preventDefault();
-        if (isValid($("input.js-empty-validation-1"))){
-          var button = jQuery(this);
-          button.parent().slideUp( "slow", function() {
-            done:  button.parent('div').hide();
-          });
-          $("#title-de-retour").hide()
-          button.parent('div').next().show(300);
-        }
-        else {
-          swal({
-            title: "Nom d'une cerise!",
-            text: "Vous n'auriez pas oublié un champ tout de même ?",
-            imageUrl: "<%= asset_path("cerise_2.png")%>",
-            imageSize: "120x120",
-            confirmButtonColor: "#F80C54",
-            confirmButtonText: "Peut-être :)", });
-        }
-      });
-    $(".previous_step").on("click", function(event){
       event.preventDefault();
-      var button = jQuery(this);
-      //button.parent('div').addClass('hide');
-      button.parent('div').slideDown(800).fadeOut(300);
-      button.parent('div').prev().show(300) ;
+      if (isValid($("input.js-empty-validation-1"))){
+        var button = jQuery(this);
+        button.parent().slideUp( "slow", function() {
+          done:  button.parent('div').hide();
+        });
+        button.parent('div').next().show(300);
+        $(".image-gif").hide()
+        $(".image-gif-2").removeClass("hide");
+        }
+      else {
+        swal("Please fill all the fields !");
+      }
     });
 
     $(".btn-basic-info-2").on("click", function(event){
@@ -111,6 +105,8 @@
           done:  button.parent('div').hide();
         });
         button.parent('div').next().show(300);
+        $(".image-gif-2").hide()
+        $(".image-gif-3").removeClass("hide");
       }
       else {
         swal({
@@ -122,12 +118,15 @@
           confirmButtonText: "Reçu !", });
       }
     });
-    $(".previous_step").on("click", function(event){
+
+    $(".previous_step_2").on("click", function(event){
       event.preventDefault();
       var button = jQuery(this);
       //button.parent('div').addClass('hide');
       button.parent('div').slideDown(800).fadeOut(300);
-      button.parent('div').prev().show(300) ;
+      button.parent('div').prev().show(300);
+      $(".image-gif").show();
+      $(".image-gif-2").addClass("hide");
     });
 
     $(".btn-basic-info-3").on("click", function(event){
@@ -136,7 +135,7 @@
         button.parent().slideUp( "slow", function() {
           done:  button.parent('div').hide();
         });
-        $("#title-de-retour").hide()
+        $(".image-gif-3").hide()
         $(".loader").removeClass("hide");
       }
       else {
@@ -149,12 +148,15 @@
           confirmButtonText: "Yeah !", });
       }
     });
-    $(".previous_step").on("click", function(event){
+
+    $(".previous_step_3").on("click", function(event){
       event.preventDefault();
       var button = jQuery(this);
       //button.parent('div').addClass('hide');
       button.parent('div').slideDown(800).fadeOut(300);
-      button.parent('div').prev().show(300) ;
+      button.parent('div').prev().show(300);
+      $(".image-gif-2").show();
+      $(".image-gif-3").addClass("hide");
     });
 
 

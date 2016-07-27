@@ -46,12 +46,12 @@
   background-color: $brand-color;
   text-align: center;
   height: 100vh;
-  margin-top: -70px;
-  padding-top: 90px;
+  // margin-top: -70px;
+  // padding-top: 90px;
   background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   font-size: 11.5px;
 }
 
@@ -103,7 +103,7 @@
   background-size: cover !important;
 }
 
-.form-title h3 {
+.form-title {
   width: 300px;
   color: white;
   font-weight: bolder;
@@ -111,6 +111,13 @@
   margin: 0 auto;
   padding-top: 55px;
   padding-bottom: 30px;
+}
+
+.form-title-h3 {
+  color: white;
+  font-weight: bolder !important;
+  font-size: 35px;
+  padding-top: 20px;
 }
 
 .form-home-title h3 {
@@ -122,14 +129,14 @@
   padding-top: 20px;
 }
 
-#title-de-retour {
-  width: 300px;
-  color: white;
-  font-weight: bolder;
-  font-size: 35px;
-  margin: 0 auto;
-  padding-top: 20px;
-}
+// #title-de-retour {
+//   width: 300px;
+//   color: white;
+//   font-weight: bolder;
+//   font-size: 35px;
+//   margin: 0 auto;
+//   padding-top: 20px;
+// }
 
 .form-text {
   color: white;
@@ -235,4 +242,40 @@
     width: 200px;
     height: 250px;
     margin: 10px;
+}
+
+.image-gif {
+  height: 100vh;
+  max-width:450px;
+  overflow: hidden;
+  box-shadow: 15px 0px 20px #B00B3E;
+  // background-size: cover;
+  //
+  position: relative;
+  background-image: image-url("couple.gif");
+  margin-left: -15px;
+}
+
+.image-gif-2 {
+  height: 100vh;
+  max-width:450px;
+  overflow: hidden;
+  box-shadow: 15px 0px 20px #B00B3E;
+  // background-size: cover;
+  //
+  position: relative;
+  background-image: image-url("Fraise1.gif");
+  margin-left: -15px;
+}
+
+.image-gif-3 {
+  height: 100vh;
+  max-width:450px;
+  overflow: hidden;
+  box-shadow: 15px 0px 20px #B00B3E;
+  // background-size: cover;
+  //
+  position: relative;
+  background-image: image-url("fraise2.gif");
+  margin-left: -15px;
 }
