@@ -10,9 +10,9 @@
       <div class="form-group form-inputs form-text">
           <%= simple_form_for([:organiser, @event]) do |f| %>
             <%= f.association :theme , label: "QUEL THÈME OSEREZ-VOUS CHOISIR ?", include_blank: false, input_html: {:class => "form-inputs-background"} %>
-            <%= f.input :max_n_guest_couples, label: "NOMBRE SOUHAITÉ DE COUPLES PARTICIPANTS ?", input_html: {:class => "form-inputs-background"} %>
-            <%= f.input :description, :as => :text, label: "DÉTAILS DE VOTRE FRAISE PARTIE", input_html: {:class => "form-inputs-background"} %>
-            <%= f.input :city, label: "OÙ AURA LIEU L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :max_n_guest_couples, label: "NOMBRE SOUHAITÉ DE COUPLES PARTICIPANTS ?", placeholder: 'Quel est le maximum :) ?', input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :description, :as => :text, label: "QUELQUES DÉTAILS SUR VOTRE FRAISE PARTIE !", placeholder: 'Récemment débarqués dans le coin, on se disait qu\'il serait de faire connaissance avec d\'autres couples autour d\'un petit brunch dimanche matin sur les bords de Loire. Avec 2 à 3 couples, chacun ramène quelque chose à manger et pourquoi ne pas passer l\'après-midi ensemble après si l\'envie nous prend !', input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :city, label: "OÙ AURA LIEU L'ÉVÉNEMENT ?", placeholder: 'Nantes', input_html: {:class => "form-inputs-background"} %>
             <%= f.input :date, label: "C'EST PRÉVU POUR BIENTÔT ?", input_html: {:class => "form-inputs-background input-unmarged"} %>
             <%= submit_tag("C'EST PARTI !", class: "form-submit-btn btn-unmarged") %>
           <% end %>
