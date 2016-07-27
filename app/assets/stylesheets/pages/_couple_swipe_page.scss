@@ -1,31 +1,101 @@
+
 .couple-background {
   background-color: $brand-color;
-  height:60vh;
+  height:75vh;
   border-radius: 3px;
   border: 1px solid #CCCCCC;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 0 50px;
+  }
+
+.couple-card > a {
+  color: white;
+  text-decoration: underline;
 }
 
-
 .couple-card {
-  background-color: $white;
   height: 58vh;
-  border: 2px solid $brand-color;
   border-radius: 3px;
   text-align: center;
-  position: relative;
   flex: 1 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-between;
+  position:relative;
+  box-shadow: 19px 23px 4px #A80338;
+  transition: box-shadow 0.3s ease;
 }
+
+.couple-card:hover{
+box-shadow: 0px 0px 0px #A80338;
+}
+
+
+.couple-card-front {
+background-color: $white;
+}
+
+.couple-card-back {
+background-color: $white;
+}
+
 
 
 .couple-description {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 3px;
+
+  h2 {
+    color: $brand-color;
+    font-weight: bolder;
+    font-size: 24px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+  }
+
+  h3 {
+    color: #999999;
+    font-size: 20px;
+    margin: 2px;
+    font-weight: bolder;
+  }
 }
+
+.couple-picture {
+height: 140px;
+margin-top: 25px;
+margin-bottom: -25px;
+  img{
+    box-shadow: 1px 3px 2px #CCCCCC;
+  }
+}
+
+
+
+.organiser-swipe-left-btn {
+  background-color: $gray-light;
+}
+
+.organiser-swipe-right-btn {
+  background-color: #F80C54;
+}
+
+
+
+.back-couple-nickname {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+}
+
+.back-couple-description {
+ margin: 10px;
+}
+
+
+
+
+
+
+

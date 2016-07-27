@@ -3,42 +3,77 @@
     <div class="col-xs-6 top-row-swipe-block swipe-no"></div>
     <div class="col-xs-6 top-row-swipe-block swipe-yes"></div>
   </div>
-  <div class="row">
-    <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-no"></div>
-    <div class="col-xs-8 col-sm-6 col-md-4 event-background" id="event-deck" >
+
+  <div class="row main-swipe-row">
+    <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-no">
+      <div class="hidden-xs">
+        <h2>BOF PAS <br> A MON <br> GOUT...</h2>
+        <%= image_tag 'patate_grise.png', size: "105x70" %>
+      </div>
+    </div>
+    <div class="col-xs-8 col-sm-6 col-md-4 event-background" id="couple-deck" >
       <%= render 'swipes/couple_deck', couples_for_display: @couples_for_display %>
     </div>
-  <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-yes"></div>
+    <div class="col-xs-2 col-sm-3 col-md-4 swipe-block swipe-yes">
+      <div class="hidden-xs">
+        <h2>HUM CA <br> SENT LA <br> FRAISE !</h2>
+        <%= image_tag 'fraise_large.png', size: "70x105" %>
+      </div>
+    </div>
   </div>
-  <div class="row swipe-bottom">
-    <div class="col-xs-6 swipe-block-bottom swipe-no"></div>
-    <div class="col-xs-6 swipe-block-bottom swipe-yes"></div>
-  </div>
+
 </div>
-
-
-
-
 
 
   <%= content_for(:after_js) do %>
       <script>
 
+      $('#current-active-card').flip();
 
-        function swipeLeft(){
+
+        function moveLeft() {
+          var elem = document.getElementById("current-active-card");
+          var pos = 0;
+          var id = setInterval(frame, 1);
+          function frame() {
+              if (pos == 400) {
+                clearInterval(id);
+              } else {
+                pos++;
+                elem.style.right = 6*pos + 'px';
+              }
+            }
+          }
+
+        function moveRight() {
+          var elem = document.getElementById("current-active-card");
+          var pos = 0;
+          var id = setInterval(frame, 1);
+          function frame() {
+              if (pos == 400) {
+                clearInterval(id);
+              } else {
+                pos++;
+                elem.style.left = 6*pos + 'px';
+              }
+            }
+          }
+
+
+        function organiserSwipeLeft(){
             $('.active-card').hide();
 
             var couple_id = $('.active-card').attr("data-id");
 
              $.ajax({
-                url:  "/events/"+ '<%= @event.id %>' +"/couples/"+ couple_id +"/swipeleft",
+                url:  "/events/" + '<%= @event.id %>' + "/couples/" + couple_id + "/swipeleft",
                 type: 'POST',
                 dataType: "json",
               });
             location.reload();
         }
 
-        function swipeRight() {
+        function organiserSwipeRight() {
           $('.active-card').hide();
 
           var couple_id = $('.active-card').attr("data-id");
@@ -57,33 +92,49 @@
         }
 
         $(document).ready(function(){
-          $('.swipe-left-btn').on('click', function() {
-            swipeLeft();
+          $('.organiser-swipe-left-btn').on('click', function() {
+            moveLeft();
+            setTimeout(function(){
+              organiserSwipeLeft();
+            }, 300);
           });
-          $('.swipe-right-btn').on('click', function() {
-            swipeRight();
+          $('.organiser-swipe-right-btn').on('click', function() {
+            moveRight();
+            setTimeout(function(){
+              organiserSwipeRight();
+            }, 300);
+          });
+
+          $(document).on('keyup', function(event) {
+            if (event.keyCode == 37) {
+              moveLeft();
+              setTimeout(function(){
+                organiserSwipeLeft();
+              }, 300);
+            } else if (event.keyCode == 39) {
+              moveRight();
+              setTimeout(function(){
+              organiserSwipeRight();
+            }, 300);
+            }
           });
 
 
-          $('.couple-card').draggable({ axis: "x",
+          $('.active-card').draggable({ axis: "x",
           zIndex: 2500 });
           $('.swipe-no').droppable({
             drop: function(event, ui) {
-              swipeLeft();
+              organiserSwipeLeft();
             }
           });
           $('.swipe-yes').droppable({
             drop: function(event, ui) {
-              swipeRight();
+              organiserSwipeRight();
             }
           });
         });
       </script>
     <% end %>
-
-
-
-
 
 
 

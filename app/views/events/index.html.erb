@@ -65,7 +65,7 @@
           }
 
 
-        function swipeLeft(){
+        function coupleSwipeLeft(){
             $('.active-card').hide();
 
             var event_id = $('.active-card').attr("data-id");
@@ -78,7 +78,7 @@
             location.reload();
         }
 
-        function swipeRight() {
+        function coupleSwipeRight() {
           $('.active-card').hide();
 
           var event_id = $('.active-card').attr("data-id");
@@ -97,16 +97,16 @@
         }
 
         $(document).ready(function(){
-          $('.swipe-left-btn').on('click', function() {
+          $('.couple-swipe-left-btn').on('click', function() {
             moveLeft();
             setTimeout(function(){
-              swipeLeft();
+              coupleSwipeLeft();
             }, 300);
           });
-          $('.swipe-right-btn').on('click', function() {
+          $('.couple-swipe-right-btn').on('click', function() {
             moveRight();
             setTimeout(function(){
-              swipeRight();
+              coupleSwipeRight();
             }, 300);
           });
 
@@ -114,12 +114,12 @@
             if (event.keyCode == 37) {
               moveLeft();
               setTimeout(function(){
-                swipeLeft();
+                coupleSwipeLeft();
               }, 300);
             } else if (event.keyCode == 39) {
               moveRight();
               setTimeout(function(){
-              swipeRight();
+              coupleSwipeRight();
             }, 300);
             }
           });
@@ -129,12 +129,12 @@
           zIndex: 2500 });
           $('.swipe-no').droppable({
             drop: function(event, ui) {
-              swipeLeft();
+              coupleSwipeLeft();
             }
           });
           $('.swipe-yes').droppable({
             drop: function(event, ui) {
-              swipeRight();
+              coupleSwipeRight();
             }
           });
         });
