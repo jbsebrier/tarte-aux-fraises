@@ -1,5 +1,4 @@
 
-
 .event-background {
   background-color: $brand-color;
   height:75vh;
@@ -14,14 +13,12 @@
 .event-card > a {
   color: white;
   text-decoration: underline;
-
 }
+
 .event-card {
   height: 58vh;
-
   border-radius: 3px;
   text-align: center;
-
   flex: 1 0 auto;
   display: flex;
   align-items: center;
@@ -34,7 +31,6 @@
 
 .event-card:hover{
 box-shadow: 0px 0px 0px #A80338;
-
 }
 
 
@@ -56,7 +52,6 @@ background-color: $white;
 
 .event-description {
 
-
   h2 {
     color: $brand-color;
     font-weight: bolder;
@@ -71,39 +66,21 @@ background-color: $white;
     margin: 2px;
     font-weight: bolder;
   }
-
 }
-
-
-
-
-
-
-
 
 .organiser-picture {
 height: 140px;
 margin-top: 25px;
 margin-bottom: -25px;
-
   img{
     box-shadow: 1px 3px 2px #CCCCCC;
-
-
-
   }
-
 }
-
-
 
 .main-swipe-row {
   width: 100vw;
   position: absolute;
 }
-
-
-
 
 .swipe-btn {
   height: 60px;
@@ -116,11 +93,11 @@ margin-bottom: -25px;
 }
 
 
-.swipe-left-btn {
+.couple-swipe-left-btn {
   background-color: $gray-light;
 }
 
-.swipe-right-btn {
+.couple-swipe-right-btn {
   background-color: #F80C54;
 }
 
@@ -131,8 +108,6 @@ margin-bottom: -25px;
   padding: 70px;
   width: 100%;
 }
-
-
 
 
 .swipe-block {
@@ -174,7 +149,6 @@ margin-bottom: -25px;
 
 .back-no-guests {
   margin: 10px;
-
 }
 
 .end-card {
@@ -185,7 +159,6 @@ margin-bottom: -25px;
   align-items: center;
   text-align: center;
   box-shadow: none;
-
 }
 
 .swipe-yes{

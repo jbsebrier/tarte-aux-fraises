@@ -12,10 +12,10 @@
       </div>
       <div class="button-container">
         <%=link_to couple_event_swipeleft_path(current_couple, event), method: :post, remote: true do %>
-          <div class="swipe-btn swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
+          <div class="swipe-btn couple-swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
         <% end %>
         <%= link_to couple_event_swiperight_path(current_couple, event), method: :post, remote: true do %>
-          <div class="swipe-btn swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "150x100" %></div>
+          <div class="swipe-btn couple-swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "150x100" %></div>
         <% end %>
       </div>
     </div>

@@ -1,14 +1,40 @@
+
+
+
 <% couples_for_display.each do |couple| %>
-  <div class="couple-card front <%= couples_for_display.first == couple ? "active-card" : "hidden" %>" data-id="<%=couple.id%>" >
-    <div class="couple-description"> <%= couple.member1_name %> et <%= couple.member2_name %> </div>
-    <div class="couple-picture"> <%= image_tag couple.profile_pict, size:"170" %> </div>
-    <div class="button-container">
-      <%=link_to event_couple_swipeleft_path(@event, couple), method: :post, remote: true do %>
-        <div class="swipe-btn swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
-      <% end %>
-      <%= link_to event_couple_swipeleft_path(@event, couple), method: :post, remote: true do %>
-        <div class="swipe-btn swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "40" %></div>
-      <% end %>
+  <div class="couple-card <%= couples_for_display.first == couple ? "active-card" : "hidden" %>" data-id="<%=couple.id%>" id="current-active-card">
+    <div class="front couple-card-front">
+      <div class="couple-description">
+
+        <h2> <%= couple.member1_name %> & <%= couple.member2_name %></h2>
+      </div>
+      <div class="couple-picture">
+        <%= cl_image_tag couple.profile_pict, width: 200, height: 150, crop: :fill %>
+
+      </div>
+      <div class="button-container">
+        <%=link_to event_couple_swipeleft_path(@event, couple), method: :post, remote: true do %>
+          <div class="swipe-btn organiser-swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
+        <% end %>
+        <%= link_to event_couple_swiperight_path(@event, couple), method: :post, remote: true do %>
+          <div class="swipe-btn organiser-swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "150x100" %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="back event-card-back">
+      <div class="back-couple-nickname">
+      <%=couple.couple_nickname %>
+      </div>
+      <div class="back-couple-description">
+        <%= couple.member1_name %> et <%= couple.member2_name %> nous parlent d'eux <br>
+        <em> << <%= couple.about_couple %> >></em>
+      </div>
+
     </div>
   </div>
 <% end %>
+<div class="couple-card end-card <%= couples_for_display.length == 0 ? "active-card" : "hidden" %>" id="current-active-card">
+  Plus de couples <br> dans votre zone, ramenez <br> votre fraise plus tard ...
+  <%= image_tag 'fraise-blanc.png', size: "150x100" %>
+</div>
+
