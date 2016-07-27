@@ -16,6 +16,7 @@ gem "cloudinary"
 gem "attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
+gem 'rails_real_favicon'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
