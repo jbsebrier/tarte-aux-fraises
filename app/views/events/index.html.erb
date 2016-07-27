@@ -85,7 +85,11 @@
 
           $.post( "/couples/"+ '<%= current_couple.id %>' +"/events/"+ event_id +"/swiperight", function( data ) {
               if (data["current_swipe"]["participation"] == true) {
-                swal({title: "Chic ! Ca matche !", text: "Vous vous plaisez mutuellement! l'évènement a donc été ajouté à votre liste d'évènements à venir. Consultez la page de l'évènement pour commencer à discuter avec les organisateurs et voir les autres participants ", type: "success", closeOnConfirm: false}, function(isConfirm){
+                swal({title: "Chic ! Ca matche !",
+                      text: "Vous vous plaisez mutuellement! l'évènement a donc été ajouté à votre liste d'évènements à venir. Consultez la page de l'évènement pour commencer à discuter avec les organisateurs et voir les autres participants ",
+                      closeOnConfirm: false,
+                      confirmButtonColor: "#F80C54",
+                    }, function(isConfirm){
                       if (isConfirm) { location.reload(); }
                     });
               }
