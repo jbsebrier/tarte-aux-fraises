@@ -16,6 +16,11 @@
   border-radius: 2px;
 }
 
+// Navbar
+.pink-hamburger {
+  color: $brand-color !important;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -28,10 +33,6 @@
 }
 .bg-dark-blue {
   background: #3b5998;
-}
-
-.navbar-marged {
-  margin-top: 70px;
 }
 
 .btn-nice {
@@ -129,6 +130,14 @@
   padding-top: 20px;
 }
 
+.title-home-punchline {
+  color: white;
+  font-weight: bolder !important;
+  font-size: 35px;
+  padding-top: 20px;
+  letter-spacing: 0.1em;
+}
+
 // #title-de-retour {
 //   width: 300px;
 //   color: white;
@@ -193,12 +202,14 @@
   font-size: 13px;
   font-weight: bolder;
   border-radius: none;
+  text-decoration: none;
 }
 .form-submit-btn:hover {
   background-color: white;
   color: $brand-color;
   transition: all 0.3s ease;
   border: 1px solid white;
+  text-decoration: none;
 }
 
 .form-submit-btn-small {
