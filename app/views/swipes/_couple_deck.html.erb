@@ -1,6 +1,3 @@
-
-
-
 <% couples_for_display.each do |couple| %>
   <div class="couple-card <%= couples_for_display.first == couple ? "active-card" : "hidden" %>" data-id="<%=couple.id%>" id="current-active-card">
     <div class="front couple-card-front">
@@ -14,7 +11,7 @@
         <%= couple.about_couple %>
       </div>
 
-      <div class="button-container">
+      <div class="couple-button-container">
         <%=link_to event_couple_swipeleft_path(@event, couple), method: :post, remote: true do %>
           <div class="swipe-btn organiser-swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
         <% end %>
@@ -25,13 +22,21 @@
     </div>
     <div class="back event-card-back">
       <div class="back-couple-nickname">
-      <%=couple.couple_nickname %>
+      <%= couple.couple_nickname.upcase %>
       </div>
-      <div class="back-couple-description">
-        <%= couple.member1_name %> et <%= couple.member2_name %> nous parlent d'eux <br>
-        <em> << <%= couple.about_couple %> >></em>
+      <div class="back-couple-member-description">
+        <%= couple.member1_name %>, <%= couple.age_member_1%> ans:  <br>
+        <em>  "<%= couple.about_member1 %>" </em>
       </div>
-
+      <div class="back-couple-member-description">
+        <%= couple.member2_name %>, <%= couple.age_member_2%> ans:  <br>
+        <em>  "<%= couple.about_member2 %>" </em>
+      </div>
+      <div class="link-to-organiser">
+        <%= link_to couple_profile_path(couple), method: :get do%>
+          Voir leur profil détaillé
+        <% end %>
+      </div>
     </div>
   </div>
 <% end %>
