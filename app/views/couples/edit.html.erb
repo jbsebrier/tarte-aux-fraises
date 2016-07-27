@@ -19,7 +19,7 @@
       <div class="form-group form-inputs form-text basic_info">
         <%= f.input :couple_nickname, label: 'CHOISISSEZ VOTRE PSEUDO DE COUPLE',required: true, placeholder: 'Les fraises de l\'amour', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
 
-        <%= f.input :about_couple, label: 'PARLEZ-NOUS DE VOUS DEUX !', required: true, placeholder: 'Rencontrés il y a 5 ans autour d\'un dessert',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
+        <%= f.input :about_couple, :as => :text, label: 'PARLEZ-NOUS DE VOUS DEUX !', required: true, placeholder: 'Rencontrés il y a 5 ans autour d\'un dessert',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
 
         <%= f.input :couple_city, label: 'OÙ VIVEZ-VOUS ?', required: true, placeholder: 'Verone',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
 
@@ -82,10 +82,17 @@
           button.parent().slideUp( "slow", function() {
             done:  button.parent('div').hide();
           });
+          $("#title-de-retour").hide()
           button.parent('div').next().show(300);
         }
         else {
-          swal("Please fill all the fields !");
+          swal({
+            title: "Nom d'une cerise!",
+            text: "Vous n'auriez pas oublié un champ tout de même ?",
+            imageUrl: "<%= asset_path("cerise_2.png")%>",
+            imageSize: "120x120",
+            confirmButtonColor: "#F80C54",
+            confirmButtonText: "Peut-être :)", });
         }
       });
     $(".previous_step").on("click", function(event){
@@ -106,7 +113,13 @@
         button.parent('div').next().show(300);
       }
       else {
-        swal("Please fill all the fields !");
+        swal({
+          title: "Cerise à bord!",
+          text: "On vous y reprend, allez on remplit tout :)",
+          imageUrl: "<%= asset_path("cerise_2.png")%>",
+          imageSize: "120x120",
+          confirmButtonColor: "#F80C54",
+          confirmButtonText: "Reçu !", });
       }
     });
     $(".previous_step").on("click", function(event){
@@ -127,7 +140,13 @@
         $(".loader").removeClass("hide");
       }
       else {
-        swal("Please fill all the fields !");
+        swal({
+          title: "Bordel de cerise!",
+          text: "On y est presque, un dernier effort :) ",
+          imageUrl: "<%= asset_path("cerise_2.png")%>",
+          imageSize: "120x120",
+          confirmButtonColor: "#F80C54",
+          confirmButtonText: "Yeah !", });
       }
     });
     $(".previous_step").on("click", function(event){
