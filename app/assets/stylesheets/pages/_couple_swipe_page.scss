@@ -58,7 +58,7 @@ background-color: $white;
 
 .couple-picture {
 height: 160px;
-margin-top: 25px;
+margin: 20px;
 
   img{
     box-shadow: 1px 3px 2px #CCCCCC;
@@ -78,9 +78,10 @@ margin-top: 25px;
 
 
 .back-couple-nickname {
+   color: #999999;
   font-size: 20px;
-  font-weight: bold;
   margin: 10px;
+  font-weight: bolder;
 }
 
 .back-couple-description {
@@ -88,8 +89,19 @@ margin-top: 25px;
 }
 
 
+.couple-button-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 50px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
 
+.back-couple-member-description {
+  margin: 10px;
 
+}
 
 
 
