@@ -16,6 +16,14 @@
   border-radius: 2px;
 }
 
+.btn-unmarged {
+margin-top: -50px;
+}
+
+.input-unmarged {
+  margin-bottom: 0px;
+}
+
 // Navbar
 .pink-hamburger {
   color: $brand-color !important;
@@ -119,6 +127,11 @@
   font-weight: bolder !important;
   font-size: 35px;
   padding-top: 20px;
+}
+
+.title-event-padded {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .form-home-title h3 {

@@ -22,7 +22,7 @@
           <h3 class="form-title-h3">RACONTEZ-NOUS VOTRE COUPLE</h3>
           <br>
           <%= f.input :couple_nickname, label: 'CHOISISSEZ VOTRE PSEUDO DE COUPLE',required: true, placeholder: 'Les fraises de l\'amour', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
-          <%= f.input :about_couple, label: 'PARLEZ-NOUS DE VOUS DEUX !', required: true, placeholder: 'Rencontrés il y a 5 ans autour d\'un dessert',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
+          <%= f.input :about_couple, :as => :text, label: 'PARLEZ-NOUS DE VOUS DEUX !', required: true, placeholder: 'Nous deux, c\'est du gâteau ! Rencontrés il y a 2 ans en suivant la formation du Wagon à Paris, on ne se quitte plus depuis. Nous venons d\'emménager ensemble à Nantes avec l\'envie de partager notre passion de la tarte aux fraises avec des couples autour de nous !',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
           <%= f.input :couple_city, label: 'OÙ VIVEZ-VOUS ?', required: true, placeholder: 'Verone',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
           <%= f.input :photos, as: :file, label: 'AJOUTEZ QUELQUES PHOTOS DE VOUS DEUX', required: true, input_html: { class: "js-empty-validation-1", multiple: true } %>
 
@@ -33,7 +33,7 @@
           <h3 class="form-title-h3">FRAISE N°1, <br>PRÊT À VOUS DÉVOILER ?</h3>
           <br>
           <%= f.input :member1_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-2"}  %>
-          <%= f.input :about_member1, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
+          <%= f.input :about_member1, :as => :text, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise. Graphiste et développeur au quotidien. Je suis un ancien étudiant du Wagon (batch #12 à Paris). Quand je ne travaille pas, j\'aime courir et marcher en montagne.',  input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
           <%= f.input :age_member_1, label: 'VOTRE AGE', required: true, placeholder: '32', input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
           <%= f.input :gender_member_1, label: 'VOTRE SEXE', collection: ["Homme", "Femme"], required: true, placeholder: 'Homme / Femme', input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
           <button class="previous_step_2 btn-marged form-submit-btn">RETOUR</button>
@@ -44,7 +44,7 @@
           <h3 class="form-title-h3">FRAISE N°2, <br>UN DERNIER COUP POUR LA ROUTE !</h3>
           <br>
           <%= f.input :member2_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
-          <%= f.input :about_member2, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
+          <%= f.input :about_member2, :as => :text, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Je suis la cerise sur le gâteau. Monteuse dans le cinéma et freelance, je suis aussi une ancienne étudiante du Wagon (batch #12 à Paris). Quand je ne travaille pas, je cuisine et je lis (beaucoup) !',  input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
           <%= f.input :age_member_2, label: 'VOTRE AGE', required: true, placeholder: '32', input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
           <%= f.input :gender_member_2, label: 'VOTRE SEXE', collection: ["Homme", "Femme"], required: true, placeholder: 'Homme / Femme', input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
           <button class="previous_step_3 btn-marged form-submit-btn">RETOUR</button>
@@ -91,7 +91,13 @@
         $(".image-gif-2").removeClass("hide");
         }
       else {
-        swal("Please fill all the fields !");
+        swal({
+          title: "Nom d'une cerise !",
+          text: "Vous n'auriez pas oublié de remplir une des cases ?",
+          imageUrl: "<%= asset_path("cerise_2.png")%>",
+          imageSize: "120x120",
+          confirmButtonColor: "#F80C54",
+          confirmButtonText: "Peut-être :)", });
       }
     });
 
@@ -108,7 +114,7 @@
       }
       else {
         swal({
-          title: "Cerise à bord!",
+          title: "Cerise à bord !",
           text: "On vous y reprend, allez on remplit tout :)",
           imageUrl: "<%= asset_path("cerise_2.png")%>",
           imageSize: "120x120",
@@ -138,7 +144,7 @@
       }
       else {
         swal({
-          title: "Bordel de cerise!",
+          title: "Bordel de cerise !",
           text: "On y est presque, un dernier effort :) ",
           imageUrl: "<%= asset_path("cerise_2.png")%>",
           imageSize: "120x120",
