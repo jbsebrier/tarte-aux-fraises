@@ -1,50 +1,54 @@
 <div class="navbar-wagon navbar-wagon-fixed navbar-<%= controller.controller_name %> navbar-<%= controller.controller_name %>-<%= action_name %>">
   <!-- Logo -->
-  <% if action_name == "home" || controller.controller_name == "sessions" || controller.controller_name == "registrations" || controller.controller_name == "passwords" || controller.controller_name == "events" && action_name == "edit" || controller.controller_name == "events" && action_name == "new" %>
-    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+  <% if controller.controller_name == "sessions" || controller.controller_name == "registrations" || controller.controller_name == "passwords" || controller.controller_name == "events" && action_name == "edit" || controller.controller_name == "events" && action_name == "new" %>
+      <%= link_to root_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "fraise_rose_navbar.png" %>
     <% end %>
-  <% else %>
+  <% elsif action_name == "home" %>
     <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "fraise-blanc.png" %>
+    <% end %>
+  <% else %>
+      <%= link_to root_path, class: "navbar-wagon-brand" do %>
       <%= image_tag "fraise-fond-rose.png" %>
     <% end %>
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right hidden-xs hidden-sm title-spacing">
 
 
     <!-- Different navigation if login or not -->
     <% if couple_signed_in? %>
 
-    <!-- Create an event -->
-    <%= link_to t(".sign_in", default: "Organiser un événement"), new_organiser_event_path, class: "navbar-item navbar-wagon-link" %>
+      <!-- Create an event -->
+      <%= link_to t(".sign_in", default: "ORGANISER"), new_organiser_event_path, class: "navbar-item navbar-wagon-link" %>
 
-    <!-- Swipe events -->
-    <%= link_to t(".sign_in", default: "Trouver un événement"), events_path, class: "navbar-item navbar-wagon-link" %>
+      <!-- Swipe events -->
+      <%= link_to t(".sign_in", default: "PARTICIPER"), events_path, class: "navbar-item navbar-wagon-link" %>
 
-    <% count = 0 %>
-    <% swipes_true = Swipe.where(couple_id: current_couple, notification_couple: true) %>
-    <% swipes_related_event = current_couple.event_swipes.where(notification_event: true) %>
-    <% swipes_true.each do |st| %>
-      <% count += 1 %>
-    <% end %>
-    <% swipes_related_event.each do |st| %>
-      <% count += 1 %>
-    <% end %>
+      <% count = 0 %>
+      <% swipes_true = Swipe.where(couple_id: current_couple, notification_couple: true) %>
+      <% swipes_related_event = current_couple.event_swipes.where(notification_event: true) %>
+      <% swipes_true.each do |st| %>
+        <% count += 1 %>
+      <% end %>
+      <% swipes_related_event.each do |st| %>
+        <% count += 1 %>
+      <% end %>
 
-    <% if count >= 1 %>
-      <%= link_to t(".sign_in", default: "Mes événements (#{count})"),
-      couple_my_events_path(current_couple), class: "navbar-item navbar-wagon-link event-alert" %>
-    <% else %>
-      <%= link_to t(".sign_in", default: "Mes événements"),
-        couple_my_events_path(current_couple), class: "navbar-item navbar-wagon-link" %>
-    <% end %>
+      <% if count >= 1 %>
+        <%= link_to t(".sign_in", default: "EVENEMENTS (#{count})"),
+        couple_my_events_path(current_couple), class: "navbar-item navbar-wagon-link event-alert" %>
+      <% else %>
+        <%= link_to t(".sign_in", default: "EVENEMENTS"),
+          couple_my_events_path(current_couple), class: "navbar-item navbar-wagon-link" %>
+      <% end %>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-item">
         <div class="dropdown">
-          <%= cl_image_tag current_couple.profile_pict, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= cl_image_tag current_couple.profile_pict, :height=>875, :width=>875, :crop=>"crop", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
@@ -70,7 +74,7 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Se connecter"), new_couple_session_path, class: "navbar-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "SE CONNECTER"), new_couple_session_path, class: "navbar-item navbar-wagon-link" %>
 
     <% end %>
 
