@@ -84,6 +84,8 @@
                       text: "Vous vous plaisez mutuellement! Ce couple a donc été ajouté à la liste de participants à votre évènement. Consultez la page de l'évènement pour commencer à discuter avec les autres participants ",
                       closeOnConfirm: false,
                       confirmButtonColor: "#F80C54",
+                      imageUrl: "<%= asset_path("fraise-kawai.png")%>",
+                      imageSize: "120x120",
               }, function(isConfirm){
                       if (isConfirm) { location.reload(); }
                     });

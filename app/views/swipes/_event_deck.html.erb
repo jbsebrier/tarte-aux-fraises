@@ -37,6 +37,9 @@
       <div class="organiser-2">
         <%= event.couple.member2_name.capitalize %>: <br><em> "<%= event.couple.about_member2 %>"  </em>
       </div>
+      <div class="organiser-badges">
+        <%= image_tag 'fraise_rose_navbar.png', size: '20' %> <%= event.couple.fraises %>
+      </div>
       <div class="link-to-organiser">
         <%= link_to couple_profile_path(event.couple), method: :get do%>
           Voir leur profil détaillé

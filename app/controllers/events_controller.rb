@@ -36,6 +36,7 @@ class EventsController < ApplicationController
   def create
     @event = current_couple.events.new(event_params)
     if @event.save
+       current_couple.fraises += 3
       redirect_to root_path
     else
       render 'new'

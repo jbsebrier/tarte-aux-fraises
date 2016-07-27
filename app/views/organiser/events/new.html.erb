@@ -23,12 +23,28 @@
 </div>
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
+  <script type="text/javascript">
     $("#random_button").click(function(event) {
       event.preventDefault();
       $("#event_theme_id").val(randomValueFromSelect("#event_theme_id"));
     });
-  <% end %>
+
+    var executed = false;
+    $('.form-submit-btn').hover(function(event) {
+        if (executed == false) {
+        swal({
+          title: "Allez-y, c'est permis !",
+          text: "En créant cet événement, vous pouvez gagner 5 fraises supplémentaires",
+          imageUrl: "<%= asset_path("plus5fraises.png")%>",
+          imageSize: "200x120",
+          confirmButtonText: "Compris !",
+          confirmButtonColor: "#F80C54",
+        });
+        executed = true;
+      }
+    });
+
+  </script>
 <% end %>
 
 
