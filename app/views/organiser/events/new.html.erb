@@ -3,19 +3,18 @@
   <div class="container-fluid">
 
     <div id="title-de-retour">
-      <h3 class="form-title-h3">PROPOSEZ UN ÉVÉNEMENT</h3>
+      <h3 class="form-title-h3 title-event-padded">CE SOIR, C'EST LE GRAND SOIR !</h3>
     </div>
 
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-    <br>
       <div class="form-group form-inputs form-text">
           <%= simple_form_for([:organiser, @event]) do |f| %>
             <%= f.association :theme , label: "QUEL THÈME OSEREZ-VOUS CHOISIR ?", include_blank: false, input_html: {:class => "form-inputs-background"} %>
             <%= f.input :max_n_guest_couples, label: "NOMBRE SOUHAITÉ DE COUPLES PARTICIPANTS ?", input_html: {:class => "form-inputs-background"} %>
             <%= f.input :description, :as => :text, label: "DÉTAILS DE VOTRE FRAISE PARTIE", input_html: {:class => "form-inputs-background"} %>
             <%= f.input :city, label: "OÙ AURA LIEU L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
-            <%= f.input :date, label: "C'EST PRÉVU POUR BIENTÔT ?", input_html: {:class => "form-inputs-background"} %>
-            <%= submit_tag("C'EST PARTI !", class: "btn-marged form-submit-btn") %>
+            <%= f.input :date, label: "C'EST PRÉVU POUR BIENTÔT ?", input_html: {:class => "form-inputs-background input-unmarged"} %>
+            <%= submit_tag("C'EST PARTI !", class: "form-submit-btn btn-unmarged") %>
           <% end %>
 
       </div>
