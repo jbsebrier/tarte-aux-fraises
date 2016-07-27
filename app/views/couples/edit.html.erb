@@ -23,7 +23,7 @@
 
         <%= f.input :couple_city, label: 'OÙ VIVEZ-VOUS ?', required: true, placeholder: 'Verone',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
 
-        <%= f.input :photos, as: :file, label: 'AJOUTEZ QUELQUES PHOTOS DE VOUS DEUX', required: true, input_html: { class: "js-empty-validation-1 form-submit-btn-small", multiple: true } %>
+        <%= f.input :photos, as: :file, label: 'AJOUTEZ QUELQUES PHOTOS DE VOUS DEUX', required: true, input_html: { class: "js-empty-validation-1", multiple: true } %>
 
         <button class="next_step btn-marged form-submit-btn btn-basic-info-1">SUIVANT</button>
       </div>
