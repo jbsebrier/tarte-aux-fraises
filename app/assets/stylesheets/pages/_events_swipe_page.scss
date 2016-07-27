@@ -117,6 +117,17 @@ margin-bottom: -25px;
   position: relative;
 }
 
+.link-to-organiser {
+  position: absolute;
+  font-weight: bolder;
+
+  a {color: $brand-color;}
+  bottom: 10px;
+  left: 50%;
+
+}
+
+
 .top-row-swipe-block {
   height: 6vh;
   background-color :$white;
@@ -138,13 +149,15 @@ margin-bottom: -25px;
 }
 
 .back-event-title {
+  color: #999999;
   font-size: 20px;
-  font-weight: bold;
   margin: 10px;
+  font-weight: bolder;
 }
 
 .back-event-description {
- margin: 10px;
+  margin: 10px;
+
 }
 
 .back-no-guests {
@@ -158,7 +171,7 @@ margin-bottom: -25px;
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .swipe-yes{

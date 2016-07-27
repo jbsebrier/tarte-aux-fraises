@@ -26,7 +26,7 @@
               <div class="card-events">
                 <div class="text-center">
                   <% if Swipe.find_by(event_id: event.id) %>
-                    <% if current_couple == event.couple &&  Swipe.find_by(event_id: event.id).notification_event %>
+                    <% if current_couple == event.couple &&  Swipe.find_by(event_id: event.id, notification_event: true ) %>
                       <p class="card-notification"><span class="label label-new">NEW</span></p>
                     <% end %>
                   <% end %>
@@ -62,7 +62,7 @@
               <div class="card-events">
                 <div class="text-center">
                 <% if Swipe.find_by(event_id: event.id) %>
-                  <% if current_couple == event.couple &&  Swipe.find_by(event_id: event.id).notification_event%>
+                  <% if current_couple == event.couple &&  Swipe.find_by(event_id: event.id, notification_event: true) %>
                     <p class="card-notification"><span class="label label-new">NEW</span></p>
                   <% end %>
                 <% end %>
@@ -98,7 +98,7 @@
               <div class="card-events">
                 <div class="text-center">
                 <% if Swipe.find_by(event_id: event.id) %>
-                  <% if Swipe.find_by(event_id: event.id).notification_couple %>
+                  <% if Swipe.find_by(event_id: event.id, notification_couple: true) %>
                     <p class="card-notification"><span class="label label-new">NEW</span></p>
                   <% end %>
                 <% end %>
@@ -133,7 +133,7 @@
               <div class="card-events">
                 <div class="text-center">
                 <% if Swipe.find_by(event_id: event.id) %>
-                  <% if Swipe.find_by(event_id: event.id).notification_couple %>
+                  <% if Swipe.find_by(event_id: event.id, notification_couple: true) %>
                     <p class="card-notification"><span class="label label-new">NEW</span></p>
                   <% end %>
                 <% end %>

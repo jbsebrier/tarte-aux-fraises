@@ -9,16 +9,13 @@
       <div  class="load" id="img5" class="img"></div>
     </div>
 
+
 <div class="container-fluid">
   <div class="row">
     <div class="hidden-xs col-sm-4">
-      <div class="image-gif" style="">
-      </div>
-      <div class="image-gif-2 hide" style="">
-      </div>
-      <div class="image-gif-3 hide" style="">
-      </div>
-
+      <div class="image-gif" style=""></div>
+      <div class="image-gif-2 hide" style=""></div>
+      <div class="image-gif-3 hide" style=""></div>
     </div>
     <div class="col-xs-12 col-sm-6 col-sm-offset-1">
       <%= simple_form_for @couple do |f| %>
@@ -112,7 +109,13 @@
         $(".image-gif-3").removeClass("hide");
       }
       else {
-        swal("Please fill all the fields !");
+        swal({
+          title: "Cerise à bord!",
+          text: "On vous y reprend, allez on remplit tout :)",
+          imageUrl: "<%= asset_path("cerise_2.png")%>",
+          imageSize: "120x120",
+          confirmButtonColor: "#F80C54",
+          confirmButtonText: "Reçu !", });
       }
     });
 
@@ -136,7 +139,13 @@
         $(".loader").removeClass("hide");
       }
       else {
-        swal("Please fill all the fields !");
+        swal({
+          title: "Bordel de cerise!",
+          text: "On y est presque, un dernier effort :) ",
+          imageUrl: "<%= asset_path("cerise_2.png")%>",
+          imageSize: "120x120",
+          confirmButtonColor: "#F80C54",
+          confirmButtonText: "Yeah !", });
       }
     });
 

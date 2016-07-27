@@ -109,7 +109,8 @@
   font-weight: bolder;
   font-size: 35px;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 55px;
+  padding-bottom: 30px;
 }
 
 .form-title-h3 {
@@ -151,11 +152,22 @@
   font-size: 14px;
 }
 
+.form-group {
+  margin-bottom: 30px;
+}
+
+.control-label {
+  margin-bottom: 10px !important;
+}
+
 .form-inputs-background {
   background-color: $beige-light;
   border-radius: none !important;
+  font-size: 12px;
+  line-height: 20px;
   margin-bottom: 30px;
   margin-top: 5px;
+  padding-top: 10px;
 }
 
 .form-inputs {
@@ -183,6 +195,17 @@
   border-radius: none;
 }
 .form-submit-btn:hover {
+  background-color: white;
+  color: $brand-color;
+  transition: all 0.3s ease;
+  border: 1px solid white;
+}
+
+.form-submit-btn-small {
+  padding: 12px 15px;
+  font-size: 13px;
+  font-weight: bolder;
+  border-radius: none;
   background-color: white;
   color: $brand-color;
   transition: all 0.3s ease;

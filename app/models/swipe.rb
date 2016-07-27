@@ -4,6 +4,7 @@ class Swipe < ActiveRecord::Base
 
   after_create :add_epicure_badge, :add_hungry_badge
 
+
   def add_epicure_badge
     if couple.swipes.count == 50
       couple.badges << Badge.find_by(name: "Touche a tout")
