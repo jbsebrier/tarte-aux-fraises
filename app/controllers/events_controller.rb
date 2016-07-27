@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   end
 
   def my_events
-    @my_events = Event.where(couple: current_couple)
+    @my_events = Event.where(couple: current_couple).order(date: :desc)
     @participating_events = Event.joins(:swipes).where(swipes: { couple_id: current_couple.id, participation: true })
     @swipes_true = Swipe.where(event_id: params[:id], participation: true)
   end
