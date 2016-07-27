@@ -10,11 +10,11 @@
     <br>
       <div class="form-group form-inputs form-text">
           <%= simple_form_for([:organiser, @event]) do |f| %>
-            <%= f.association :theme , label: "THÈME DE L'ÉVÉNEMENT", include_blank: false, input_html: {:class => "form-inputs-background"} %>
-            <%= f.input :max_n_guest_couples, label: "NB DE COUPLES PARTICIPANTS SOUHAITÉ ?", input_html: {:class => "form-inputs-background"} %>
-            <%= f.input :description, label: "DÉTAILS DE L'ÉVÉNEMENT", input_html: {:class => "form-inputs-background"} %>
-            <%= f.input :city, label: "LIEU DE L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
-            <%= f.input :date, label: "DATE DE L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
+            <%= f.association :theme , label: "QUEL THÈME OSEREZ-VOUS CHOISIR ?", include_blank: false, input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :max_n_guest_couples, label: "NOMBRE SOUHAITÉ DE COUPLES PARTICIPANTS ?", input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :description, :as => :text, label: "DÉTAILS DE VOTRE FRAISE PARTIE", input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :city, label: "OÙ AURA LIEU L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :date, label: "C'EST PRÉVU POUR BIENTÔT ?", input_html: {:class => "form-inputs-background"} %>
             <%= submit_tag("C'EST PARTI !", class: "btn-marged form-submit-btn") %>
           <% end %>
 
