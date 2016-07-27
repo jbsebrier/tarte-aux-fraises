@@ -21,7 +21,7 @@ class Organiser::EventsController < ApplicationController
   def create
     @event = current_couple.events.new(event_params)
     if @event.save
-      redirect_to organiser_event_path(@event)
+      redirect_to couple_event_path(current_couple, @event)
     else
       render 'new'
     end

@@ -1,37 +1,27 @@
 <div class="background-form">
 
-  <div class="form-container">
+  <div class="container-fluid">
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-    <div class="form-title" id="title-de-retour">
-      <h3>PROPOSEZ UN ÉVÉNEMENT</h3>
+    <div id="title-de-retour">
+      <h3 class="form-title-h3">PROPOSEZ UN ÉVÉNEMENT</h3>
     </div>
 
-    <div class="form-group form-inputs form-text">
-<!--      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
- -->    <%= simple_form_for([:organiser, @event]) do |f| %>
-          <%= f.input :date, label: "DATE DE L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
-          <%= f.input :max_n_guest_couples, label: "NB DE COUPLES PARTICIPANTS SOUHAITÉ ?", input_html: {:class => "form-inputs-background"} %>
-          <%= f.association :theme , label: "THÈME DE L'ÉVÉNEMENT", include_blank: false, input_html: {:class => "form-inputs-background"} %>
-          <button class="btn-marged form-submit-btn" id="random_button" name="button">AU HASARD</button>
-          <br>
-          <br>
-          <%= f.input :description, label: "DÉTAILS DE L'ÉVÉNEMENT", input_html: {:class => "form-inputs-background"} %>
-          <%= f.input :city, label: "LIEU DE L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
-          <%= submit_tag("C'EST PARTI !", class: "btn-marged form-submit-btn") %>
-        <% end %>
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <br>
+      <div class="form-group form-inputs form-text">
+          <%= simple_form_for([:organiser, @event]) do |f| %>
+            <%= f.association :theme , label: "THÈME DE L'ÉVÉNEMENT", include_blank: false, input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :max_n_guest_couples, label: "NB DE COUPLES PARTICIPANTS SOUHAITÉ ?", input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :description, label: "DÉTAILS DE L'ÉVÉNEMENT", input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :city, label: "LIEU DE L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
+            <%= f.input :date, label: "DATE DE L'ÉVÉNEMENT ?", input_html: {:class => "form-inputs-background"} %>
+            <%= submit_tag("C'EST PARTI !", class: "btn-marged form-submit-btn") %>
+          <% end %>
 
+      </div>
     </div>
   </div>
 </div>
-
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
