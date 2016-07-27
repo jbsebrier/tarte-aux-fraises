@@ -4,7 +4,8 @@
       <div class="event-date"> <%= event.date %></div>
       <div class="event-description"> <h3> <%=event.theme.name.upcase %></h2>
         <p>chez</p>
-        <h2> <%= event.couple.member1_name.upcase %> & <%= event.couple.member2_name.upcase %></h2>
+
+          <h2> <%= event.couple.member1_name.upcase %> & <%= event.couple.member2_name.upcase %></h2>
       </div>
       <div class="organiser-picture">
         <%= cl_image_tag event.couple.profile_pict, width: 200, height: 150, crop: :fill %>
@@ -15,27 +16,37 @@
           <div class="swipe-btn couple-swipe-left-btn"> <%= image_tag 'patate_blanche.png',  size: "40" %> </div>
         <% end %>
         <%= link_to couple_event_swiperight_path(current_couple, event), method: :post, remote: true do %>
-          <div class="swipe-btn couple-swipe-right-btn"> <%= image_tag 'fraise-blanc.png', size: "150x100" %></div>
+          <div class="swipe-btn couple-swipe-right-btn"> <%= image_tag 'fraise-blanc-square.png', size: "50" %></div>
         <% end %>
       </div>
     </div>
     <div class="back event-card-back">
       <div class="back-event-title">
-      <%=event.theme.name %>
+      <%=event.theme.name.upcase %>
       </div>
       <div class="back-event-description">
-        <%= event.couple.member1_name %> et <%= event.couple.member2_name %> nous parlent de leur évènement: <br>
-        <em> << <%= event.description %> >></em>
+        <em>  "<%= event.description %>" </em>
       </div>
-
       <div class="back-no-guests">
         Nombre maximum de couples invités: <strong> <%=event.max_n_guest_couples %> </strong>
+      </div>
+      A propos des organisateurs:
+      <div class="organiser-1">
+        <%= event.couple.member1_name.capitalize %>: <br><em> "<%= event.couple.about_member1 %>" </em>
+      </div>
+      <div class="organiser-2">
+        <%= event.couple.member2_name.capitalize %>: <br><em> "<%= event.couple.about_member2 %>"  </em>
+      </div>
+      <div class="link-to-organiser">
+        <%= link_to couple_profile_path(event.couple), method: :get do%>
+          Voir leur profil détaillé
+        <% end %>
       </div>
     </div>
   </div>
 <% end %>
 <div class="event-card end-card <%= events_for_display.length == 0 ? "active-card" : "hidden" %>" id="current-active-card">
   Plus d'évènements <br> dans votre zone, ramenez <br> votre fraise plus tard, <br> ou organisez votre <br> <%= link_to "propre évènement", new_organiser_event_path %>
-  <%= image_tag 'fraise-blanc.png', size: "150x100" %>
+  <%= image_tag 'fraise-blanc-square.png', size: "100" %>
 </div>
 
