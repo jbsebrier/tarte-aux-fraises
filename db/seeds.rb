@@ -18,9 +18,17 @@ Couple.destroy_all
   Theme.create(name: theme_name )
 end
 
-["Maitresse de Maison", "Touche a tout", "Gourmand"].each do |name|
-  Badge.create(name: name)
+{
+  "Maitresse de Maison" => "https://res.cloudinary.com/drahqhchg/image/upload/v1469629121/maitresse_lqdxoh.png",
+  "Touche a tout" => "https://res.cloudinary.com/drahqhchg/image/upload/v1469629122/tout_zseuwo.png",
+  "Gourmand" => "https://res.cloudinary.com/drahqhchg/image/upload/v1469629121/gourmand_vynonk.png"
+  }.each do |name, url|
+    bdg = Badge.new(name: name)
+    bdg.icon_url = url
+    bdg.save!
 end
+
+
 
 Couple.create(email: '1stcouple@gmail.com', couple_nickname: 'couple1', password: '123456', member1_name: 'Jon', member2_name: 'Jane', about_member1: 'Sport fan', about_member2: 'Cooking fan')
 Couple.create(email: '2ndcouple@gmail.com', couple_nickname: 'couple2', password: '123456', member1_name: 'Jackie', member2_name: 'Michel', about_member1: 'Fist fan', about_member2: 'Leather fan')
