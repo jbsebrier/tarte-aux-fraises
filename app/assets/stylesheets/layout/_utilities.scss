@@ -46,12 +46,12 @@
   background-color: $brand-color;
   text-align: center;
   height: 100vh;
-  margin-top: -70px;
-  padding-top: 90px;
+  // margin-top: -70px;
+  // padding-top: 90px;
   background-size: cover !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   font-size: 11.5px;
 }
 
@@ -212,4 +212,40 @@
     width: 200px;
     height: 250px;
     margin: 10px;
+}
+
+.image-gif {
+  height: 100vh;
+  max-width:450px;
+  overflow: hidden;
+  box-shadow: 15px 0px 20px #B00B3E;
+  // background-size: cover;
+  //
+  position: relative;
+  background-image: image-url("couple.gif");
+  margin-left: -15px;
+}
+
+.image-gif-2 {
+  height: 100vh;
+  max-width:450px;
+  overflow: hidden;
+  box-shadow: 15px 0px 20px #B00B3E;
+  // background-size: cover;
+  //
+  position: relative;
+  background-image: image-url("fraise2.gif");
+  margin-left: -15px;
+}
+
+.image-gif-3 {
+  height: 100vh;
+  max-width:450px;
+  overflow: hidden;
+  box-shadow: 15px 0px 20px #B00B3E;
+  // background-size: cover;
+  //
+  position: relative;
+  background-image: image-url("Fraise1.gif");
+  margin-left: -15px;
 }
