@@ -7,6 +7,9 @@
       <div class="couple-picture">
         <%= cl_image_tag couple.profile_pict, width: 200, height: 150, crop: :fill %>
       </div>
+      <div class="couple-badges">
+        <%= image_tag 'fraise_rose_navbar.png', size: '20' %> <%= couple.fraises %>
+      </div>
       <div class="couple-front-description">
         <%= couple.about_couple %>
       </div>

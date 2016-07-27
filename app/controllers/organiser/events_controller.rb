@@ -21,6 +21,8 @@ class Organiser::EventsController < ApplicationController
   def create
     @event = current_couple.events.new(event_params)
     if @event.save
+      current_couple.fraises += 5
+      current_couple.save
       redirect_to couple_event_path(current_couple, @event)
     else
       render 'new'

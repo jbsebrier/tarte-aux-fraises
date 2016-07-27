@@ -153,6 +153,17 @@
       }
     });
 
+    $('.btn-basic-info-3').on('click', function(event) {
+      swal({
+         title: "Felicitations !",
+          text: "Vous venez de gagner vos 3 premières fraises. Soyez curieux, participez, organisez et laissez vous tenter par les challenges pour en gagner plus ! ",
+          imageUrl: "<%= asset_path("plus3fraises.png")%>",
+          imageSize: "200x120",
+          confirmButtonColor: "#F80C54",
+          });
+      })
+
+
     $(".previous_step_3").on("click", function(event){
       event.preventDefault();
       var button = jQuery(this);

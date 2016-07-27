@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-lg-3 text-center">
-       <div class="fraise-ranking"><h2> 10</h2> <%= image_tag("fraise_rose_navbar.png") %></div>
+       <div class="fraise-ranking"><h2> <%= @couple.fraises %> </h2> <%= image_tag("fraise_rose_navbar.png") %></div>
        <div class="badges">
        <% @couple.badges.each do |badge| %>
          <%= cl_image_tag badge.icon.path, width: 70, height: 70, crop: :fill %>
