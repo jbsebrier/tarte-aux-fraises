@@ -60,9 +60,6 @@ class SwipesController < ApplicationController
       check_match(@current_swipe)
       swipe_couple_ids = Swipe.where(event: @event, organizing_couple_swipe: true).pluck(:couple_id)
       @couples_for_display = Couple.where.not(id: swipe_couple_ids).where.not(id: current_couple.id)
-      if @current_swipe.match
-        check_participation(@current_swipe)
-      end
       format.json {
         render json: { current_swipe: @current_swipe, couples: @couples_for_display}
       }
@@ -80,6 +77,9 @@ class SwipesController < ApplicationController
       check_match(@current_swipe)
       swipe_event_ids = Swipe.where(couple: current_couple, guest_couple_swipe: true).pluck(:event_id).uniq
       @events_for_display = Event.where.not(id: swipe_event_ids, couple: current_couple).where("date > ?", Date.today)
+      if @current_swipe.match
+        check_participation(@current_swipe)
+      end
       format.json {
         render json: { current_swipe: @current_swipe, events: @events_for_display}
       }
