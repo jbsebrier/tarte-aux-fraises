@@ -21,25 +21,21 @@
 
     </div>
     <div class="col-xs-12 col-sm-6 col-sm-offset-1">
-      <div class="form-title" id="title-de-retour">
-      <h3>RACONTEZ-NOUS VOTRE COUPLE</h3>
-      </div>
       <%= simple_form_for @couple do |f| %>
       ​
         <div class="form-group form-inputs form-text basic_info">
+          <h3 class="form-title-h3">RACONTEZ-NOUS VOTRE COUPLE</h3>
+          <br>
           <%= f.input :couple_nickname, label: 'CHOISISSEZ VOTRE PSEUDO DE COUPLE',required: true, placeholder: 'Les fraises de l\'amour', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
-
           <%= f.input :about_couple, label: 'PARLEZ-NOUS DE VOUS DEUX !', required: true, placeholder: 'Rencontrés il y a 5 ans autour d\'un dessert',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
-
           <%= f.input :couple_city, label: 'OÙ VIVEZ-VOUS ?', required: true, placeholder: 'Verone',input_html: {:class => "form-inputs-background js-empty-validation-1"} %>
-
           <%= f.input :photos, as: :file, label: 'AJOUTEZ QUELQUES PHOTOS DE VOUS DEUX', required: true, input_html: { class: "js-empty-validation-1", multiple: true } %>
 
           <button class="next_step btn-marged form-submit-btn btn-basic-info-1">SUIVANT</button>
         </div>
 
         <div class="form-group form-inputs form-text" style="display: none">
-          <h3>FRAISE N°1, DITES-NOUS EN PLUS :)</h2>
+          <h3 class="form-title-h3">FRAISE N°1, <br>PRÊT À VOUS DÉVOILER ?</h3>
           <br>
           <%= f.input :member1_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-2"}  %>
           <%= f.input :about_member1, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background js-empty-validation-2"} %>
@@ -50,7 +46,7 @@
         </div>
 
         <div class="form-group form-inputs form-text" style="display: none">
-          <h3>FRAISE N°2, A VOTRE TOUR !</h2>
+          <h3 class="form-title-h3">FRAISE N°2, <br>UN DERNIER COUP POUR LA ROUTE !</h3>
           <br>
           <%= f.input :member2_name, label: 'VOTRE PRÉNOM', required: true, placeholder: 'Lucie / Lucien', autofocus: true,  input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
           <%= f.input :about_member2, label: 'A PROPOS DE VOUS', required: true, placeholder: 'Adore ramener sa fraise',  input_html: {:class => "form-inputs-background js-empty-validation-3"} %>
@@ -96,7 +92,6 @@
           done:  button.parent('div').hide();
         });
         button.parent('div').next().show(300);
-        $("#title-de-retour").hide()
         $(".image-gif").hide()
         $(".image-gif-2").removeClass("hide");
         }
@@ -113,7 +108,6 @@
           done:  button.parent('div').hide();
         });
         button.parent('div').next().show(300);
-        $("#title-de-retour").hide()
         $(".image-gif-2").hide()
         $(".image-gif-3").removeClass("hide");
       }
@@ -128,7 +122,6 @@
       //button.parent('div').addClass('hide');
       button.parent('div').slideDown(800).fadeOut(300);
       button.parent('div').prev().show(300);
-      $("#title-de-retour").show()
       $(".image-gif").show();
       $(".image-gif-2").addClass("hide");
     });
@@ -139,7 +132,6 @@
         button.parent().slideUp( "slow", function() {
           done:  button.parent('div').hide();
         });
-        $("#title-de-retour").hide()
         $(".image-gif-3").hide()
         $(".loader").removeClass("hide");
       }

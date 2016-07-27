@@ -103,12 +103,19 @@
   background-size: cover !important;
 }
 
-.form-title h3 {
+.form-title {
   width: 300px;
   color: white;
   font-weight: bolder;
   font-size: 35px;
   margin: 0 auto;
+  padding-top: 20px;
+}
+
+.form-title-h3 {
+  color: white;
+  font-weight: bolder !important;
+  font-size: 35px;
   padding-top: 20px;
 }
 
@@ -121,14 +128,14 @@
   padding-top: 20px;
 }
 
-#title-de-retour {
-  width: 300px;
-  color: white;
-  font-weight: bolder;
-  font-size: 35px;
-  margin: 0 auto;
-  padding-top: 20px;
-}
+// #title-de-retour {
+//   width: 300px;
+//   color: white;
+//   font-weight: bolder;
+//   font-size: 35px;
+//   margin: 0 auto;
+//   padding-top: 20px;
+// }
 
 .form-text {
   color: white;
@@ -234,7 +241,7 @@
   // background-size: cover;
   //
   position: relative;
-  background-image: image-url("fraise2.gif");
+  background-image: image-url("Fraise1.gif");
   margin-left: -15px;
 }
 
@@ -246,6 +253,6 @@
   // background-size: cover;
   //
   position: relative;
-  background-image: image-url("Fraise1.gif");
+  background-image: image-url("fraise2.gif");
   margin-left: -15px;
 }
