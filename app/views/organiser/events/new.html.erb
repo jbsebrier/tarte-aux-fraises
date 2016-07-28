@@ -10,14 +10,16 @@
       <div class="form-group form-inputs form-text">
 
           <%= simple_form_for([:organiser, @event]) do |f| %>
-          <%= label_tag "QUEL THÈME OSEREZ-VOUS CHOISIR ?" %>
+          <%= label_tag "", "QUEL THEME OSEREZ-VOUS CHOISIR ?" %>
             <div class="col-xs-12">
               <% Theme.all.each do |theme| %>
               <div class="col-xs-4">
                 <div class="theme-group">
-                  <%= radio_button_tag("event[theme_id]", theme.id, checked = false, options = {})%>
-                  <%= image_tag theme.image_path, class: "picto"%>
-                  <%= label_tag theme.name %>
+                  <%= label_tag '', nil, class: 'small_label unfocus' do %>
+                     <%= radio_button_tag("event[theme_id]", theme.id, checked = false, options = {class: "hide_radio"})%>
+                      <%= image_tag theme.image_path, class: "picto"%>
+                      <%= theme.name %>
+                  <% end -%>
                 </div>
               </div>
               <% end -%>
@@ -55,6 +57,11 @@
         executed = true;
       }
     });
+
+    $(".picto").on("click", function(){
+      $(this).closest(".small_label").toggleClass("unfocus");
+      $(".small_label").not(this.closest(".small_label")).addClass("unfocus");
+    })
 
   </script>
 <% end %>
