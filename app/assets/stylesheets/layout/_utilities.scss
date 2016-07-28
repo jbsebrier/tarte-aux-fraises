@@ -150,11 +150,37 @@ margin-top: -50px;
   padding-bottom: 30px;
 }
 
+.form-title-my-events {
+  width: 300px;
+  color: $gray-dark;
+  font-weight: bolder;
+  font-size: 35px;
+  margin: 0 auto;
+  padding-top: 55px;
+  padding-bottom: 30px;
+}
+
 .form-title-h3 {
   color: white;
   font-weight: bolder !important;
   font-size: 35px;
   padding-top: 30px;
+}
+
+.form-title-h3-events {
+  color: white;
+  font-weight: bolder !important;
+  font-size: 35px;
+  padding-top: 30px;
+  margin-left: 23px;
+}
+
+.form-title-h2-events {
+  color: white;
+  font-weight: bolder !important;
+  font-size: 35px;
+  padding-top: 30px;
+  margin-bottom: 0;
 }
 
 .title-event-padded {

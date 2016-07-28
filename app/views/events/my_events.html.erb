@@ -1,7 +1,7 @@
 
   <div class="container">
 
-    <h1 class="text-center title-spacing">MES EVENEMENTS</h1>
+    <h1 class="text-center title-spacing form-title-my-events">MES EVENEMENTS</h1>
 
 
     <div class="line-separation">
@@ -25,13 +25,13 @@
 
     <ul id=myTabs class="nav nav-tabs tabs">
       <% if count >= 1 %>
-        <li role="presentation" class="tab active title-spacing"><h2><%= link_to "J'ORGANISE (#{count})", "#organize", aria: { controls: 'organize'}, role: "tab", data: {toggle: "tab"} %></h2></li>
+        <li role="presentation" class="tab active form-title-h2-events"><h2><%= link_to "J'ORGANISE (#{count})", "#organize", aria: { controls: 'organize'}, role: "tab", data: {toggle: "tab"} %></h2></li>
       <% else %>
         <li role="presentation" class="tab active title-spacing"><h2><%= link_to "J'ORGANISE", "#organize", aria: { controls: 'organize'}, role: "tab", data: {toggle: "tab"} %></h2></li>
       <% end %>
 
       <% if count_participate >= 1 %>
-        <li role="presentation" class="tab title-spacing"><h2><%= link_to "JE PARTICIPE (#{count_participate})", "#participate",  aria: { controls: 'participate'}, role: "tab", data: {toggle: "tab"}  %></h2></li>
+        <li role="presentation" class="tab form-title-h2-events"><h2><%= link_to "JE PARTICIPE (#{count_participate})", "#participate",  aria: { controls: 'participate'}, role: "tab", data: {toggle: "tab"}  %></h2></li>
       <% else %>
         <li role="presentation" class="tab title-spacing"><h2><%= link_to "JE PARTICIPE", "#participate",  aria: { controls: 'participate'}, role: "tab", data: {toggle: "tab"}  %></h2></li>
       <% end %>
@@ -107,7 +107,7 @@
                     <% end %>
                   <h4><strong>Thème de l'événement</strong></h4>
                   <p><%= Theme.find_by(id: event.theme_id).name %></p>
-                  <%= link_to "Communiquer", event_notification_false_path(event), class: "btn btn-default btn-nice", method: :patch %>
+                  <%= link_to "Communiquer", event_notification_false_path(event), class: "form-submit-btn", method: :patch %>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@
         <div class="row">
 
           <div class="line-separation">
-            <h3> A venir</h3>
+            <h3 class="form-title-h3-events"> EVENEMENTS A VENIR</h3>
           </div>
           <% @participating_events.each do |event| %>
           <% next if event.date < Time.now %>
@@ -157,7 +157,7 @@
 
         <div class="row">
           <div class="line-separation">
-            <h3> Passés</h3>
+            <h3 class="form-title-h3-events"> EVENEMENTS PASSES</h3>
           </div>
           <% @participating_events.each do |event| %>
           <% next if event.date > Time.now %>
