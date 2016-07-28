@@ -14,10 +14,11 @@
             <div class="col-xs-12">
               <% Theme.all.each do |theme| %>
               <div class="col-xs-4">
-                <div class="theme-group">
+                <div class="theme-group text-center">
                   <%= label_tag '', nil, class: 'small_label unfocus' do %>
                      <%= radio_button_tag("event[theme_id]", theme.id, checked = false, options = {class: "hide_radio"})%>
                       <%= image_tag theme.image_path, class: "picto"%>
+                      <br>
                       <%= theme.name %>
                   <% end -%>
                 </div>
