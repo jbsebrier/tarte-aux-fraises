@@ -8,20 +8,50 @@
 
     </div>
 
+    <% count = 0 %>
+    <% swipes_related_event = current_couple.event_swipes.where(notification_event: true) %>
+    <% swipes_related_event.each do |st| %>
+      <% count += 1 %>
+    <% end %>
+
+    <% count_participate = 0 %>
+    <% swipes_true = Swipe.where(couple_id: current_couple, notification_couple: true) %>
+    <% swipes_true.each do |st| %>
+      <% count_participate += 1 %>
+    <% end %>
+
+
+
 
     <ul id=myTabs class="nav nav-tabs tabs">
-      <li role="presentation" class="tab active title-spacing"><h2><%= link_to "J'ORGANISE", "#organize", aria: { controls: 'organize'}, role: "tab", data: {toggle: "tab"} %></h2></li>
-      <li role="presentation" class="tab title-spacing"><h2><%= link_to "JE PARTICIPE", "#participate",  aria: { controls: 'participate'}, role: "tab", data: {toggle: "tab"}  %></h2></li>
+      <% if count >= 1 %>
+        <li role="presentation" class="tab active title-spacing"><h2><%= link_to "J'ORGANISE (#{count})", "#organize", aria: { controls: 'organize'}, role: "tab", data: {toggle: "tab"} %></h2></li>
+      <% else %>
+        <li role="presentation" class="tab active title-spacing"><h2><%= link_to "J'ORGANISE", "#organize", aria: { controls: 'organize'}, role: "tab", data: {toggle: "tab"} %></h2></li>
+      <% end %>
+
+      <% if count_participate >= 1 %>
+        <li role="presentation" class="tab title-spacing"><h2><%= link_to "JE PARTICIPE (#{count_participate})", "#participate",  aria: { controls: 'participate'}, role: "tab", data: {toggle: "tab"}  %></h2></li>
+      <% else %>
+        <li role="presentation" class="tab title-spacing"><h2><%= link_to "JE PARTICIPE", "#participate",  aria: { controls: 'participate'}, role: "tab", data: {toggle: "tab"}  %></h2></li>
+      <% end %>
     </ul>
 
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="organize">
+        <% count = 0 %>
+        <% swipes_related_event = current_couple.event_swipes.where(notification_event: true) %>
+        <% swipes_related_event.each do |st| %>
+          <% count += 1 %>
+        <% end %>
+
         <div class="row">
           <div class="line-separation">
             <h3> A venir</h3>
           </div>
           <% @my_events.each do |event| %>
           <% next if event.date < Time.now %>
+
             <div class="col-xs-12 col-sm-6 col-md-4">
               <div class="card-events">
                 <div class="text-center">
@@ -88,7 +118,9 @@
 
       <div role="tabpanel" class="tab-pane" id="participate">
 
+
         <div class="row">
+
           <div class="line-separation">
             <h3> A venir</h3>
           </div>
