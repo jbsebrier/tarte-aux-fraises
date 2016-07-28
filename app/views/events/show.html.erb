@@ -23,8 +23,8 @@
 
             <div class="update-event-show">
               <% if current_couple.id == @event.couple_id %>
-                <%= link_to "TROUVER DES PARTICIPANTS", organiser_event_couples_path(@event), class: "form-submit-btn" %>
-                <%= link_to "METTRE A JOUR L'EVENEMENT", edit_organiser_event_path(@event), class: "form-submit-btn" %>
+                <%= link_to "TROUVER DES PARTICIPANTS", organiser_event_couples_path(@event) %>
+                <%= link_to "METTRE A JOUR L'EVENEMENT", edit_organiser_event_path(@event) %>
               <% end %>
             </div>
           </div>
