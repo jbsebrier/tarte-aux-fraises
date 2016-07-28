@@ -107,13 +107,13 @@
             moveLeft();
             setTimeout(function(){
               coupleSwipeLeft();
-            }, 300);
+            }, 150);
           });
           $('.couple-swipe-right-btn').on('click', function() {
             moveRight();
             setTimeout(function(){
               coupleSwipeRight();
-            }, 300);
+            }, 150);
           });
 
           $(document).on('keyup', function(event) {
@@ -121,12 +121,12 @@
               moveLeft();
               setTimeout(function(){
                 coupleSwipeLeft();
-              }, 300);
+              }, 150);
             } else if (event.keyCode == 39) {
               moveRight();
               setTimeout(function(){
               coupleSwipeRight();
-            }, 300);
+            }, 150);
             }
           });
 
