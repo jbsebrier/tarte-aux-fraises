@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  get 'challenges', to: 'pages#challenges'
+
     resources :couples do
         get 'my_events', to: 'events#my_events'
       resources :events do

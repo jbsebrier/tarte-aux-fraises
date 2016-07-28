@@ -1,0 +1,67 @@
+.open-challenge {
+background-color: $brand-color;
+height: 30vh;
+margin: 4vh 0 2vh 0;
+text-align: center;
+color: $white;
+font-weight: bolder;
+font-size: 22px;
+
+  h2 {
+    padding: 10px 0 0 0;
+    font-size: 22px;
+  }
+
+  h3 {
+    margin: 0 0 0 0;
+
+
+  }
+
+}
+
+.event-decoration {
+
+  a {
+    text-decoration: none;
+  }
+
+
+}
+
+.fraise-count{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.locked-challenge {
+
+height: 30vh;
+opacity: 0.6;
+margin: 2vh 0 2vh 0 ;
+text-align: center;
+font-weight: bolder;
+font-size: 22px;
+
+  h2 {
+    padding: 10px 0 0 0;
+    font-size: 22px;
+  }
+
+  h3 {
+    margin: 0 0 0 0;
+  }
+
+  .visible-side {
+    background-color: $brand-color;
+    color: $white;
+  }
+
+  .invisible-side{
+    background-color: #999999;
+    color: #333333;
+  }
+
+
+}

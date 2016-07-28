@@ -1,0 +1,107 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-xs-12 col-md-4 col-md-offset-2 event-decoration">
+      <%=link_to events_path, method: :get do %>
+        <div class="open-challenge participer-apero">
+          <h2>PARTICIPEZ !</h2>
+          <div class="fraise-count"><h3> + 3 </h3> <%= image_tag 'fraise-blanc-square.png', size: "25" %></div>
+            <%= image_tag 'cocktails.png', size: '180' %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-xs-12 col-md-4 event-decoration">
+
+      <%=link_to new_organiser_event_path, method: :get do %>
+        <div class="open-challenge organiser-diner">
+          <h2>ORGANISEZ !</h2>
+          <div class="fraise-count"><h3> + 5 </h3> <%= image_tag 'fraise-blanc-square.png', size: "25" %> </div>
+            <%= image_tag 'meal.png', size: '180' %>
+        </div>
+      <% end %>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-md-4 col-md-offset-2">
+      <div class="locked-challenge">
+        <div class="locked-challenge diner-mystere diner-mystere-front visible-side">
+          <h2>PARTICIPEZ A UN DINER MYSTERE </h2>
+          <div class="fraise-count"><h3> + 8 </h3><%= image_tag 'fraise-blanc-square.png', size: "25" %> </h3></div>
+            <%= image_tag 'random-location.png', size: '180' %>
+        </div>
+        <div class="locked-challenge diner-mystere diner-mystere-back invisible-side hidden">
+          <h3>REVENEZ QUAND VOUS AUREZ ATTEINT 15 FRAISES ;)</h3>
+          <%= image_tag 'lock.png', size: '120' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-md-4 ">
+      <div class="locked-challenge">
+        <div class="locked-challenge invites-mystere invites-mystere-front visible-side">
+          <h2>RECEVEZ DES INVITES AU HASARD </h2>
+          <div class="fraise-count"><h3> + 15 </h3><%= image_tag 'fraise-blanc-square.png', size: "25" %> </div>
+            <%= image_tag 'random-guest.png', size: '180' %>
+        </div>
+        <div class="locked-challenge invites-mystere invites-mystere-back invisible-side hidden">
+          <h3>REVENEZ QUAND VOUS AUREZ ATTEINT 25 FRAISES ;)</h3>
+          <%= image_tag 'lock.png', size: '120' %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="locked-challenge">
+        <div class="locked-challenge pochette-surprise pochette-surprise-front visible-side">
+          <h2>ORGANISEZ UN DINER "POCHETTE SURPRISE"</h2>
+          <div class="fraise-count"><h3> + 25 </h3><%= image_tag 'fraise-blanc-square.png', size: "25" %> </div>
+            <%= image_tag 'full-random.png', size: '200x150' %>
+        </div>
+        <div class="locked-challenge pochette-surprise pochette-surprise-back invisible-side hidden">
+          <h3>REVENEZ QUAND VOUS AUREZ ATTEINT 40 FRAISES ;)</h3>
+          <%= image_tag 'lock.png', size: '120' %>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<% content_for(:after_js) do %>
+  <script>
+
+  $('.diner-mystere').hover(function(event){
+    $('.diner-mystere-front').toggleClass('hidden');
+    $('.diner-mystere-back').toggleClass('hidden');
+      }
+    )
+
+  $('.invites-mystere').hover(function(event){
+    $('.invites-mystere-front').toggleClass('hidden');
+    $('.invites-mystere-back').toggleClass('hidden');
+      }
+    )
+
+  $('.pochette-surprise').hover(function(event){
+    $('.pochette-surprise-front').toggleClass('hidden');
+    $('.pochette-surprise-back').toggleClass('hidden');
+      }
+    )
+
+
+
+  </script>
+
+<% end %>

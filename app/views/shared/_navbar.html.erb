@@ -21,6 +21,9 @@
     <!-- Different navigation if login or not -->
     <% if couple_signed_in? %>
 
+      <!-- Challenges -->
+      <%= link_to t(".sign_in", default: "CHALLENGES"), challenges_path, class: "navbar-item navbar-wagon-link" %>
+
       <!-- Create an event -->
       <%= link_to t(".sign_in", default: "ORGANISER"), new_organiser_event_path, class: "navbar-item navbar-wagon-link" %>
 
