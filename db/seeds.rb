@@ -14,8 +14,8 @@ Theme.destroy_all
 Badge.destroy_all
 Couple.destroy_all
 
-["After Work", "Apéritif stylé", "Diner ", "Pique Nique", "Bal Costumé (et masqué)", "Brunch", "Soirée Coquine", "Pochette Surprise"].each do |theme_name|
-  Theme.create(name: theme_name )
+[{name: "APERO", image_path: "apero.png"}, {name: "AFTERWORK", image_path: "afterwork.png"}, {name: "DINER", image_path: "diner.png"}, {name: "PIQUE-NIQUE", image_path: "pique_nique.png"},{name: "BRUNCH", image_path: "brunch.png"}, {name: "BAL MASQUE", image_path: "bal_masque.png"},{ name: "DANSE", image_path: "danse.png"}, {name: "SOIRE COQUINE", image_path: "coquin.png"}, {name: "POCHETTE SURPRISE", image_path: "surprise.png"}].each do |theme|
+  Theme.create(theme)
 end
 
 {

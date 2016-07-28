@@ -5,6 +5,14 @@
  * ------------------------------------- */
 
 // Paddings
+//
+//
+.theme-group {
+  margin: 0px 15px 10px 0px;
+}
+.picto {
+  height: 40px;
+}
 .padded {
   padding-top: 5em;
   padding-bottom: 5em;
@@ -234,6 +242,16 @@ margin-top: -50px;
   color: $brand-color;
   transition: all 0.3s ease;
   border: 1px solid white;
+}
+
+.radio_buttons {
+  margin:0;padding:0;
+    -webkit-appearance:none;
+      -moz-appearance:none;
+        appearance:none;
+}
+.radio_buttons:checked {
+  color: $gray-dark;
 }
 
 .form-footer {
