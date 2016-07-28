@@ -63,7 +63,7 @@
 
 
 
-                  <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
+                  <%= cl_image_tag event.couple.profile_pict, height: 100, width: 100, crop: :fill, class:"img-circle" %>
                   <h5><%= l(event.date, format: :short) %></h5>
                   <h4><strong>Organisateurs de l'événement</strong></h4>
                     <% if event.couple_id = current_couple.id %>
@@ -97,7 +97,7 @@
                   <% end %>
                 <% end %>
 
-                  <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
+                  <%= cl_image_tag event.couple.profile_pict, height: 100, width: 100, crop: :fill, class:"img-circle" %>
                   <h5><%= l(event.date, format: :short) %></h5>
                   <h4><strong>Organisateurs de l'événement</strong></h4>
                     <% if event.couple_id = current_couple.id %>
@@ -135,7 +135,7 @@
                   <% end %>
                 <% end %>
 
-                  <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
+                  <%= cl_image_tag event.couple.profile_pict, height: 100, width: 100, crop: :fill, class:"img-circle" %>
                   <h5><%= l(event.date, format: :short) %></h5>
                   <h4><strong>Organisateurs de l'événement</strong></h4>
                     <% if event.couple_id = current_couple.id %>
@@ -170,7 +170,7 @@
                   <% end %>
                 <% end %>
 
-                  <%= cl_image_tag event.couple.profile_pict, height: 100, crop: :fill, class:"img-circle" %>
+                  <%= cl_image_tag event.couple.profile_pict, height: 100, width: 100, crop: :fill, class:"img-circle" %>
                   <h5><%= l(event.date, format: :short) %></h5>
                   <h4><strong>Organisateurs de l'événement</strong></h4>
                     <% if event.couple_id = current_couple.id %>
